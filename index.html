@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F5EFE6">
+<meta name="description" content="阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、證件辦理協助、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。">
+<meta property="og:title" content="阿中與小夢的旅遊官方">
+<meta property="og:description" content="海外團體旅遊報名・旅遊保險諮詢・證件辦理・自助旅遊資源・出國網路 eSIM">
+<meta property="og:image" content="images/photo-2.jpg">
+<title>阿中與小夢的旅遊官方</title>
+<link rel="icon" type="image/png" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light only;
+    --shiba-brown: #9B6A3E;
+    --scarf-red: #B5704A;
+    --jacket-blue: #7A9BB5;
+    --warm-gold: #C4A882;
+    --deep-bg: #F5EFE6;
+    --mid-bg: #EDE4D8;
+    --card-bg: #FBF8F4;
+    --cream: #3B2A1E;
+    --text-light: #3B2A1E;
+    --text-muted: #8A7060;
+    --border: rgba(155,106,62,0.18);
+    --nav-bg: rgba(245,239,230,0.97);
+    --line-green: #6E9A7C;
+    --line-green-dark: #5C8469;
+    --mist-bg: #ECF3F6;
+    --accent-red: #B03A2E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+
+  body {
+    background: #F5EFE6 !important;
+    color: var(--text-light);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: rgba(155,106,62,0.2); }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    padding: 1rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s, box-shadow 0.3s;
+  }
+  nav.scrolled { padding: 0.6rem 3rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+
+  .nav-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
+  .nav-logo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); background: #FBF5EE; }
+  .nav-logo-text { font-family: 'Noto Serif TC', serif; font-size: 0.94rem; font-weight: 700; color: var(--accent-red); line-height: 1.4; letter-spacing: 0.02em; }
+  .nav-logo-text span { display: block; font-size: 0.62rem; font-weight: 400; color: var(--shiba-brown); letter-spacing: 0.12em; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+  .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.25s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1.5px; background: var(--shiba-brown); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+  .nav-links a:hover, .nav-links a.active { color: var(--shiba-brown); }
+  .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+
+  .nav-cta { background: var(--shiba-brown) !important; color: #fff !important; padding: 0.45rem 1.2rem !important; border-radius: 3px; font-size: 0.78rem !important; }
+  .nav-cta:hover { background: #7A5030 !important; transform: translateY(-1px) !important; }
+  .nav-cta::after { display: none !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1100; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-light); border-radius: 2px; transition: all 0.3s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* MOBILE MENU */
+  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(245,239,230,0.98); z-index: 1050; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Noto Serif TC', serif; font-size: 1.25rem; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+  .mobile-menu a:hover { color: var(--shiba-brown); }
+  .mobile-menu .m-cta { background: var(--shiba-brown); color: #fff !important; padding: 0.8rem 2.5rem; border-radius: 4px; margin-top: 0.5rem; }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 4.5rem; position: relative; overflow: hidden; background: linear-gradient(145deg, #F5EFE6 0%, #EDE4D4 60%, #E0D4C0 100%); }
+
+  .hero-deco { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+  .hero-deco-1 { width: 500px; height: 500px; background: rgba(155,106,62,0.08); top: -100px; right: -100px; }
+  .hero-deco-2 { width: 350px; height: 350px; background: rgba(122,155,181,0.06); bottom: -50px; left: 10%; }
+
+  .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+
+  .hero-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.9rem; color: var(--shiba-brown); letter-spacing: 0.2em; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
+  .hero-title { font-family: 'Noto Serif TC', serif; font-size: clamp(2rem, 3.5vw, 3.1rem); font-weight: 400; line-height: 1.55; color: var(--cream); margin-bottom: 1.3rem; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
+  .hero-title em { font-style: normal; color: var(--accent-red); }
+  .hero-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 2; margin-bottom: 2.2rem; opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards; }
+
+  .btn-primary { background: var(--shiba-brown); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(155,106,62,0.25); }
+  .btn-primary:hover { background: #7A5030; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(155,106,62,0.35); }
+
+  .btn-secondary { background: transparent; color: var(--shiba-brown); padding: 0.85rem 2rem; border: 1.5px solid var(--shiba-brown); border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .btn-secondary:hover { background: var(--shiba-brown); color: #fff; transform: translateY(-2px); }
+
+  .btn-line { background: var(--line-green); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(110,154,124,0.3); }
+  .btn-line:hover { background: var(--line-green-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(110,154,124,0.4); }
+
+  /* HERO CAROUSEL */
+  .hero-visual { opacity: 0; animation: fadeIn 1s ease 0.5s forwards; }
+  .hero-carousel { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--mid-bg); box-shadow: 0 20px 60px rgba(155,106,62,0.28), 0 4px 12px rgba(0,0,0,0.08); border: 1px solid rgba(255,255,255,0.5); }
+  .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.1s ease; pointer-events: none; }
+  .slide.active { opacity: 1; pointer-events: auto; }
+  .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide.active img { animation: kenburns 10s ease-out forwards; }
+  .slide-caption { position: absolute; left: 1rem; bottom: 1rem; background: rgba(251,248,244,0.9); backdrop-filter: blur(8px); color: var(--cream); font-size: 0.76rem; letter-spacing: 0.05em; padding: 0.45rem 1rem; border-radius: 30px; border: 1px solid var(--border); }
+  .car-dots { position: absolute; bottom: 1.15rem; right: 1.1rem; display: flex; gap: 0.45rem; z-index: 5; }
+  .car-dot { width: 8px; height: 8px; border-radius: 8px; background: rgba(255,255,255,0.6); border: 1px solid rgba(59,42,30,0.2); cursor: pointer; transition: all 0.35s; padding: 0; }
+  .car-dot.active { background: var(--accent-red); width: 24px; }
+  .car-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(251,248,244,0.88); border: 1px solid var(--border); color: var(--cream); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; z-index: 5; opacity: 0; transition: opacity 0.3s, background 0.2s; }
+  .car-arrow:hover { background: #fff; }
+  .car-prev { left: 0.9rem; }
+  .car-next { right: 0.9rem; }
+  .hero-carousel:hover .car-arrow { opacity: 1; }
+  @media (hover: none) { .car-arrow { opacity: 0.85; } }
+
+  .hero-stats { display: flex; justify-content: center; margin-top: 1.4rem; background: #fff; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); overflow: hidden; opacity: 0; animation: fadeUp 0.7s ease 1s forwards; }
+  .stat-item { text-align: center; padding: 0.9rem 1.6rem; flex: 1; }
+  .stat-item + .stat-item { border-left: 1px solid var(--border); }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--shiba-brown); display: block; line-height: 1; }
+  .stat-label { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.3rem; display: block; }
+
+  /* MARQUEE */
+  .marquee-strip { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.85rem 0; position: relative; }
+  .marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
+  .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item { font-family: 'Noto Serif TC', serif; font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.15em; padding: 0 1.6rem; white-space: nowrap; display: flex; align-items: center; gap: 1.6rem; }
+  .marquee-item::after { content: '✈'; color: rgba(176,58,46,0.5); font-size: 0.7rem; }
+
+  /* SECTIONS */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; position: relative; }
+
+  /* PASSPORT STAMPS */
+  .stamp { position: absolute; top: -14px; right: 0; width: 96px; height: 96px; border-radius: 50%; border: 2.5px solid rgba(176,58,46,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-25deg) scale(2.6); opacity: 0; pointer-events: none; z-index: 2; }
+  .stamp::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 1.5px dashed rgba(176,58,46,0.5); }
+  .stamp-char { font-family: 'Noto Serif TC', serif; font-size: 2.1rem; font-weight: 700; color: rgba(176,58,46,0.78); line-height: 1; }
+  .stamp-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.52rem; letter-spacing: 0.2em; color: rgba(176,58,46,0.65); margin-top: 3px; }
+  .stamp.stamped { animation: stampIn 0.7s cubic-bezier(0.25, 1.2, 0.35, 1) 0.25s forwards; }
+  @keyframes stampIn {
+    0% { opacity: 0; transform: rotate(-25deg) scale(2.6); }
+    50% { opacity: 1; transform: rotate(-9deg) scale(0.9); }
+    70% { transform: rotate(-14deg) scale(1.08); }
+    100% { opacity: 0.95; transform: rotate(-12deg) scale(1); }
+  }
+
+  /* SILHOUETTE DECO */
+  .deco { position: absolute; pointer-events: none; z-index: 0; }
+  #services, #process, #insurance, #documents, #platforms { position: relative; }
+  .mountains { position: absolute; bottom: 0; left: 0; width: 100%; height: 170px; pointer-events: none; }
+  .plat-note { position: relative; }
+  .float-a { animation: decoFloat 7s ease-in-out infinite alternate; }
+  .float-b { animation: decoFloat 9.5s ease-in-out infinite alternate-reverse; }
+  @keyframes decoFloat { from { translate: 0 0; } to { translate: 0 -14px; } }
+
+  /* FLIGHT STRIP */
+  .flight-strip { position: relative; height: 80px; background: #fff; overflow: hidden; }
+  .flight-strip .path { position: absolute; top: 50%; left: 4%; right: 4%; border-top: 2px dashed rgba(155,106,62,0.3); }
+  .flight-strip .plane { position: absolute; top: 50%; left: -6%; width: 30px; height: 30px; margin-top: -16px; fill: rgba(176,58,46,0.6); transform: rotate(90deg); animation: fly 10s linear infinite; }
+  @keyframes fly { from { left: -6%; } to { left: 104%; } }
+
+  .section-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; color: var(--accent-red); letter-spacing: 0.2em; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
+  .section-label::before { content: ''; width: 24px; height: 1.5px; background: var(--accent-red); display: inline-block; }
+  .section-title { font-family: 'Noto Serif TC', serif; font-size: clamp(1.7rem, 2.8vw, 2.4rem); font-weight: 400; color: var(--cream); line-height: 1.5; margin-bottom: 0.8rem; }
+  .section-title::after { content: ''; display: block; width: 54px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, var(--accent-red), var(--warm-gold)); margin-top: 0.85rem; }
+  .section-subtitle { color: var(--text-muted); font-size: 0.9rem; line-height: 2; max-width: 560px; }
+
+  /* SERVICES */
+  #services { background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cpath transform='translate(28,20) rotate(38 12 12)' fill='%239B6A3E' fill-opacity='0.05' d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3Cpath d='M75 150q38-30 84-14' stroke='%23B03A2E' stroke-opacity='0.06' stroke-dasharray='4 6' fill='none'/%3E%3Ccircle cx='160' cy='136' r='3' fill='%23B03A2E' fill-opacity='0.07'/%3E%3C/svg%3E"); }
+  a.service-card { text-decoration: none; color: inherit; display: block; }
+  a.service-card::after { content: '查看詳情 ↓'; position: absolute; right: 1.5rem; bottom: 1.3rem; font-size: 0.72rem; color: var(--shiba-brown); opacity: 0; transform: translateY(4px); transition: all 0.25s; }
+  a.service-card:hover::after { opacity: 1; transform: translateY(0); }
+  .services-header { margin-bottom: 3.5rem; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  .service-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; position: relative; overflow: hidden; transition: all 0.3s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(155,106,62,0.12); border-color: rgba(155,106,62,0.4); }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--shiba-brown), var(--jacket-blue)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-num { position: absolute; top: 1.2rem; right: 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(155,106,62,0.35); line-height: 1; }
+  .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .service-name { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.7rem; }
+  .service-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.9; }
+  .service-tag { display: inline-block; margin-top: 1rem; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--jacket-blue); background: rgba(122,155,181,0.08); border: 1px solid rgba(122,155,181,0.2); padding: 0.2rem 0.7rem; border-radius: 20px; }
+
+  /* PROCESS */
+  #process { background: var(--mid-bg); }
+  .process-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; margin-top: 3.5rem; align-items: start; }
+  .process-steps { display: flex; flex-direction: column; }
+  .process-step { display: flex; gap: 1.5rem; padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
+  .process-step:first-child { padding-top: 0; }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: rgba(155,106,62,0.35); line-height: 1; min-width: 2.2rem; padding-top: 0.1rem; }
+  .step-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.9; }
+
+  .process-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; position: sticky; top: 5.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
+  .process-box-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.3rem; }
+  .process-box-sub { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .flow-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0.8rem; border-radius: 4px; transition: background 0.2s; }
+  .flow-row:hover { background: var(--mid-bg); }
+  .flow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--shiba-brown); flex-shrink: 0; }
+  .flow-connector { width: 1px; height: 14px; background: var(--border); margin-left: calc(0.8rem + 3.5px); }
+  .flow-text { font-size: 0.82rem; color: var(--text-muted); }
+  .process-note { margin-top: 1.5rem; padding: 1rem; background: rgba(155,106,62,0.05); border-radius: 4px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* PHOTO DIVIDERS */
+  .photo-divider { position: relative; height: 330px; background-size: cover; background-position: center; background-attachment: fixed; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .photo-divider::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(59,42,30,0.22), rgba(59,42,30,0.38)); }
+  .divider-quote { position: relative; text-align: center; color: #FDF9F3; font-family: 'Noto Serif TC', serif; font-size: clamp(1.15rem, 2.2vw, 1.55rem); letter-spacing: 0.18em; text-shadow: 0 2px 14px rgba(0,0,0,0.45); padding: 0 1.5rem; }
+  .divider-quote span { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; margin-top: 0.8rem; letter-spacing: 0.22em; opacity: 0.85; }
+
+  /* INSURANCE */
+  #insurance { background: #fff; }
+  .insurance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; margin-top: 3.5rem; align-items: start; }
+  .insurance-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .ins-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 6px; padding: 1.4rem 1.8rem; display: flex; align-items: center; gap: 1.2rem; transition: all 0.25s; }
+  .ins-card:hover { border-color: var(--jacket-blue); box-shadow: 0 4px 16px rgba(122,155,181,0.1); transform: translateX(4px); }
+  .ins-icon { width: 46px; height: 46px; border-radius: 50%; background: rgba(122,155,181,0.08); border: 1px solid rgba(122,155,181,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+  .ins-name { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; color: var(--cream); margin-bottom: 0.2rem; }
+  .ins-sub { font-size: 0.74rem; color: var(--text-muted); }
+  .insurance-info { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; }
+  .info-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 1.3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .info-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .info-list li { font-size: 0.83rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.7; }
+  .info-list li::before { content: '✦'; color: var(--shiba-brown); font-size: 0.55rem; margin-top: 0.4rem; flex-shrink: 0; }
+
+  /* DOCUMENTS */
+  #documents { background: var(--mid-bg); }
+  .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3.5rem; }
+  .doc-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; transition: all 0.3s; }
+  .doc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.08); }
+  .doc-header { padding: 1.8rem 2rem; background: linear-gradient(135deg, rgba(155,106,62,0.06), rgba(122,155,181,0.04)); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; }
+  .doc-icon { font-size: 2rem; }
+  .doc-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); }
+  .doc-sub { font-size: 0.72rem; color: var(--shiba-brown); margin-top: 0.2rem; }
+  .doc-body { padding: 2rem; }
+  .doc-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .doc-items li { font-size: 0.82rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
+  .doc-items li::before { content: '—'; position: absolute; left: 0; color: var(--shiba-brown); }
+  .doc-note { margin-top: 1.5rem; padding: 0.9rem 1rem; background: rgba(181,112,74,0.05); border-left: 2.5px solid var(--scarf-red); border-radius: 0 4px 4px 0; font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* PLATFORMS */
+  #platforms { background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cpath transform='translate(28,20) rotate(38 12 12)' fill='%239B6A3E' fill-opacity='0.05' d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3Cpath d='M75 150q38-30 84-14' stroke='%23B03A2E' stroke-opacity='0.06' stroke-dasharray='4 6' fill='none'/%3E%3Ccircle cx='160' cy='136' r='3' fill='%23B03A2E' fill-opacity='0.07'/%3E%3C/svg%3E"); }
+  .plat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; margin-top: 3.5rem; }
+  .plat-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.3rem; text-decoration: none; display: flex; flex-direction: column; position: relative; transition: all 0.28s; min-height: 172px; }
+  a.plat-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(155,106,62,0.14); border-color: rgba(155,106,62,0.45); background: #FBF8F4 !important; }
+  .plat-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
+  .plat-icon { font-size: 1.7rem; }
+  .plat-arrow { font-size: 0.8rem; color: var(--shiba-brown); opacity: 0; transform: translate(-4px, 4px); transition: all 0.28s; }
+  a.plat-card:hover .plat-arrow { opacity: 1; transform: translate(0, 0); }
+  .plat-name { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 500; color: var(--cream); margin-bottom: 0.35rem; }
+  .plat-desc { font-size: 0.74rem; color: var(--text-muted); line-height: 1.7; }
+  .plat-chip { margin-top: auto; padding-top: 0.8rem; font-size: 0.66rem; letter-spacing: 0.08em; color: var(--jacket-blue); }
+
+  .plat-card.promo { border: 1.5px solid rgba(155,106,62,0.5); background: linear-gradient(150deg, #FBF5EC, #F5EAD8) !important; }
+  .promo-badge { position: absolute; top: -10px; right: 12px; background: var(--accent-red); color: #fff; font-size: 0.62rem; letter-spacing: 0.08em; padding: 0.22rem 0.7rem; border-radius: 20px; box-shadow: 0 3px 10px rgba(176,58,46,0.4); }
+  .promo-code { margin-top: auto; display: flex; align-items: center; gap: 0.4rem; padding-top: 0.8rem; }
+  .promo-code code { font-size: 0.72rem; background: #fff; border: 1px dashed var(--shiba-brown); color: var(--shiba-brown); padding: 0.22rem 0.55rem; border-radius: 4px; letter-spacing: 0.06em; }
+  .copy-btn { font-size: 0.64rem; background: var(--shiba-brown); color: #fff; border: none; border-radius: 4px; padding: 0.28rem 0.6rem; cursor: pointer; transition: background 0.2s; font-family: 'Noto Sans TC', sans-serif; }
+  .copy-btn:hover { background: #7A5030; }
+
+  .plat-card.soon { border-style: dashed; opacity: 0.85; cursor: default; }
+  .soon-chip { margin-top: auto; padding-top: 0.8rem; }
+  .soon-chip span { font-size: 0.66rem; letter-spacing: 0.1em; color: var(--warm-gold); background: rgba(196,168,130,0.12); border: 1px solid rgba(196,168,130,0.35); padding: 0.2rem 0.7rem; border-radius: 20px; }
+
+  .plat-note { margin-top: 2rem; text-align: center; font-size: 0.74rem; color: var(--text-muted); line-height: 1.9; }
+
+  /* ABOUT */
+  #about { background: var(--mid-bg); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3.5rem; }
+  .about-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; box-shadow: 0 8px 40px rgba(155,106,62,0.08); position: relative; overflow: hidden; }
+  .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--shiba-brown), var(--jacket-blue), var(--scarf-red)); }
+  .about-logo { width: 160px; height: 160px; border-radius: 50%; object-fit: contain; margin: 0 auto 1.5rem; display: block; border: 3px solid rgba(155,106,62,0.15); padding: 8px; background: #F5EFE6 !important; transition: transform 0.5s ease; }
+  .about-card:hover .about-logo { transform: rotate(6deg) scale(1.04); }
+  .about-brand { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; color: var(--cream); }
+  .about-brand-en { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.82rem; color: var(--shiba-brown); letter-spacing: 0.08em; display: block; margin-top: 0.4rem; }
+  .about-badges { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .about-badge { font-size: 0.7rem; padding: 0.25rem 0.8rem; border-radius: 20px; background: rgba(155,106,62,0.08); color: var(--shiba-brown); border: 1px solid rgba(155,106,62,0.2); }
+  .about-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 2.1; margin-bottom: 1.3rem; }
+  .about-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .about-features li { font-size: 0.83rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.7; }
+  .about-features li::before { content: '✦'; color: var(--shiba-brown); font-size: 0.55rem; margin-top: 0.4rem; flex-shrink: 0; }
+
+  /* CONTACT */
+  #contact { background: #fff; }
+  .contact-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-top: 3.5rem; }
+  .contact-cta-text { font-size: 0.88rem; color: var(--text-muted); line-height: 2; margin-bottom: 2rem; }
+  .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-method { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.5rem; background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.25s; }
+  .contact-method:hover { border-color: var(--line-green); transform: translateX(4px); box-shadow: 0 4px 16px rgba(110,154,124,0.15); }
+  .contact-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .contact-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+  .contact-value { font-size: 0.88rem; color: var(--cream); }
+
+  .qr-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; text-align: center; }
+  .qr-card img { width: 190px; height: 190px; border-radius: 10px; border: 1px solid var(--border); background: #fff; padding: 10px; transition: transform 0.4s ease; }
+  .qr-card img:hover { transform: scale(1.05); }
+  .qr-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; color: var(--cream); margin-bottom: 1.2rem; }
+  .qr-sub { font-size: 0.74rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.8; }
+
+  .contact-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
+  .note-item { padding: 1.2rem 1.4rem; background: #F5EFE6 !important; border-left: 2.5px solid var(--shiba-brown); border-radius: 0 6px 6px 0; }
+  .note-item-title { font-size: 0.82rem; color: var(--shiba-brown); font-weight: 500; margin-bottom: 0.35rem; }
+  .note-item-desc { font-size: 0.76rem; color: var(--text-muted); line-height: 1.8; }
+
+  /* FOOTER */
+  footer { background: var(--cream); padding: 2.5rem 3rem; text-align: center; }
+  .footer-brand { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(250,247,242,0.8); margin-bottom: 0.4rem; }
+  .footer-copy { font-size: 0.7rem; color: rgba(250,247,242,0.45); letter-spacing: 0.08em; }
+
+  /* FLOATING LINE BUTTON */
+  .line-fab { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 1200; display: flex; align-items: center; gap: 0.5rem; background: var(--line-green); color: #fff; padding: 0.85rem 1.35rem; border-radius: 50px; text-decoration: none; font-size: 0.84rem; letter-spacing: 0.05em; box-shadow: 0 8px 24px rgba(110,154,124,0.45); transition: transform 0.3s, box-shadow 0.3s; }
+  .line-fab:hover { transform: translateY(-3px); background: var(--line-green-dark); box-shadow: 0 12px 32px rgba(110,154,124,0.55); }
+  .line-fab::before { content: ''; position: absolute; inset: 0; border-radius: 50px; border: 2px solid rgba(110,154,124,0.5); animation: fabPulse 2.2s ease-out infinite; pointer-events: none; }
+
+  /* BACK TO TOP */
+  .to-top { position: fixed; right: 1.65rem; bottom: 5.6rem; z-index: 1190; width: 42px; height: 42px; border-radius: 50%; background: #fff; border: 1px solid var(--border); color: var(--shiba-brown); font-size: 1rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.1); opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
+  .to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+  .to-top:hover { background: var(--shiba-brown); color: #fff; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; } .d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+  /* FORCE LIGHT MODE */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --shiba-brown: #9B6A3E;
+      --scarf-red: #B5704A;
+      --jacket-blue: #7A9BB5;
+      --warm-gold: #C4A882;
+      --deep-bg: #F5EFE6;
+      --mid-bg: #EDE4D8;
+      --card-bg: #FBF8F4;
+      --cream: #3B2A1E;
+      --text-light: #3B2A1E;
+      --text-muted: #8A7060;
+      --border: rgba(155,106,62,0.18);
+      --nav-bg: rgba(245,239,230,0.97);
+    }
+    body { background: #F5EFE6 !important; color: #3B2A1E !important; }
+    nav { background: rgba(245,239,230,0.97) !important; }
+    #services, #insurance, #platforms, #contact { background: #ffffff !important; }
+    #process, #documents, #about { background: #EDE4D8 !important; }
+    #hero { background: linear-gradient(145deg, #F5EFE6 0%, #EDE4D4 60%, #E0D4C0 100%) !important; }
+    .marquee-strip { background: #ffffff !important; }
+    .service-card, .ins-card, .insurance-info, .plat-card, .qr-card,
+    .contact-method, .note-item { background: #F5EFE6 !important; }
+    .plat-card.promo { background: linear-gradient(150deg, #FBF5EC, #F5EAD8) !important; }
+    .about-card, .process-box, .doc-card, .hero-stats, .to-top { background: #ffffff !important; }
+    .doc-body { background: #ffffff !important; }
+    footer { background: #3B2A1E !important; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.08); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes fabPulse { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(1.35); opacity: 0; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide.active img, .marquee-track, .line-fab::before, .deco, .flight-strip .plane { animation: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .plat-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    nav.scrolled { padding: 0.6rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 4rem 1.5rem; }
+    #hero { padding: 7rem 1.5rem 3.5rem; }
+    .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero-carousel { aspect-ratio: 16 / 10; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-layout { grid-template-columns: 1fr; }
+    .process-box { position: static; }
+    .insurance-grid { grid-template-columns: 1fr; }
+    .doc-grid { grid-template-columns: 1fr; }
+    .plat-grid { grid-template-columns: repeat(2, 1fr); }
+    .plat-card { min-height: 0; }
+    .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-layout { grid-template-columns: 1fr; }
+    .contact-notes { grid-template-columns: 1fr; }
+    .photo-divider { background-attachment: scroll; height: 230px; }
+    .stamp { width: 72px; height: 72px; top: -8px; }
+    .stamp-char { font-size: 1.5rem; }
+    .line-fab span.fab-text { display: none; }
+    .line-fab { padding: 0.95rem; }
+    .to-top { bottom: 5.4rem; right: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">服務項目</a>
+  <a href="#process" onclick="closeMenu()">報名流程</a>
+  <a href="#insurance" onclick="closeMenu()">旅遊保險</a>
+  <a href="#documents" onclick="closeMenu()">證件辦理</a>
+  <a href="#platforms" onclick="closeMenu()">合作平台</a>
+  <a href="#about" onclick="closeMenu()">關於我們</a>
+  <a href="#contact" onclick="closeMenu()" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <img src="images/logo.png" alt="阿中與小夢的旅遊官方 Logo">
+    <div class="nav-logo-text">
+      阿中與小夢的旅遊官方
+      <span>Official Travel Consulting</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#process">報名流程</a></li>
+    <li><a href="#insurance">旅遊保險</a></li>
+    <li><a href="#documents">證件辦理</a></li>
+    <li><a href="#platforms">合作平台</a></li>
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#contact" class="nav-cta">立即諮詢</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-content">
+    <div>
+      <p class="hero-label">Official Travel Consulting</p>
+      <h1 class="hero-title"><em>世界遼闊</em><br>別把人生只留給日常</h1>
+      <p class="hero-desc">阿中與小夢，陪您把旅行想得更周全。<br>提供團體旅遊報名、旅遊保險與證件辦理等服務，<br>從挑選行程到安心出發，為您打理每一個細節。</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">探索服務 →</a>
+        <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 諮詢</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-carousel" id="carousel">
+        <div class="slide active">
+          <img src="images/photo-5.jpg" alt="紐西蘭皇后鎮瓦卡蒂普湖畔">
+          <span class="slide-caption">紐西蘭 · 瓦卡蒂普湖畔小鎮風光</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-6.jpg" alt="紐西蘭箭鎮金秋" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 箭鎮金秋</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-7.jpg" alt="紐西蘭瓦納卡湖畔" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 絕美瓦納卡湖畔</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-2.jpg" alt="紐西蘭庫克山雪峰" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 庫克山雪峰</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-9.jpg" alt="直升機上俯瞰庫克山脈冰河" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 直升機上的冰河視角</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-8.jpg" alt="紐西蘭清晨沿途的牧野風光" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 清晨沿途的牧野風光</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-1.jpg" alt="紐西蘭皇后鎮山頂夕色" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 皇后鎮山頂夕色</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-3.jpg" alt="紐西蘭山谷金色晚霞" loading="lazy">
+          <span class="slide-caption">紐西蘭 · 山谷金色晚霞</span>
+        </div>
+        <div class="slide">
+          <img src="images/photo-4.jpg" alt="南半球滿天星空" loading="lazy">
+          <span class="slide-caption">南半球 · 滿天星空</span>
+        </div>
+        <button class="car-arrow car-prev" onclick="moveSlide(-1)" aria-label="上一張">‹</button>
+        <button class="car-arrow car-next" onclick="moveSlide(1)" aria-label="下一張">›</button>
+        <div class="car-dots" id="carDots"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="880" data-suffix="+">0</span>
+          <span class="stat-label">LINE 服務客戶</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="3" data-suffix="">0</span>
+          <span class="stat-label">保險合作夥伴</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="8" data-suffix="+">0</span>
+          <span class="stat-label">旅遊平台合作</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">日本</span><span class="marquee-item">韓國</span><span class="marquee-item">泰國</span><span class="marquee-item">越南</span><span class="marquee-item">土耳其</span><span class="marquee-item">埃及</span><span class="marquee-item">杜拜</span><span class="marquee-item">法國</span><span class="marquee-item">瑞士</span><span class="marquee-item">義大利</span><span class="marquee-item">紐西蘭</span><span class="marquee-item">夏威夷</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">遊</span><span class="stamp-sub">OUR SERVICES</span></div>
+    <div class="services-header reveal">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">我們能為您做什麼</h2>
+      <p class="section-subtitle">從出發前的規劃到旅途中的保障，全方位旅遊諮詢服務讓您安心出發。</p>
+    </div>
+    <div class="services-grid">
+      <a class="service-card reveal" href="#process">
+        <span class="service-num">01</span>
+        <span class="service-icon">✈️</span>
+        <h3 class="service-name">海外團體旅遊報名</h3>
+        <p class="service-desc">代為洽詢各大旅行社優惠方案，協助您以最優惠價格報名海外團體行程。涵蓋亞洲、歐洲、美洲等熱門目的地。</p>
+        <span class="service-tag">合作各大旅行社</span>
+      </a>
+      <a class="service-card reveal d1" href="#insurance">
+        <span class="service-num">02</span>
+        <span class="service-icon">🛡️</span>
+        <h3 class="service-name">旅遊保險諮詢</h3>
+        <p class="service-desc">與國泰產險、南山人壽、旺旺友聯等保險公司合作，為您量身推薦最適合的旅遊保障方案。</p>
+        <span class="service-tag">3 大保險夥伴</span>
+      </a>
+      <a class="service-card reveal d2" href="#documents">
+        <span class="service-num">03</span>
+        <span class="service-icon">📋</span>
+        <h3 class="service-name">證件辦理協助</h3>
+        <p class="service-desc">護照更新、台胞證辦理，提供完整的所需文件清單與費用說明，讓您的證件準備無後顧之憂。</p>
+        <span class="service-tag">護照 ／ 台胞證</span>
+      </a>
+      <a class="service-card reveal" href="#platforms">
+        <span class="service-num">04</span>
+        <span class="service-icon">🌐</span>
+        <h3 class="service-name">自助旅遊資源</h3>
+        <p class="service-desc">透過 Klook、KKday、Agoda、Booking.com、Trip.com、雄獅與東南旅遊等平台聯盟連結，輕鬆預訂票券、住宿與行程。</p>
+        <span class="service-tag">8+ 平台合作</span>
+      </a>
+      <a class="service-card reveal d1" href="#platforms">
+        <span class="service-num">05</span>
+        <span class="service-icon">📶</span>
+        <h3 class="service-name">出國網路 eSIM</h3>
+        <p class="service-desc">合作專屬 eSIM 平台，出國前輕鬆開通海外數據方案，全程保持網路暢通，旅途不斷線。</p>
+        <span class="service-tag">eSIM 合作夥伴</span>
+      </a>
+      <a class="service-card reveal d2" href="#platforms">
+        <span class="service-num">06</span>
+        <span class="service-icon">🎒</span>
+        <h3 class="service-name">網卡與旅遊好物分享</h3>
+        <p class="service-desc">實體網卡與旅遊實用好物推薦持續整理中，之後會在合作平台專區與大家分享。</p>
+        <span class="service-tag">敬請期待</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO DIVIDER 1 -->
+<div class="photo-divider" style="background-image:url('images/photo-3.jpg');" role="img" aria-label="紐西蘭山谷金色晚霞">
+  <p class="divider-quote">世界很大，慢慢走<span>The world is wide — take your time.</span></p>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.06)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.045)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">程</span><span class="stamp-sub">HOW IT WORKS</span></div>
+    <div class="reveal">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">報名流程</h2>
+      <p class="section-subtitle">簡單四步驟，從諮詢到出發，我們陪您走每一步。</p>
+    </div>
+    <div class="process-layout">
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <div>
+            <h3 class="step-title">傳訊諮詢</h3>
+            <p class="step-desc">透過 LINE 官方帳號聯繫我們，告知您的旅遊想法、出發日期與人數，我們將盡快回覆。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <div>
+            <h3 class="step-title">行程規劃與報價</h3>
+            <p class="step-desc">根據您的需求，我們洽詢合適的旅行社方案並提供詳細報價，協助您做出最佳選擇。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <div>
+            <h3 class="step-title">確認與繳費</h3>
+            <p class="step-desc">確認行程後，依旅行社規定完成訂金或全額繳費，並收到行程確認通知。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <div>
+            <h3 class="step-title">出發前準備</h3>
+            <p class="step-desc">我們提醒您行前注意事項、證件確認、保險建議，確保您能安心出發、盡興而歸。</p>
+          </div>
+        </div>
+      </div>
+      <div class="process-box reveal d1">
+        <h3 class="process-box-title">📋 諮詢注意事項</h3>
+        <p class="process-box-sub">提前準備以下資訊，讓諮詢更順暢</p>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">目的地或旅遊方向</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">預計出發日期與天數</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">同行人數（大人／小孩）</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">預算範圍（每人）</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">特殊需求或偏好</span></div>
+        <div class="process-note">💬 一般於 <strong>24 小時內</strong> 回覆訊息。如有緊急需求，歡迎直接於 LINE 留言。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE -->
+<section id="insurance">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">安</span><span class="stamp-sub">INSURANCE</span></div>
+    <div class="reveal">
+      <p class="section-label">Travel Insurance</p>
+      <h2 class="section-title">旅遊保險</h2>
+      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與三大保險公司合作，為您的每一段旅程提供完善保障。</p>
+    </div>
+    <div class="insurance-grid">
+      <div class="insurance-cards reveal">
+        <div class="ins-card">
+          <div class="ins-icon">🏦</div>
+          <div><p class="ins-name">國泰產險</p><p class="ins-sub">國內知名產險公司，旅遊保險保障全面</p></div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-icon">🏢</div>
+          <div><p class="ins-name">南山人壽</p><p class="ins-sub">深耕台灣數十年，旅平險選擇多元</p></div>
+        </div>
+        <div class="ins-card">
+          <div class="ins-icon">🌟</div>
+          <div><p class="ins-name">旺旺友聯產險</p><p class="ins-sub">提供具競爭力的旅遊保險方案</p></div>
+        </div>
+        <div style="margin-top:0.5rem;">
+          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.82rem; padding:0.7rem 1.6rem;">詢問保險方案 →</a>
+        </div>
+      </div>
+      <div class="insurance-info reveal d1">
+        <h3 class="info-title">🛡️ 旅遊保險保障項目</h3>
+        <ul class="info-list">
+          <li>海外緊急醫療費用補償，讓您就醫無後顧之憂</li>
+          <li>旅遊不便險：班機延誤、行李遺失、旅程取消等</li>
+          <li>意外身故及傷殘保障，保護您與家人</li>
+          <li>24 小時緊急救援服務，遇緊急狀況即時支援</li>
+          <li>依目的地與行程天數量身推薦最適合方案</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCUMENTS -->
+<section id="documents">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.06)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.045)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">證</span><span class="stamp-sub">DOCUMENTS</span></div>
+    <div class="reveal">
+      <p class="section-label">Document Services</p>
+      <h2 class="section-title">證件辦理</h2>
+      <p class="section-subtitle">出國前最重要的準備！我們提供護照與台胞證的辦理資訊，讓您的出發準備更有效率。</p>
+    </div>
+    <div class="doc-grid">
+      <div class="doc-card reveal">
+        <div class="doc-header">
+          <span class="doc-icon">🛂</span>
+          <div><h3 class="doc-title">中華民國護照</h3><p class="doc-sub">首次申請 ／ 換發 ／ 加簽</p></div>
+        </div>
+        <div class="doc-body">
+          <ul class="doc-items">
+            <li>本人申請書（外交部官網下載）</li>
+            <li>最近六個月內護照用照片 2 張</li>
+            <li>身分證正本及正反面影本</li>
+            <li>舊護照（換發時須繳回）</li>
+            <li>兵役相關文件（男性役男）</li>
+          </ul>
+          <div class="doc-note">⏱ 一般件約 10 個工作天，遺失補發或急件請洽詢外交部。費用及最新規定請向我們確認。</div>
+        </div>
+      </div>
+      <div class="doc-card reveal d1">
+        <div class="doc-header">
+          <span class="doc-icon">📘</span>
+          <div><h3 class="doc-title">台灣居民來往大陸通行證</h3><p class="doc-sub">俗稱「台胞證」</p></div>
+        </div>
+        <div class="doc-body">
+          <ul class="doc-items">
+            <li>台灣居民來往大陸通行證申請表</li>
+            <li>台灣居民身分證正本</li>
+            <li>近期白底彩色照片 2 張</li>
+            <li>舊台胞證（換證時需繳回）</li>
+            <li>委託書（委託他人代辦時需要）</li>
+          </ul>
+          <div class="doc-note">⏱ 辦理時間與費用因各地辦理機構略有不同，歡迎來訊詢問最新資訊與辦理管道。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO DIVIDER 2 -->
+<div class="photo-divider" style="background-image:url('images/lakeside.jpg');" role="img" aria-label="紐西蘭沿途湖畔風光">
+  <p class="divider-quote">最好的風景，永遠在路上<span>The best views begin the moment you set off.</span></p>
+</div>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">惠</span><span class="stamp-sub">PARTNERS</span></div>
+    <div class="reveal">
+      <p class="section-label">Our Partners</p>
+      <h2 class="section-title">合作平台</h2>
+      <p class="section-subtitle">精選多元旅遊平台，提供住宿、交通、票券與行程預訂<br>透過以下專屬連結預訂住宿、票券與行程，安心又划算</p>
+    </div>
+    <div class="plat-grid">
+      <a class="plat-card promo reveal" href="https://affiliate.klook.com/sl/4ItsgAH" target="_blank" rel="noopener sponsored">
+        <span class="promo-badge">95 折優惠</span>
+        <div class="plat-top"><span class="plat-icon">🎫</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Klook</h3>
+        <p class="plat-desc">景點門票、體驗行程、交通票券</p>
+        <div class="promo-code"><code>DREAM1010</code><button class="copy-btn" onclick="copyCode(event)">複製</button></div>
+      </a>
+      <a class="plat-card reveal d1" href="https://www.kkday.com/?cid=23532" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🗺️</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">KKday</h3>
+        <p class="plat-desc">在地體驗、一日遊、票券預訂</p>
+        <span class="plat-chip">TICKETS & TOURS</span>
+      </a>
+      <a class="plat-card reveal d2" href="https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1958143&hl=zh-tw" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🏨</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Agoda</h3>
+        <p class="plat-desc">全球飯店訂房，常有隱藏優惠價</p>
+        <span class="plat-chip">HOTELS</span>
+      </a>
+      <a class="plat-card reveal d3" href="https://linkgo.one/s/4znXR" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🛏️</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Booking.com</h3>
+        <p class="plat-desc">住宿選擇多元，彈性取消方案</p>
+        <span class="plat-chip">HOTELS & STAYS</span>
+      </a>
+      <a class="plat-card reveal d4" href="https://www.trip.com/t/SNo8Y7BEXV2" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">✈️</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Trip.com</h3>
+        <p class="plat-desc">機票、飯店、火車票一站預訂</p>
+        <span class="plat-chip">FLIGHTS & HOTELS</span>
+      </a>
+      <a class="plat-card reveal" href="https://affiliate.liontravel.com/s/7pxZAjRCYC" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🦁</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">雄獅旅遊</h3>
+        <p class="plat-desc">團體行程、機加酒、自由行</p>
+        <span class="plat-chip">GROUP TOURS</span>
+      </a>
+      <a class="plat-card reveal d1" href="https://afflink.one/s/vjvHZ" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🌏</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">東南旅遊</h3>
+        <p class="plat-desc">豐富團體行程與主題旅遊</p>
+        <span class="plat-chip">GROUP TOURS</span>
+      </a>
+      <a class="plat-card reveal d2" href="https://dream1010.esimart.cc/home" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">📶</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">出國網路 eSIM</h3>
+        <p class="plat-desc">免換卡即開通，全球上網方案</p>
+        <span class="plat-chip">DREAM1010 專屬</span>
+      </a>
+      <div class="plat-card soon reveal d3">
+        <div class="plat-top"><span class="plat-icon">💳</span></div>
+        <h3 class="plat-name">實體網卡分享</h3>
+        <p class="plat-desc">各國實體 SIM 卡推薦，整理中</p>
+        <div class="soon-chip"><span>即將上線</span></div>
+      </div>
+      <div class="plat-card soon reveal d4">
+        <div class="plat-top"><span class="plat-icon">🎒</span></div>
+        <h3 class="plat-name">旅遊好物分享</h3>
+        <p class="plat-desc">旅途實用好物嚴選，整理中</p>
+        <div class="soon-chip"><span>即將上線</span></div>
+      </div>
+    </div>
+    <p class="plat-note reveal">透過以上連結訂購，您的價格不變，我們可能獲得平台少量回饋，作為持續提供免費諮詢服務的支持，謝謝您 ☺️</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <svg class="deco float-a" aria-hidden="true" viewBox="0 0 24 24" style="bottom:4%; right:2%; width:120px; height:120px; fill:rgba(155,106,62,0.09); rotate:-12deg;"><g><ellipse cx="12" cy="16.5" rx="5.2" ry="4"/><circle cx="5" cy="10.5" r="2.3"/><circle cx="9.3" cy="6.8" r="2.3"/><circle cx="14.7" cy="6.8" r="2.3"/><circle cx="19" cy="10.5" r="2.3"/></g></svg>
+    <div class="about-layout">
+      <div class="reveal">
+        <div class="about-card">
+          <img src="images/logo.png" alt="阿中與小夢旅遊官方" class="about-logo">
+          <p class="about-brand">阿中與小夢的旅遊官方</p>
+          <span class="about-brand-en">A-Zhong & Xiao Meng · Official Travel</span>
+          <div class="about-badges">
+            <span class="about-badge">LINE 880+ 客戶</span>
+            <span class="about-badge">專業旅遊諮詢</span>
+            <span class="about-badge">父女共同經營</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">關於我們</h2>
+        <p class="about-desc">阿中與小夢是一個以誠信與熱情為核心的旅遊諮詢品牌。由「阿中」與「小夢」共同經營，致力於為每一位旅客提供貼心、專業的旅遊服務。</p>
+        <p class="about-desc">我們深信，旅行不只是移動，更是一段讓人充實與感動的生命體驗。從協助報名海外團體行程，到保險諮詢、證件辦理，我們讓您出發前的每一步都輕鬆、安心。</p>
+        <ul class="about-features">
+          <li>880+ LINE 官方帳號訂閱客戶</li>
+          <li>與各大旅行社、保險公司建立長期合作</li>
+          <li>提供個人化旅遊諮詢，不是制式化服務</li>
+          <li>父女共同經營，溫暖有溫度的服務態度</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLIGHT STRIP -->
+<div class="flight-strip" aria-hidden="true">
+  <div class="path"></div>
+  <svg class="plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Contact Us</p>
+      <h2 class="section-title">聯絡我們</h2>
+    </div>
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="contact-cta-text">有任何旅遊問題或想了解服務細節，歡迎隨時透過 LINE 官方帳號聯繫。我們將在最短時間內為您回覆。</p>
+        <div class="contact-methods">
+          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="contact-method">
+            <div class="contact-icon" style="background:rgba(110,154,124,0.15);">💬</div>
+            <div><span class="contact-label">LINE 官方帳號（點我加入好友）</span><span class="contact-value">@977fvmsr</span></div>
+          </a>
+          <div class="contact-method" style="cursor:default;">
+            <div class="contact-icon" style="background:rgba(155,106,62,0.1);">🔍</div>
+            <div><span class="contact-label">或於 LINE 搜尋 ID</span><span class="contact-value">@977fvmsr（記得加 @）</span></div>
+          </div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 立即加入 LINE 好友</a>
+        </div>
+      </div>
+      <div class="qr-card reveal d1">
+        <h3 class="qr-title">掃描 QR Code 加入好友</h3>
+        <img src="images/line-qr.png" alt="LINE 官方帳號 QR Code">
+        <p class="qr-sub">開啟 LINE「加入好友」→ 行動條碼<br>掃描上方 QR Code 即可加入</p>
+      </div>
+    </div>
+    <div class="contact-notes">
+      <div class="note-item reveal">
+        <p class="note-item-title">回覆時間</p>
+        <p class="note-item-desc">一般情況下我們於 24 小時內回覆，假日可能稍有延遲，請耐心等候。</p>
+      </div>
+      <div class="note-item reveal d1">
+        <p class="note-item-title">諮詢費用</p>
+        <p class="note-item-desc">旅遊諮詢服務完全免費，我們透過與旅行社及平台的合作獲得支持。</p>
+      </div>
+      <div class="note-item reveal d2">
+        <p class="note-item-title">服務範圍</p>
+        <p class="note-item-desc">主要服務台灣旅客，提供出境旅遊相關諮詢。如有特殊需求歡迎說明。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-brand">阿中與小夢的旅遊官方</p>
+  <p class="footer-copy">© 2026 A-Zhong & Xiao Meng Official Travel · All Rights Reserved</p>
+</footer>
+
+<!-- FLOATING LINE BUTTON -->
+<a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="line-fab" aria-label="加 LINE 諮詢">
+  💬 <span class="fab-text">LINE 諮詢</span>
+</a>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂端">↑</button>
+
+<script>
+  // Nav scroll
+  const navbar = document.getElementById('navbar');
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    toTop.classList.toggle('show', window.scrollY > 600);
+  }, { passive: true });
+
+  // Mobile menu
+  let menuOpen = false;
+  const mobileMenu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+    hamburger.classList.toggle('open', menuOpen);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }
+  function closeMenu() {
+    menuOpen = false;
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Passport stamp pop-in
+  const stampObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('stamped'); stampObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+  document.querySelectorAll('.stamp').forEach(el => stampObserver.observe(el));
+
+  // Carousel
+  const slides = document.querySelectorAll('#carousel .slide');
+  const dotsWrap = document.getElementById('carDots');
+  let current = 0, timer = null;
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'car-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', '第 ' + (i + 1) + ' 張');
+    d.addEventListener('click', () => { goSlide(i); restart(); });
+    dotsWrap.appendChild(d);
+  });
+  const dots = dotsWrap.querySelectorAll('.car-dot');
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+  function moveSlide(dir) { goSlide(current + dir); restart(); }
+  function restart() { clearInterval(timer); timer = setInterval(() => goSlide(current + 1), 4800); }
+  restart();
+  const carousel = document.getElementById('carousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', restart);
+  // Swipe
+  let touchX = null;
+  carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
+  carousel.addEventListener('touchend', e => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) goSlide(current + (dx < 0 ? 1 : -1));
+    touchX = null; restart();
+  }, { passive: true });
+
+  // Count-up stats
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      statObserver.unobserve(el);
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400, t0 = performance.now();
+      function tick(t) {
+        const p = Math.min((t - t0) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
+
+  // Scrollspy
+  const spyLinks = document.querySelectorAll('#navLinks a:not(.nav-cta)');
+  const spyMap = {};
+  spyLinks.forEach(a => { spyMap[a.getAttribute('href').slice(1)] = a; });
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && spyMap[e.target.id]) {
+        spyLinks.forEach(a => a.classList.remove('active'));
+        spyMap[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('section[id]').forEach(s => spyObserver.observe(s));
+
+  // Marquee: duplicate content for seamless loop
+  const track = document.getElementById('marqueeTrack');
+  track.innerHTML += track.innerHTML;
+
+  // Copy Klook promo code
+  function copyCode(e) {
+    e.preventDefault(); e.stopPropagation();
+    const btn = e.currentTarget;
+    const done = () => { btn.textContent = '已複製 ✓'; setTimeout(() => { btn.textContent = '複製'; }, 1800); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('DREAM1010').then(done).catch(done);
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = 'DREAM1010'; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done();
+    }
+  }
+</script>
+</body>
+</html>
