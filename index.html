@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light only">
-<meta name="theme-color" content="#F5EFE6">
+<meta name="theme-color" content="#3B2A1E">
 <meta name="description" content="阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、證件辦理協助、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。">
 <meta property="og:title" content="阿中與小夢的旅遊官方">
 <meta property="og:description" content="海外團體旅遊報名・旅遊保險諮詢・證件辦理・自助旅遊資源・出國網路 eSIM">
-<meta property="og:image" content="images/photo-2.jpg">
+<meta property="og:image" content="https://wistien.github.io/images/photo-7.jpg">
+<meta property="og:url" content="https://wistien.github.io/">
 <title>阿中與小夢的旅遊官方</title>
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +29,7 @@
     --text-light: #3B2A1E;
     --text-muted: #8A7060;
     --border: rgba(155,106,62,0.18);
-    --nav-bg: rgba(245,239,230,0.97);
+    --nav-bg: rgba(59,42,30,0.97);
     --line-green: #6E9A7C;
     --line-green-dark: #5C8469;
     --mist-bg: #ECF3F6;
@@ -36,7 +37,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; }
 
   body {
     background: #F5EFE6 !important;
@@ -59,28 +60,29 @@
     justify-content: space-between;
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
     transition: padding 0.3s, box-shadow 0.3s;
   }
-  nav.scrolled { padding: 0.6rem 3rem; box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+  nav.scrolled { padding: 0.6rem 3rem; box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
 
   .nav-logo { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; }
-  .nav-logo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); background: #FBF5EE; }
-  .nav-logo-text { font-family: 'Noto Serif TC', serif; font-size: 0.94rem; font-weight: 700; color: var(--accent-red); line-height: 1.4; letter-spacing: 0.02em; }
-  .nav-logo-text span { display: block; font-size: 0.62rem; font-weight: 400; color: var(--shiba-brown); letter-spacing: 0.12em; font-family: 'Cormorant Garamond', serif; font-style: italic; }
+  .nav-logo img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid rgba(255,255,255,0.3); background: #FBF5EE; }
+  .nav-logo-text { font-family: 'Noto Serif TC', serif; font-size: 0.94rem; font-weight: 700; color: #F5E9DC; line-height: 1.4; letter-spacing: 0.02em; }
+  .nav-logo-text span { display: block; font-size: 0.62rem; font-weight: 400; color: var(--warm-gold); letter-spacing: 0.12em; font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
   .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.25s; position: relative; }
-  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1.5px; background: var(--shiba-brown); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
-  .nav-links a:hover, .nav-links a.active { color: var(--shiba-brown); }
+  .nav-links a { color: rgba(245,233,220,0.75); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.25s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1.5px; background: var(--warm-gold); transform: scaleX(0); transition: transform 0.25s; transform-origin: left; }
+  .nav-links a:hover, .nav-links a.active { color: var(--warm-gold); }
   .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
 
-  .nav-cta { background: var(--shiba-brown) !important; color: #fff !important; padding: 0.45rem 1.2rem !important; border-radius: 3px; font-size: 0.78rem !important; }
-  .nav-cta:hover { background: #7A5030 !important; transform: translateY(-1px) !important; }
+  .nav-cta { background: var(--accent-red) !important; color: #fff !important; padding: 0.45rem 1.2rem !important; border-radius: 3px; font-size: 0.78rem !important; }
+  .nav-cta:hover { background: #8F2F25 !important; transform: translateY(-1px) !important; }
   .nav-cta::after { display: none !important; }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1100; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--text-light); border-radius: 2px; transition: all 0.3s; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #F5E9DC; border-radius: 2px; transition: all 0.3s; }
+  .mobile-menu.open ~ nav .hamburger span, .hamburger.open span { background: var(--text-light); }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -145,7 +147,7 @@
   .marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
   .marquee-strip:hover .marquee-track { animation-play-state: paused; }
   .marquee-item { font-family: 'Noto Serif TC', serif; font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.15em; padding: 0 1.6rem; white-space: nowrap; display: flex; align-items: center; gap: 1.6rem; }
-  .marquee-item::after { content: '✈'; color: rgba(176,58,46,0.5); font-size: 0.7rem; }
+  .marquee-item::after { content: '✈\FE0E'; color: rgba(176,58,46,0.5); font-size: 0.7rem; }
 
   /* SECTIONS */
   section { padding: 6rem 3rem; }
@@ -155,7 +157,7 @@
   .stamp { position: absolute; top: -14px; right: 0; width: 96px; height: 96px; border-radius: 50%; border: 2.5px solid rgba(176,58,46,0.6); display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(-25deg) scale(2.6); opacity: 0; pointer-events: none; z-index: 2; }
   .stamp::before { content: ''; position: absolute; inset: 5px; border-radius: 50%; border: 1.5px dashed rgba(176,58,46,0.5); }
   .stamp-char { font-family: 'Noto Serif TC', serif; font-size: 2.1rem; font-weight: 700; color: rgba(176,58,46,0.78); line-height: 1; }
-  .stamp-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.52rem; letter-spacing: 0.2em; color: rgba(176,58,46,0.65); margin-top: 3px; }
+  .stamp-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.52rem; letter-spacing: 0.18em; color: rgba(176,58,46,0.65); margin-top: 3px; white-space: nowrap; }
   .stamp.stamped { animation: stampIn 0.7s cubic-bezier(0.25, 1.2, 0.35, 1) 0.25s forwards; }
   @keyframes stampIn {
     0% { opacity: 0; transform: rotate(-25deg) scale(2.6); }
@@ -211,9 +213,9 @@
   .process-step { display: flex; gap: 1.5rem; padding: 1.8rem 0; border-bottom: 1px solid var(--border); }
   .process-step:first-child { padding-top: 0; }
   .process-step:last-child { border-bottom: none; }
-  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: rgba(155,106,62,0.35); line-height: 1; min-width: 2.2rem; padding-top: 0.1rem; }
-  .step-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.4rem; }
-  .step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.9; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: rgba(176,58,46,0.55); line-height: 1; min-width: 2.2rem; padding-top: 0.1rem; }
+  .step-title { font-family: 'Noto Serif TC', serif; font-size: 1.02rem; font-weight: 600; color: var(--cream); margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.82rem; color: #6E574A; line-height: 1.9; }
 
   .process-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; position: sticky; top: 5.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
   .process-box-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.3rem; }
@@ -362,7 +364,7 @@
       --nav-bg: rgba(245,239,230,0.97);
     }
     body { background: #F5EFE6 !important; color: #3B2A1E !important; }
-    nav { background: rgba(245,239,230,0.97) !important; }
+    nav { background: rgba(59,42,30,0.97) !important; }
     #services, #insurance, #platforms, #contact { background: #ffffff !important; }
     #process, #documents, #about { background: #EDE4D8 !important; }
     #hero { background: linear-gradient(145deg, #F5EFE6 0%, #EDE4D4 60%, #E0D4C0 100%) !important; }
@@ -410,8 +412,11 @@
     .contact-layout { grid-template-columns: 1fr; }
     .contact-notes { grid-template-columns: 1fr; }
     .photo-divider { background-attachment: scroll; height: 230px; }
-    .stamp { width: 72px; height: 72px; top: -8px; }
-    .stamp-char { font-size: 1.5rem; }
+    .stamp { width: 78px; height: 78px; top: -8px; }
+    .stamp-char { font-size: 1.4rem; }
+    .stamp-sub { font-size: 0.42rem; letter-spacing: 0.12em; margin-top: 2px; }
+    .stat-item { padding: 0.9rem 0.5rem; }
+    .stat-label { font-size: 0.6rem; white-space: nowrap; }
     .line-fab span.fab-text { display: none; }
     .line-fab { padding: 0.95rem; }
     .to-top { bottom: 5.4rem; right: 1.35rem; }
@@ -542,7 +547,7 @@
     <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
   </svg>
   <div class="section-inner">
-    <div class="stamp" aria-hidden="true"><span class="stamp-char">遊</span><span class="stamp-sub">OUR SERVICES</span></div>
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">遊</span><span class="stamp-sub">SERVICES</span></div>
     <div class="services-header reveal">
       <p class="section-label">Our Services</p>
       <h2 class="section-title">我們能為您做什麼</h2>
@@ -607,7 +612,7 @@
     <path fill="rgba(176,58,46,0.045)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
   </svg>
   <div class="section-inner">
-    <div class="stamp" aria-hidden="true"><span class="stamp-char">程</span><span class="stamp-sub">HOW IT WORKS</span></div>
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">程</span><span class="stamp-sub">PROCESS</span></div>
     <div class="reveal">
       <p class="section-label">How It Works</p>
       <h2 class="section-title">報名流程</h2>
@@ -773,7 +778,7 @@
     <div class="reveal">
       <p class="section-label">Our Partners</p>
       <h2 class="section-title">合作平台</h2>
-      <p class="section-subtitle">精選多元旅遊平台，提供住宿、交通、票券與行程預訂<br>透過以下專屬連結預訂住宿、票券與行程，安心又划算</p>
+      <p class="section-subtitle">精選多元旅遊平台，提供住宿、交通、票券與行程預訂，透過以下專屬連結預訂，安心又划算。</p>
     </div>
     <div class="plat-grid">
       <a class="plat-card promo reveal" href="https://affiliate.klook.com/sl/4ItsgAH" target="_blank" rel="noopener sponsored">
@@ -918,7 +923,7 @@
       </div>
       <div class="note-item reveal d1">
         <p class="note-item-title">諮詢費用</p>
-        <p class="note-item-desc">旅遊諮詢服務完全免費，我們透過與旅行社及平台的合作獲得支持。</p>
+        <p class="note-item-desc">旅遊諮詢服務完全免費，我們是您旅遊業的好朋友，非常歡迎您隨時來訊~</p>
       </div>
       <div class="note-item reveal d2">
         <p class="note-item-title">服務範圍</p>
