@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0KK1SHF67E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0KK1SHF67E');
+</script>
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#3B2A1E">
 <meta name="description" content="阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、證件辦理協助、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。">
@@ -1196,10 +1204,22 @@
   const track = document.getElementById('marqueeTrack');
   track.innerHTML += track.innerHTML;
 
+  // GA4 event tracking
+  if (typeof gtag === 'function') {
+    document.querySelectorAll('a[href*="lin.ee"]').forEach(a => {
+      a.addEventListener('click', () => gtag('event', 'line_click', { link_location: a.className.split(' ')[0] || 'link' }));
+    });
+    document.querySelectorAll('a.plat-card').forEach(a => {
+      const nameEl = a.querySelector('.plat-name');
+      a.addEventListener('click', () => gtag('event', 'platform_click', { platform: nameEl ? nameEl.textContent.trim() : 'unknown' }));
+    });
+  }
+
   // Copy Klook promo code
   function copyCode(e) {
     e.preventDefault(); e.stopPropagation();
     const btn = e.currentTarget;
+    if (typeof gtag === 'function') gtag('event', 'copy_promo_code', { code: 'DREAM1010' });
     const done = () => { btn.textContent = '已複製 ✓'; setTimeout(() => { btn.textContent = '複製'; }, 1800); };
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText('DREAM1010').then(done).catch(done);
