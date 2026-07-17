@@ -80,7 +80,8 @@
   .nav-cta:hover { background: #8F2F25 !important; transform: translateY(-1px) !important; }
   .nav-cta::after { display: none !important; }
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1100; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1100; background: transparent; border: 0; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-red); outline-offset: 3px; border-radius: 3px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: #F5E9DC; border-radius: 2px; transition: all 0.3s; }
   .mobile-menu.open ~ nav .hamburger span, .hamburger.open span { background: var(--text-light); }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -125,7 +126,7 @@
   .slide.active { opacity: 1; pointer-events: auto; }
   .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .slide.active img { animation: kenburns 10s ease-out forwards; }
-  .slide-caption { position: absolute; left: 1rem; bottom: 1rem; background: rgba(251,248,244,0.9); backdrop-filter: blur(8px); color: var(--cream); font-size: 0.76rem; letter-spacing: 0.05em; padding: 0.45rem 1rem; border-radius: 30px; border: 1px solid var(--border); }
+  .slide-caption { position: absolute; left: 1rem; bottom: 1rem; background: rgba(251,248,244,0.9); backdrop-filter: blur(8px); color: var(--cream); font-size: 0.8rem; letter-spacing: 0.05em; padding: 0.45rem 1rem; border-radius: 30px; border: 1px solid var(--border); }
   .car-dots { position: absolute; bottom: 1.15rem; right: 1.1rem; display: flex; gap: 0.45rem; z-index: 5; }
   .car-dot { width: 8px; height: 8px; border-radius: 8px; background: rgba(255,255,255,0.6); border: 1px solid rgba(59,42,30,0.2); cursor: pointer; transition: all 0.35s; padding: 0; }
   .car-dot.active { background: var(--accent-red); width: 24px; }
@@ -140,7 +141,7 @@
   .stat-item { text-align: center; padding: 0.9rem 1.6rem; flex: 1; }
   .stat-item + .stat-item { border-left: 1px solid var(--border); }
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 600; color: var(--shiba-brown); display: block; line-height: 1; }
-  .stat-label { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.3rem; display: block; }
+  .stat-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 0.3rem; display: block; }
 
   /* MARQUEE */
   .marquee-strip { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; padding: 0.85rem 0; position: relative; }
@@ -204,7 +205,7 @@
   .service-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
   .service-name { font-family: 'Noto Serif TC', serif; font-size: 1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.7rem; }
   .service-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.9; }
-  .service-tag { display: inline-block; margin-top: 1rem; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--jacket-blue); background: rgba(122,155,181,0.08); border: 1px solid rgba(122,155,181,0.2); padding: 0.2rem 0.7rem; border-radius: 20px; }
+  .service-tag { display: inline-block; margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--jacket-blue); background: rgba(122,155,181,0.08); border: 1px solid rgba(122,155,181,0.2); padding: 0.2rem 0.7rem; border-radius: 20px; }
 
   /* PROCESS */
   #process { background: var(--mid-bg); }
@@ -219,7 +220,7 @@
 
   .process-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; position: sticky; top: 5.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
   .process-box-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 0.3rem; }
-  .process-box-sub { font-size: 0.76rem; color: var(--text-muted); margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+  .process-box-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
   .flow-row { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0.8rem; border-radius: 4px; transition: background 0.2s; }
   .flow-row:hover { background: var(--mid-bg); }
   .flow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--shiba-brown); flex-shrink: 0; }
@@ -241,12 +242,13 @@
   .ins-card:hover { border-color: var(--jacket-blue); box-shadow: 0 4px 16px rgba(122,155,181,0.1); transform: translateX(4px); }
   .ins-icon { width: 46px; height: 46px; border-radius: 50%; background: rgba(122,155,181,0.08); border: 1px solid rgba(122,155,181,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
   .ins-name { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; color: var(--cream); margin-bottom: 0.2rem; }
-  .ins-sub { font-size: 0.74rem; color: var(--text-muted); }
+  .ins-sub { font-size: 0.8rem; color: var(--text-muted); }
   .insurance-info { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 8px; padding: 2.2rem; }
   .info-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); margin-bottom: 1.3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
   .info-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
   .info-list li { font-size: 0.83rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.7; }
   .info-list li::before { content: '✦'; color: var(--shiba-brown); font-size: 0.55rem; margin-top: 0.4rem; flex-shrink: 0; }
+  .ins-disclaimer { margin-top: 2rem; text-align: center; font-size: 0.76rem; color: var(--text-muted); }
 
   /* DOCUMENTS */
   #documents { background: var(--mid-bg); }
@@ -256,7 +258,7 @@
   .doc-header { padding: 1.8rem 2rem; background: linear-gradient(135deg, rgba(155,106,62,0.06), rgba(122,155,181,0.04)); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 1rem; }
   .doc-icon { font-size: 2rem; }
   .doc-title { font-family: 'Noto Serif TC', serif; font-size: 1rem; color: var(--cream); }
-  .doc-sub { font-size: 0.72rem; color: var(--shiba-brown); margin-top: 0.2rem; }
+  .doc-sub { font-size: 0.76rem; color: var(--shiba-brown); margin-top: 0.2rem; }
   .doc-body { padding: 2rem; }
   .doc-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
   .doc-items li { font-size: 0.82rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
@@ -273,8 +275,8 @@
   .plat-arrow { font-size: 0.8rem; color: var(--shiba-brown); opacity: 0; transform: translate(-4px, 4px); transition: all 0.28s; }
   a.plat-card:hover .plat-arrow { opacity: 1; transform: translate(0, 0); }
   .plat-name { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; font-weight: 500; color: var(--cream); margin-bottom: 0.35rem; }
-  .plat-desc { font-size: 0.74rem; color: var(--text-muted); line-height: 1.7; }
-  .plat-chip { margin-top: auto; padding-top: 0.8rem; font-size: 0.66rem; letter-spacing: 0.08em; color: var(--jacket-blue); }
+  .plat-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; }
+  .plat-chip { margin-top: auto; padding-top: 0.8rem; font-size: 0.7rem; letter-spacing: 0.08em; color: var(--jacket-blue); }
 
   .plat-card.promo { border: 1.5px solid rgba(155,106,62,0.5); background: linear-gradient(150deg, #FBF5EC, #F5EAD8) !important; }
   .promo-badge { position: absolute; top: -10px; right: 12px; background: var(--accent-red); color: #fff; font-size: 0.62rem; letter-spacing: 0.08em; padding: 0.22rem 0.7rem; border-radius: 20px; box-shadow: 0 3px 10px rgba(176,58,46,0.4); }
@@ -287,7 +289,7 @@
   .soon-chip { margin-top: auto; padding-top: 0.8rem; }
   .soon-chip span { font-size: 0.66rem; letter-spacing: 0.1em; color: var(--warm-gold); background: rgba(196,168,130,0.12); border: 1px solid rgba(196,168,130,0.35); padding: 0.2rem 0.7rem; border-radius: 20px; }
 
-  .plat-note { margin-top: 2rem; text-align: center; font-size: 0.74rem; color: var(--text-muted); line-height: 1.9; }
+  .plat-note { margin-top: 2rem; text-align: center; font-size: 0.78rem; color: var(--text-muted); line-height: 1.9; }
 
   /* ABOUT */
   #about { background: var(--mid-bg); }
@@ -313,24 +315,25 @@
   .contact-method { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.5rem; background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.25s; }
   .contact-method:hover { border-color: var(--line-green); transform: translateX(4px); box-shadow: 0 4px 16px rgba(110,154,124,0.15); }
   .contact-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-  .contact-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+  .contact-label { font-size: 0.74rem; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
   .contact-value { font-size: 0.88rem; color: var(--cream); }
 
   .qr-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; text-align: center; }
   .qr-card img { width: 190px; height: 190px; border-radius: 10px; border: 1px solid var(--border); background: #fff; padding: 10px; transition: transform 0.4s ease; }
   .qr-card img:hover { transform: scale(1.05); }
   .qr-title { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; color: var(--cream); margin-bottom: 1.2rem; }
-  .qr-sub { font-size: 0.74rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.8; }
+  .qr-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.8; }
 
   .contact-notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3rem; }
   .note-item { padding: 1.2rem 1.4rem; background: #F5EFE6 !important; border-left: 2.5px solid var(--shiba-brown); border-radius: 0 6px 6px 0; }
   .note-item-title { font-size: 0.82rem; color: var(--shiba-brown); font-weight: 500; margin-bottom: 0.35rem; }
-  .note-item-desc { font-size: 0.76rem; color: var(--text-muted); line-height: 1.8; }
+  .note-item-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.8; }
 
   /* FOOTER */
   footer { background: var(--cream); padding: 2.5rem 3rem; text-align: center; }
-  .footer-brand { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(250,247,242,0.8); margin-bottom: 0.4rem; }
-  .footer-copy { font-size: 0.7rem; color: rgba(250,247,242,0.45); letter-spacing: 0.08em; }
+  .footer-brand { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(250,247,242,0.8); margin-bottom: 0.7rem; }
+  .footer-disclaimer { font-size: 0.74rem; color: rgba(250,247,242,0.55); line-height: 1.9; max-width: 660px; margin: 0 auto 0.9rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(250,247,242,0.45); letter-spacing: 0.08em; }
 
   /* FLOATING LINE BUTTON */
   .line-fab { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 1200; display: flex; align-items: center; gap: 0.5rem; background: var(--line-green); color: #fff; padding: 0.85rem 1.35rem; border-radius: 50px; text-decoration: none; font-size: 0.84rem; letter-spacing: 0.05em; box-shadow: 0 8px 24px rgba(110,154,124,0.45); transition: transform 0.3s, box-shadow 0.3s; }
@@ -416,7 +419,7 @@
     .stamp-char { font-size: 1.4rem; }
     .stamp-sub { font-size: 0.42rem; letter-spacing: 0.12em; margin-top: 2px; }
     .stat-item { padding: 0.9rem 0.5rem; }
-    .stat-label { font-size: 0.6rem; white-space: nowrap; }
+    .stat-label { font-size: 0.7rem; white-space: nowrap; }
     #about .deco { bottom: -18px; right: -12px; width: 105px; height: 105px; }
     .line-fab span.fab-text { display: none; }
     .line-fab { padding: 0.95rem; }
@@ -443,7 +446,7 @@
     <img src="images/logo.png" alt="阿中與小夢的旅遊官方 Logo">
     <div class="nav-logo-text">
       阿中與小夢的旅遊官方
-      <span>Official Travel Consulting</span>
+      <span>From Dream to Departure</span>
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -455,9 +458,9 @@
     <li><a href="#about">關於我們</a></li>
     <li><a href="#contact" class="nav-cta">立即諮詢</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -466,7 +469,7 @@
   <div class="hero-deco hero-deco-2"></div>
   <div class="hero-content">
     <div>
-      <p class="hero-label">Official Travel Consulting</p>
+      <p class="hero-label">From Dream to Departure</p>
       <h1 class="hero-title"><em>世界遼闊</em><br>別把人生只留給日常</h1>
       <p class="hero-desc">阿中與小夢，陪您把旅行想得更周全。<br>提供團體旅遊報名、旅遊保險與證件辦理等服務，<br>從挑選行程到安心出發，為您打理每一個細節。</p>
       <div class="hero-actions">
@@ -518,16 +521,16 @@
       </div>
       <div class="hero-stats">
         <div class="stat-item">
+          <span class="stat-num" data-target="1000" data-suffix="+">0</span>
+          <span class="stat-label">服務旅客</span>
+        </div>
+        <div class="stat-item">
           <span class="stat-num" data-target="880" data-suffix="+">0</span>
-          <span class="stat-label">LINE 服務客戶</span>
+          <span class="stat-label">LINE 好友</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="3" data-suffix="">0</span>
-          <span class="stat-label">保險合作夥伴</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" data-target="8" data-suffix="+">0</span>
-          <span class="stat-label">旅遊平台合作</span>
+          <span class="stat-num" data-target="40" data-suffix="+">0</span>
+          <span class="stat-label">合作旅行社</span>
         </div>
       </div>
     </div>
@@ -558,15 +561,15 @@
       <a class="service-card reveal" href="#process">
         <span class="service-num">01</span>
         <span class="service-icon">✈️</span>
-        <h3 class="service-name">海外團體旅遊報名</h3>
-        <p class="service-desc">代為洽詢各大旅行社優惠方案，協助您以最優惠價格報名海外團體行程。涵蓋亞洲、歐洲、美洲等熱門目的地。</p>
-        <span class="service-tag">合作各大旅行社</span>
+        <h3 class="service-name">海外旅遊團體報名</h3>
+        <p class="service-desc">綜合旅行社業務，代理雄獅、可樂、五福、東南、山富、鳳凰等 40+ 家旅行社團體行程，協助比較合適方案與可用優惠，出國跟團輕鬆報名。</p>
+        <span class="service-tag">代理 40+ 家旅行社</span>
       </a>
       <a class="service-card reveal d1" href="#insurance">
         <span class="service-num">02</span>
         <span class="service-icon">🛡️</span>
         <h3 class="service-name">旅遊保險諮詢</h3>
-        <p class="service-desc">與國泰產險、南山人壽、旺旺友聯等保險公司合作，為您量身推薦最適合的旅遊保障方案。</p>
+        <p class="service-desc">與國泰產險、南山人壽、旺旺友聯等保險公司合作，依旅程需求提供旅遊保障資訊整理與方案比較。</p>
         <span class="service-tag">3 大保險夥伴</span>
       </a>
       <a class="service-card reveal d2" href="#documents">
@@ -679,7 +682,7 @@
     <div class="reveal">
       <p class="section-label">Travel Insurance</p>
       <h2 class="section-title">旅遊保險</h2>
-      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與三大保險公司合作，為您的每一段旅程提供完善保障。</p>
+      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與三大保險公司合作，依旅程需求提供保障資訊整理與方案比較，讓您安心出發。</p>
     </div>
     <div class="insurance-grid">
       <div class="insurance-cards reveal">
@@ -706,10 +709,11 @@
           <li>不便險：班機延誤、行李遺失、旅程取消等</li>
           <li>意外身故及傷殘保障，保護您與家人</li>
           <li>24 小時緊急救援服務，有狀況可即時支援</li>
-          <li>依目的地與行程天數量身推薦最適合方案</li>
+          <li>依目的地與行程天數整理合適的方案選擇</li>
         </ul>
       </div>
     </div>
+    <p class="ins-disclaimer reveal">實際保障內容、承保與理賠，依保險公司保單條款及核保結果為準。</p>
   </div>
 </section>
 
@@ -730,7 +734,7 @@
       <div class="doc-card reveal">
         <div class="doc-header">
           <span class="doc-icon">🛂</span>
-          <div><h3 class="doc-title">中華民國護照</h3><p class="doc-sub">首次申請 ／ 換發 ／ 加簽</p></div>
+          <div><h3 class="doc-title">中華民國護照</h3><p class="doc-sub">首次申請 ／ 換發 ／ 遺失補發</p></div>
         </div>
         <div class="doc-body">
           <ul class="doc-items">
@@ -740,7 +744,7 @@
             <li>舊護照（換發時須繳回）</li>
             <li>兵役相關文件（男性役男）</li>
           </ul>
-          <div class="doc-note">⏱ 一般件約 10 個工作天，遺失補發或急件請洽詢外交部。費用及最新規定請向我們確認。</div>
+          <div class="doc-note">⏱ 所需文件及工作天數依申請類型、年齡與申請管道不同，請以外交部領事事務局最新公告為準。（資訊更新：2026 年 7 月）</div>
         </div>
       </div>
       <div class="doc-card reveal d1">
@@ -857,7 +861,7 @@
         <div class="about-card">
           <img src="images/logo.png" alt="阿中與小夢旅遊官方" class="about-logo">
           <p class="about-brand">阿中與小夢的旅遊官方</p>
-          <span class="about-brand-en">A-Zhong & Xiao Meng · Official Travel</span>
+          <span class="about-brand-en">From Dream to Departure</span>
           <div class="about-badges">
             <span class="about-badge">LINE 880+ 客戶</span>
             <span class="about-badge">專業旅遊諮詢</span>
@@ -871,8 +875,8 @@
         <p class="about-desc">阿中與小夢是一個以誠信與熱情為核心的旅遊諮詢品牌。由「阿中」與「小夢」共同經營，致力於為每一位旅客提供貼心、專業的旅遊服務。</p>
         <p class="about-desc">我們深信，旅行不只是移動，更是一段讓人充實與感動的生命體驗。從協助報名海外團體行程，到保險諮詢、證件辦理，我們讓您出發前的每一步都輕鬆、安心。</p>
         <ul class="about-features">
-          <li>880+ LINE 官方帳號訂閱客戶</li>
-          <li>與各大旅行社、保險公司建立長期合作</li>
+          <li>服務超過 1000+ 位旅客，LINE 官方帳號 880+ 訂閱</li>
+          <li>代理雄獅、可樂、五福、東南等 40+ 家旅行社</li>
           <li>提供個人化旅遊諮詢，不是制式化服務</li>
           <li>父女共同經營，溫暖有溫度的服務態度</li>
         </ul>
@@ -928,7 +932,7 @@
       </div>
       <div class="note-item reveal d2">
         <p class="note-item-title">服務範圍</p>
-        <p class="note-item-desc">主要服務台灣旅客，提供出境旅遊相關諮詢。如有特殊需求歡迎說明。</p>
+        <p class="note-item-desc">主要服務台灣旅客，提供出境旅遊相關諮詢；行程之簽約、收款與履約由各合作旅行社辦理。</p>
       </div>
     </div>
   </div>
@@ -937,7 +941,8 @@
 <!-- FOOTER -->
 <footer>
   <p class="footer-brand">阿中與小夢的旅遊官方</p>
-  <p class="footer-copy">© 2026 A-Zhong & Xiao Meng Official Travel · All Rights Reserved</p>
+  <p class="footer-disclaimer">本網站提供旅遊資訊、行程諮詢及合作平台導流服務；實際行程之承辦、簽約、收款、取消與履約責任，依各合作旅行社或平台之契約及規定為準。</p>
+  <p class="footer-copy">© 2026 阿中與小夢的旅遊官方 · From Dream to Departure · All Rights Reserved</p>
 </footer>
 
 <!-- FLOATING LINE BUTTON -->
@@ -965,14 +970,22 @@
     menuOpen = !menuOpen;
     mobileMenu.classList.toggle('open', menuOpen);
     hamburger.classList.toggle('open', menuOpen);
+    hamburger.setAttribute('aria-expanded', menuOpen);
+    hamburger.setAttribute('aria-label', menuOpen ? '關閉選單' : '開啟選單');
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (menuOpen) mobileMenu.querySelector('a').focus();
   }
   function closeMenu() {
     menuOpen = false;
     mobileMenu.classList.remove('open');
     hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', '開啟選單');
     document.body.style.overflow = '';
   }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOpen) { closeMenu(); hamburger.focus(); }
+  });
 
   // Scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
