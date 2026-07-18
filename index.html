@@ -76,7 +76,7 @@
 <link rel="icon" type="image/png" href="images/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: light only;
@@ -89,7 +89,7 @@
     --card-bg: #FBF8F4;
     --cream: #3B2A1E;
     --text-light: #3B2A1E;
-    --text-muted: #8A7060;
+    --text-muted: #755B48;
     --border: rgba(155,106,62,0.18);
     --nav-bg: rgba(59,42,30,0.97);
     --line-green: #6E9A7C;
@@ -99,17 +99,23 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; font-size: 106.25%; }
 
   body {
     background: #F5EFE6 !important;
     color: var(--text-light);
     font-family: 'Noto Sans TC', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     overflow-x: hidden;
   }
 
   ::selection { background: rgba(155,106,62,0.2); }
+
+  /* 內文加粗提升可讀性 */
+  .hero-desc, .section-subtitle, .service-desc, .step-desc, .plat-desc, .about-desc,
+  .faq-a, .ins-sub, .note-item-desc, .qr-sub, .contact-cta-text, .doc-items li,
+  .info-list li, .flow-text, .process-note, .doc-note, .plat-note, .ins-disclaimer,
+  .mini-cta p, .stat-label, .contact-label, .about-features li { font-weight: 500; }
 
   /* NAV */
   nav {
@@ -442,7 +448,7 @@
       --card-bg: #FBF8F4;
       --cream: #3B2A1E;
       --text-light: #3B2A1E;
-      --text-muted: #8A7060;
+      --text-muted: #755B48;
       --border: rgba(155,106,62,0.18);
       --nav-bg: rgba(245,239,230,0.97);
     }
@@ -476,6 +482,7 @@
     .plat-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 900px) {
+    html { font-size: 112.5%; }
     nav { padding: 1rem 1.5rem; }
     nav.scrolled { padding: 0.6rem 1.5rem; }
     .nav-links { display: none; }
