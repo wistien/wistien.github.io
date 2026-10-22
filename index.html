@@ -121,6 +121,10 @@
 
   ::selection { background: rgba(155,106,62,0.2); }
 
+  /* 避免段落最後一行只剩一兩個字 */
+  p, li { text-wrap: pretty; }
+  .section-subtitle, .mini-cta p, .plat-note, .footer-disclaimer { text-wrap: balance; }
+
   /* 內文加粗提升可讀性 */
   .hero-desc, .section-subtitle, .service-desc, .step-desc, .plat-desc, .about-desc,
   .faq-a, .ins-sub, .note-item-desc, .qr-sub, .contact-cta-text, .doc-items li,
@@ -385,9 +389,9 @@
 
   .plat-card.promo { border: 1.5px solid rgba(155,106,62,0.5); background: linear-gradient(150deg, #FBF5EC, #F5EAD8) !important; }
   .promo-badge { position: absolute; top: -10px; right: 12px; background: var(--accent-red); color: #fff; font-size: 0.62rem; letter-spacing: 0.08em; padding: 0.22rem 0.7rem; border-radius: 20px; box-shadow: 0 3px 10px rgba(176,58,46,0.4); }
-  .promo-code { margin-top: auto; display: flex; align-items: center; gap: 0.4rem; padding-top: 0.8rem; }
+  .promo-code { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; padding-top: 0.8rem; }
   .promo-code code { font-size: 0.72rem; background: #fff; border: 1px dashed var(--shiba-brown); color: var(--shiba-brown); padding: 0.22rem 0.55rem; border-radius: 4px; letter-spacing: 0.06em; }
-  .copy-btn { font-size: 0.64rem; background: var(--shiba-brown); color: #fff; border: none; border-radius: 4px; padding: 0.28rem 0.6rem; cursor: pointer; transition: background 0.2s; font-family: 'Noto Sans TC', sans-serif; }
+  .copy-btn { font-size: 0.64rem; background: var(--shiba-brown); color: #fff; border: none; border-radius: 4px; padding: 0.28rem 0.6rem; white-space: nowrap; cursor: pointer; transition: background 0.2s; font-family: 'Noto Sans TC', sans-serif; }
   .copy-btn:hover { background: #7A5030; }
 
   .plat-card.soon { border-style: dashed; opacity: 0.85; cursor: default; }
@@ -545,7 +549,8 @@
     .hero-desc br { display: none; }
   }
   @media (max-width: 480px) {
-    .plat-grid { grid-template-columns: 1fr; }
+    .plat-grid { gap: 0.8rem; }
+    .plat-card { padding: 1.3rem 0.95rem; }
   }
 </style>
 </head>
