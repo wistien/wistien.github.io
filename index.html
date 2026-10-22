@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +14,21 @@
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#3B2A1E">
 <meta name="description" content="阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、證件辦理協助、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。">
-<meta property="og:title" content="阿中與小夢的旅遊官方">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="阿中與小夢的旅遊官方">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・證件辦理">
 <meta property="og:description" content="海外團體旅遊報名・旅遊保險諮詢・證件辦理・自助旅遊資源・出國網路 eSIM">
-<meta property="og:image" content="https://wistien.github.io/images/photo-7.jpg">
+<meta property="og:image" content="https://wistien.github.io/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、證件辦理">
 <meta property="og:url" content="https://wistien.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="阿中與小夢的旅遊官方">
+<meta name="twitter:title" content="阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・證件辦理">
 <meta name="twitter:description" content="海外團體旅遊報名・旅遊保險諮詢・證件辦理・自助旅遊資源・出國網路 eSIM">
-<meta name="twitter:image" content="https://wistien.github.io/images/photo-7.jpg">
+<meta name="twitter:image" content="https://wistien.github.io/images/og-image.jpg">
+<meta name="twitter:image:alt" content="阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、證件辦理">
 <link rel="canonical" href="https://wistien.github.io/">
 <script type="application/ld+json">
 {
@@ -48,7 +55,7 @@
       "@id": "https://wistien.github.io/#website",
       "name": "阿中與小夢的旅遊官方",
       "url": "https://wistien.github.io/",
-      "inLanguage": "zh-TW",
+      "inLanguage": "zh-Hant-TW",
       "publisher": { "@id": "https://wistien.github.io/#org" }
     },
     {
@@ -72,8 +79,11 @@
   ]
 }
 </script>
-<title>阿中與小夢的旅遊官方</title>
-<link rel="icon" type="image/png" href="images/logo.png">
+<title>阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・證件辦理</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -110,6 +120,10 @@
   }
 
   ::selection { background: rgba(155,106,62,0.2); }
+
+  /* 避免段落最後一行只剩一兩個字 */
+  p, li { text-wrap: pretty; }
+  .section-subtitle, .mini-cta p, .plat-note, .footer-disclaimer { text-wrap: balance; }
 
   /* 內文加粗提升可讀性 */
   .hero-desc, .section-subtitle, .service-desc, .step-desc, .plat-desc, .about-desc,
@@ -156,18 +170,17 @@
   .nav-cta:hover { background: #8F2F25 !important; transform: translateY(-1px) !important; }
   .nav-cta::after { display: none !important; }
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; z-index: 1100; background: transparent; border: 0; }
+  .hamburger { display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 44px; height: 44px; cursor: pointer; padding: 0; z-index: 1100; background: transparent; border: 0; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-red); outline-offset: 3px; border-radius: 3px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: #F5E9DC; border-radius: 2px; transition: all 0.3s; }
-  .mobile-menu.open ~ nav .hamburger span, .hamburger.open span { background: var(--text-light); }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* MOBILE MENU */
-  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(245,239,230,0.98); z-index: 1050; flex-direction: column; align-items: center; justify-content: center; gap: 1.8rem; }
+  .mobile-menu { display: none; position: fixed; inset: 0; background: rgba(245,239,230,0.98); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; padding-top: 76px; overflow-y: auto; }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Noto Serif TC', serif; font-size: 1.25rem; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+  .mobile-menu a { font-family: 'Noto Serif TC', serif; font-size: 1.25rem; color: var(--text-light); text-decoration: none; transition: color 0.2s; padding: 0.35rem 1.5rem; }
   .mobile-menu a:hover { color: var(--shiba-brown); }
   .mobile-menu .m-cta { background: var(--shiba-brown); color: #fff !important; padding: 0.8rem 2.5rem; border-radius: 4px; margin-top: 0.5rem; }
 
@@ -205,6 +218,8 @@
   .slide-caption { position: absolute; left: 1rem; bottom: 1rem; background: rgba(251,248,244,0.9); backdrop-filter: blur(8px); color: var(--cream); font-size: 0.8rem; letter-spacing: 0.05em; padding: 0.45rem 1rem; border-radius: 30px; border: 1px solid var(--border); }
   .car-dots { position: absolute; bottom: 1.15rem; right: 1.1rem; display: flex; gap: 0.45rem; z-index: 5; }
   .car-dot { width: 8px; height: 8px; border-radius: 8px; background: rgba(255,255,255,0.6); border: 1px solid rgba(59,42,30,0.2); cursor: pointer; transition: all 0.35s; padding: 0; }
+  .car-dot { position: relative; }
+  .car-dot::after { content: ''; position: absolute; inset: -8px -4px; }
   .car-dot.active { background: var(--accent-red); width: 24px; }
   .car-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(251,248,244,0.88); border: 1px solid var(--border); color: var(--cream); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; z-index: 5; opacity: 0; transition: opacity 0.3s, background 0.2s; }
   .car-arrow:hover { background: #fff; }
@@ -227,7 +242,7 @@
   .marquee-item::after { content: '✈\FE0E'; color: rgba(176,58,46,0.5); font-size: 0.7rem; }
 
   /* SECTIONS */
-  section { padding: 6rem 3rem; }
+  section { padding: 6rem 3rem; overflow-x: clip; }
   .section-inner { max-width: 1200px; margin: 0 auto; position: relative; }
 
   /* PASSPORT STAMPS */
@@ -374,9 +389,9 @@
 
   .plat-card.promo { border: 1.5px solid rgba(155,106,62,0.5); background: linear-gradient(150deg, #FBF5EC, #F5EAD8) !important; }
   .promo-badge { position: absolute; top: -10px; right: 12px; background: var(--accent-red); color: #fff; font-size: 0.62rem; letter-spacing: 0.08em; padding: 0.22rem 0.7rem; border-radius: 20px; box-shadow: 0 3px 10px rgba(176,58,46,0.4); }
-  .promo-code { margin-top: auto; display: flex; align-items: center; gap: 0.4rem; padding-top: 0.8rem; }
+  .promo-code { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; padding-top: 0.8rem; }
   .promo-code code { font-size: 0.72rem; background: #fff; border: 1px dashed var(--shiba-brown); color: var(--shiba-brown); padding: 0.22rem 0.55rem; border-radius: 4px; letter-spacing: 0.06em; }
-  .copy-btn { font-size: 0.64rem; background: var(--shiba-brown); color: #fff; border: none; border-radius: 4px; padding: 0.28rem 0.6rem; cursor: pointer; transition: background 0.2s; font-family: 'Noto Sans TC', sans-serif; }
+  .copy-btn { font-size: 0.64rem; background: var(--shiba-brown); color: #fff; border: none; border-radius: 4px; padding: 0.28rem 0.6rem; white-space: nowrap; cursor: pointer; transition: background 0.2s; font-family: 'Noto Sans TC', sans-serif; }
   .copy-btn:hover { background: #7A5030; }
 
   .plat-card.soon { border-style: dashed; opacity: 0.85; cursor: default; }
@@ -426,8 +441,8 @@
   /* FOOTER */
   footer { background: linear-gradient(rgba(45,30,20,0.78), rgba(45,30,20,0.84)), url('images/photo-1.jpg') center/cover no-repeat; padding: 2.5rem 3rem; text-align: center; }
   .footer-brand { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: rgba(250,247,242,0.8); margin-bottom: 0.7rem; }
-  .footer-disclaimer { font-size: 0.74rem; color: rgba(250,247,242,0.55); line-height: 1.9; max-width: 660px; margin: 0 auto 0.9rem; }
-  .footer-copy { font-size: 0.72rem; color: rgba(250,247,242,0.45); letter-spacing: 0.08em; }
+  .footer-disclaimer { font-size: 0.74rem; color: rgba(250,247,242,0.85); line-height: 1.9; max-width: 660px; margin: 0 auto 0.9rem; }
+  .footer-copy { font-size: 0.72rem; color: rgba(250,247,242,0.75); letter-spacing: 0.08em; }
 
   /* FLOATING LINE BUTTON */
   .line-fab { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 1200; display: flex; align-items: center; gap: 0.5rem; background: var(--line-green); color: #fff; padding: 0.85rem 1.35rem; border-radius: 50px; text-decoration: none; font-size: 0.84rem; letter-spacing: 0.05em; box-shadow: 0 8px 24px rgba(110,154,124,0.45); transition: transform 0.3s, box-shadow 0.3s; }
@@ -519,6 +534,23 @@
     .line-fab span.fab-text { display: none; }
     .line-fab { padding: 0.95rem; }
     .to-top { bottom: 5.4rem; right: 1.35rem; }
+    .plat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .slide-caption { bottom: 2.6rem; }
+    .car-arrow { width: 44px; height: 44px; }
+    footer { padding-bottom: 6.5rem; }
+    /* 長輩友善：手機上最小字級提高 */
+    .stat-label, .service-tag, .plat-chip, .about-badge, .promo-code code, .soon-chip span,
+    .contact-label, .doc-sub, .ins-disclaimer, .footer-disclaimer, .footer-copy { font-size: 0.8rem; }
+    .promo-badge { font-size: 0.72rem; }
+    .copy-btn { font-size: 0.8rem; min-height: 44px; padding: 0 1rem; }
+  }
+  @media (max-width: 600px) {
+    .hero-title { font-size: clamp(1.7rem, 8.4vw, 2rem); }
+    .hero-desc br { display: none; }
+  }
+  @media (max-width: 480px) {
+    .plat-grid { gap: 0.8rem; }
+    .plat-card { padding: 1.3rem 0.95rem; }
   }
 </style>
 </head>
