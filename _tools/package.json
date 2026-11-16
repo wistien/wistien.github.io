@@ -1,0 +1,8 @@
+{
+  "name": "wistien-site-tools",
+  "private": true,
+  "description": "Maintenance scripts for wistien.com (not published)",
+  "dependencies": {
+    "puppeteer-core": "^25.17.0"
+  }
+}
