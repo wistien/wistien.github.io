@@ -1,0 +1,83 @@
+---
+// 全站共用版型：<head>、導覽列、頁尾、浮動按鈕、全站樣式與程式。
+// 樣式與程式直接內嵌在頁面裡（跟原本單頁版相同），不另外發請求。
+import siteCss from '../styles/site.css?raw';
+import siteJs from '../scripts/site.js?raw';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import FloatingTools from '../components/FloatingTools.astro';
+
+const SITE = 'https://wistien.com';
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = SITE + '/images/og-image.jpg',
+  ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、證件辦理",
+  path = '/',
+} = Astro.props;
+const canonical = SITE + path;
+---
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0KK1SHF67E"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0KK1SHF67E');
+</script>
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#3B2A1E">
+<meta name="description" content={description}>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="阿中與小夢的旅遊官方">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content={ogImageAlt}>
+<meta property="og:url" content={canonical}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={ogTitle}>
+<meta name="twitter:description" content={ogDescription}>
+<meta name="twitter:image" content={ogImage}>
+<meta name="twitter:image:alt" content={ogImageAlt}>
+<link rel="canonical" href={canonical}>
+<slot name="schema" />
+<title>{title}</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- 字體：fonts/ 內是只含本站用字的子集檔（同一套 Noto Sans TC、Noto Serif TC、Cormorant Garamond）。
+     改過文字後請照 _tools/README.md 重跑字體子集；沒重跑也不會跑版，頁尾的備援程式會自動補載缺的字。 -->
+<link rel="preload" as="font" type="font/woff2" href="/fonts/noto-sans-tc-site.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/noto-serif-tc-site.woff2" crossorigin>
+<slot name="preload" />
+<script is:inline>
+  // 字體大小：畫面繪製前先套用上次的選擇，避免閃動
+  try { var fs = localStorage.getItem('fontSize'); if (fs === 'lg' || fs === 'xl') document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
+</script>
+<style is:inline set:html={'\n' + siteCss}></style>
+</head>
+<body>
+
+<SiteNav />
+
+<slot />
+
+<SiteFooter />
+
+<FloatingTools />
+
+<script is:inline set:html={'\n' + siteJs}></script>
+</body>
+</html>

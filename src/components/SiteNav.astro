@@ -1,0 +1,35 @@
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">服務項目</a>
+  <a href="#process" onclick="closeMenu()">報名流程</a>
+  <a href="#insurance" onclick="closeMenu()">旅遊保險</a>
+  <a href="#documents" onclick="closeMenu()">證件辦理</a>
+  <a href="#platforms" onclick="closeMenu()">合作平台</a>
+  <a href="#faq" onclick="closeMenu()">常見問題</a>
+  <a href="#about" onclick="closeMenu()">關於我們</a>
+  <a href="#contact" onclick="closeMenu()" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <picture><source type="image/webp" srcset="/images/opt/logo-176.webp"><img src="/images/logo.png" alt="阿中與小夢的旅遊官方 Logo" width="44" height="44" decoding="async"></picture>
+    <div class="nav-logo-text">
+      阿中與小夢的旅遊官方
+      <span>From Dream to Departure</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">服務項目</a></li>
+    <li><a href="#process">報名流程</a></li>
+    <li><a href="#insurance">旅遊保險</a></li>
+    <li><a href="#documents">證件辦理</a></li>
+    <li><a href="#platforms">合作平台</a></li>
+    <li><a href="#faq">常見問題</a></li>
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#contact" class="nav-cta">立即諮詢</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

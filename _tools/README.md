@@ -1,6 +1,19 @@
 # _tools：官網維護工具
 
-這個資料夾不會出現在網站上（GitHub Pages 會略過底線開頭的資料夾），只放維護用的腳本。
+這個資料夾不會出現在網站上，只放維護用的腳本。
+
+## 多頁版（Astro）的路徑對照
+
+這個分支已改成 Astro 專案，下面各節的指令是單頁版時期寫的，路徑要這樣換：
+
+| 單頁版 | 多頁版 |
+|---|---|
+| `../index.html` | 先在 repo 根目錄跑 `npm run build`，再用 `../dist/index.html`（有幾個頁面就列幾個） |
+| 字體、圖片輸出到 `..` | 輸出到 `../public` |
+| `index.html` 的 `<style>` 開頭四行 `@font-face` | `src/styles/site.css` 開頭四行，路徑要寫成 `/fonts/…`（開頭有斜線） |
+| 比對時的「修改後資料夾」 | `../dist` |
+
+網站內容在 `src/`：`layouts/Base.astro` 是全站版型，`components/` 是導覽列、頁尾與浮動按鈕，`pages/` 一個檔案就是一個網址。
 
 ## 什麼時候要用
 
