@@ -87,9 +87,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+  // 字體大小：畫面繪製前先套用上次的選擇，避免閃動
+  try { var fs = localStorage.getItem('fontSize'); if (fs === 'lg' || fs === 'xl') document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
+</script>
 <style>
   :root {
     color-scheme: light only;
+    /* 字體大小模式：--fs 全站文字倍率；--cap 讓原本就大的標題、按鈕放大得少一點；--hs 用於 vw 字級；
+       --inv 抵銷放大（= 1 / --fs），讓手機上的左右留白維持原本寬度，把空間留給文字 */
+    --fs: 1; --cap: 1; --hs: 1; --inv: 1;
     --shiba-brown: #9B6A3E;
     --scarf-red: #B5704A;
     --jacket-blue: #7A9BB5;
@@ -109,7 +116,9 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; font-size: 106.25%; }
+  html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; font-size: calc(106.25% * var(--fs)); }
+  html[data-fs="lg"] { --fs: 1.15; --cap: 0.93; --hs: 1.07; --inv: 0.87; }
+  html[data-fs="xl"] { --fs: 1.3; --cap: 0.87; --hs: 1.13; --inv: 0.77; }
 
   body {
     background: #F5EFE6 !important;
@@ -191,21 +200,22 @@
   .hero-deco-1 { width: 500px; height: 500px; background: rgba(155,106,62,0.08); top: -100px; right: -100px; }
   .hero-deco-2 { width: 350px; height: 350px; background: rgba(122,155,181,0.06); bottom: -50px; left: 10%; }
 
+  .hero-content > * { min-width: 0; }
   .hero-content { max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
 
   .hero-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: var(--shiba-brown); letter-spacing: 0.2em; margin-bottom: 1.2rem; opacity: 0; animation: fadeUp 0.7s ease 0.2s forwards; }
-  .hero-title { font-family: 'Noto Serif TC', serif; font-size: clamp(2rem, 3.5vw, 3.1rem); font-weight: 400; line-height: 1.55; color: var(--cream); margin-bottom: 1.3rem; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
+  .hero-title { font-family: 'Noto Serif TC', serif; font-size: clamp(calc(2rem * var(--cap)), calc(3.5vw * var(--hs)), calc(3.1rem * var(--cap))); font-weight: 400; line-height: 1.55; color: var(--cream); margin-bottom: 1.3rem; opacity: 0; animation: fadeUp 0.7s ease 0.35s forwards; }
   .hero-title em { font-style: normal; color: var(--accent-red); }
   .hero-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 2; margin-bottom: 2.2rem; opacity: 0; animation: fadeUp 0.7s ease 0.5s forwards; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s ease 0.65s forwards; }
 
-  .btn-primary { background: var(--shiba-brown); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(155,106,62,0.25); }
+  .btn-primary { background: var(--shiba-brown); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: calc(0.85rem * var(--cap)); letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(155,106,62,0.25); }
   .btn-primary:hover { background: #7A5030; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(155,106,62,0.35); }
 
-  .btn-secondary { background: transparent; color: var(--shiba-brown); padding: 0.85rem 2rem; border: 1.5px solid var(--shiba-brown); border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 0.4rem; }
+  .btn-secondary { background: transparent; color: var(--shiba-brown); padding: 0.85rem 2rem; border: 1.5px solid var(--shiba-brown); border-radius: 3px; font-size: calc(0.85rem * var(--cap)); letter-spacing: 0.08em; cursor: pointer; text-decoration: none; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; display: inline-flex; align-items: center; gap: 0.4rem; }
   .btn-secondary:hover { background: var(--shiba-brown); color: #fff; transform: translateY(-2px); }
 
-  .btn-line { background: var(--line-green); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: 0.85rem; letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(110,154,124,0.3); }
+  .btn-line { background: var(--line-green); color: #fff; padding: 0.85rem 2rem; border: none; border-radius: 3px; font-size: calc(0.85rem * var(--cap)); letter-spacing: 0.08em; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.25s; font-family: 'Noto Sans TC', sans-serif; box-shadow: 0 4px 16px rgba(110,154,124,0.3); }
   .btn-line:hover { background: var(--line-green-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(110,154,124,0.4); }
 
   /* HERO CAROUSEL */
@@ -275,7 +285,7 @@
 
   .section-label { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; color: var(--accent-red); letter-spacing: 0.2em; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.8rem; }
   .section-label::before { content: ''; width: 24px; height: 1.5px; background: var(--accent-red); display: inline-block; }
-  .section-title { font-family: 'Noto Serif TC', serif; font-size: clamp(1.7rem, 2.8vw, 2.4rem); font-weight: 400; color: var(--cream); line-height: 1.5; margin-bottom: 0.8rem; }
+  .section-title { font-family: 'Noto Serif TC', serif; font-size: clamp(calc(1.7rem * var(--cap)), calc(2.8vw * var(--hs)), calc(2.4rem * var(--cap))); font-weight: 400; color: var(--cream); line-height: 1.5; margin-bottom: 0.8rem; }
   .section-title::after { content: ''; display: block; width: 54px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, var(--accent-red), var(--warm-gold)); margin-top: 0.85rem; }
   .section-subtitle { color: var(--text-muted); font-size: 0.9rem; line-height: 2; max-width: 560px; }
 
@@ -316,13 +326,13 @@
   .flow-row:hover { background: var(--mid-bg); }
   .flow-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--shiba-brown); flex-shrink: 0; }
   .flow-connector { width: 1px; height: 14px; background: var(--border); margin-left: calc(0.8rem + 3.5px); }
-  .flow-text { font-size: 0.82rem; color: var(--text-muted); }
+  .flow-text { font-size: 0.82rem; color: var(--text-muted); min-width: 0; overflow-wrap: anywhere; }
   .process-note { margin-top: 1.5rem; padding: 1rem; background: rgba(155,106,62,0.05); border-radius: 4px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; }
 
   /* PHOTO DIVIDERS */
   .photo-divider { position: relative; height: 330px; background-size: cover; background-position: center; background-attachment: fixed; display: flex; align-items: center; justify-content: center; overflow: hidden; }
   .photo-divider::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(59,42,30,0.22), rgba(59,42,30,0.38)); }
-  .divider-quote { position: relative; text-align: center; color: #FDF9F3; font-family: 'Noto Serif TC', serif; font-size: clamp(1.15rem, 2.2vw, 1.55rem); letter-spacing: 0.18em; text-shadow: 0 2px 14px rgba(0,0,0,0.45); padding: 0 1.5rem; }
+  .divider-quote { position: relative; text-align: center; color: #FDF9F3; font-family: 'Noto Serif TC', serif; font-size: clamp(calc(1.15rem * var(--cap)), calc(2.2vw * var(--hs)), calc(1.55rem * var(--cap))); letter-spacing: 0.18em; text-shadow: 0 2px 14px rgba(0,0,0,0.45); padding: 0 1.5rem; }
   .divider-quote span { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.85rem; margin-top: 0.8rem; letter-spacing: 0.22em; opacity: 0.85; }
 
   /* INSURANCE */
@@ -357,7 +367,7 @@
   /* MINI CTA */
   .mini-cta { margin-top: 3.2rem; text-align: center; padding: 1.8rem 1.5rem; background: rgba(155,106,62,0.05); border: 1px dashed rgba(155,106,62,0.3); border-radius: 10px; }
   .mini-cta p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 1.1rem; }
-  .mini-cta .btn-line { padding: 0.7rem 1.6rem; font-size: 0.82rem; }
+  .mini-cta .btn-line { padding: 0.7rem 1.6rem; font-size: calc(0.82rem * var(--cap)); }
 
   /* DOCUMENTS */
   #documents { background: var(--mid-bg); }
@@ -370,7 +380,7 @@
   .doc-sub { font-size: 0.76rem; color: var(--shiba-brown); margin-top: 0.2rem; }
   .doc-body { padding: 2rem; }
   .doc-items { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-  .doc-items li { font-size: 0.82rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
+  .doc-items li { min-width: 0; max-width: 100%; overflow-wrap: anywhere; font-size: 0.82rem; color: var(--text-muted); padding-left: 1.2rem; position: relative; line-height: 1.7; }
   .doc-items li::before { content: '—'; position: absolute; left: 0; color: var(--shiba-brown); }
   .doc-note { margin-top: 1.5rem; padding: 0.9rem 1rem; background: rgba(181,112,74,0.05); border-left: 2.5px solid var(--scarf-red); border-radius: 0 4px 4px 0; font-size: 0.78rem; color: var(--text-muted); line-height: 1.8; }
 
@@ -424,7 +434,7 @@
   .contact-method { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.5rem; background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 6px; text-decoration: none; transition: all 0.25s; }
   .contact-method:hover { border-color: var(--line-green); transform: translateX(4px); box-shadow: 0 4px 16px rgba(110,154,124,0.15); }
   .contact-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-  .contact-label { font-size: 0.74rem; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+  .contact-label { overflow-wrap: anywhere; font-size: 0.74rem; color: var(--text-muted); letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
   .contact-value { font-size: 0.88rem; color: var(--cream); }
 
   .qr-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 10px; padding: 2rem; text-align: center; }
@@ -448,6 +458,22 @@
   .line-fab { position: fixed; right: 1.4rem; bottom: 1.4rem; z-index: 1200; display: flex; align-items: center; gap: 0.5rem; background: var(--line-green); color: #fff; padding: 0.85rem 1.35rem; border-radius: 50px; text-decoration: none; font-size: 0.84rem; letter-spacing: 0.05em; box-shadow: 0 8px 24px rgba(110,154,124,0.45); transition: transform 0.3s, box-shadow 0.3s; }
   .line-fab:hover { transform: translateY(-3px); background: var(--line-green-dark); box-shadow: 0 12px 32px rgba(110,154,124,0.55); }
   .line-fab::before { content: ''; position: absolute; inset: 0; border-radius: 50px; border: 2px solid rgba(110,154,124,0.5); animation: fabPulse 2.2s ease-out infinite; pointer-events: none; }
+
+  /* FONT SIZE SWITCHER */
+  .fs-switch { position: fixed; left: 1.4rem; bottom: 1.4rem; z-index: 1200; font-size: calc(1rem * var(--inv)); display: flex; flex-direction: column; align-items: flex-start; gap: 0.6em; }
+  .fs-toggle { display: inline-flex; align-items: center; gap: 0.45em; min-height: 46px; padding: 0 1.15em; background: #fff; color: var(--shiba-brown); border: 1.5px solid var(--shiba-brown); border-radius: 50px; font-family: 'Noto Sans TC', sans-serif; font-size: 0.84em; font-weight: 700; letter-spacing: 0.05em; cursor: pointer; box-shadow: 0 6px 20px rgba(59,42,30,0.16); transition: background 0.25s, color 0.25s, transform 0.25s; }
+  .fs-toggle:hover, .fs-toggle[aria-expanded="true"] { background: var(--shiba-brown); color: #fff; }
+  .fs-toggle:hover { transform: translateY(-2px); }
+  .fs-toggle-icon { font-family: 'Noto Serif TC', serif; font-size: 1.15em; line-height: 1; }
+  .fs-panel { display: flex; gap: 0.4em; padding: 0.45em; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 10px 32px rgba(59,42,30,0.2); }
+  .fs-panel[hidden] { display: none; }
+  .fs-opt { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 0.3em; min-width: 4.3em; min-height: 4.6em; padding: 0.5em 0.6em; background: #F5EFE6; color: var(--text-light); border: 1.5px solid transparent; border-radius: 10px; font-family: 'Noto Sans TC', sans-serif; font-size: 0.8em; font-weight: 500; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+  .fs-opt:hover { border-color: rgba(155,106,62,0.5); }
+  .fs-opt[aria-pressed="true"] { background: var(--shiba-brown); color: #fff; border-color: var(--shiba-brown); font-weight: 700; }
+  .fs-sample { font-family: 'Noto Serif TC', serif; font-weight: 700; line-height: 1; }
+  .fs-opt[data-fs="md"] .fs-sample { font-size: 1.15em; }
+  .fs-opt[data-fs="lg"] .fs-sample { font-size: 1.55em; }
+  .fs-opt[data-fs="xl"] .fs-sample { font-size: 2em; }
 
   /* BACK TO TOP */
   .to-top { position: fixed; right: 1.65rem; bottom: 5.6rem; z-index: 1190; width: 42px; height: 42px; border-radius: 50%; background: #fff; border: 1px solid var(--border); color: var(--shiba-brown); font-size: 1rem; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.1); opacity: 0; visibility: hidden; transform: translateY(8px); transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
@@ -500,12 +526,49 @@
     .slide.active img, .marquee-track, .line-fab::before, .deco, .flight-strip .plane { animation: none; }
   }
 
+  /* 長輩友善：電腦版最小字級提高（手機版在下方另有設定） */
+  .stat-label, .service-tag, .plat-chip, .about-badge, .promo-code code, .soon-chip span,
+  .contact-label, .doc-sub, .ins-disclaimer, .footer-disclaimer, .footer-copy, a.service-card::after { font-size: 0.78rem; }
+  .promo-badge, .copy-btn { font-size: 0.72rem; }
+
   /* RESPONSIVE */
+  /* 導覽列放不下八個連結時改用漢堡選單（字體越大，越早切換），避免選單文字被擠成兩行 */
+  @media (max-width: 1160px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 1300px) {
+    html[data-fs="lg"] .nav-links { display: none; }
+    html[data-fs="lg"] .hamburger { display: flex; }
+  }
+  @media (max-width: 1460px) {
+    html[data-fs="xl"] .nav-links { display: none; }
+    html[data-fs="xl"] .hamburger { display: flex; }
+  }
   @media (max-width: 1000px) {
     .plat-grid { grid-template-columns: repeat(3, 1fr); }
   }
+  /* 大字／特大模式：中等寬度的螢幕提早減少欄數，卡片內的文字才不會太擠 */
+  @media (max-width: 1150px) {
+    html[data-fs="lg"] .plat-grid { grid-template-columns: repeat(3, 1fr); }
+    html[data-fs="lg"] .stat-item, html[data-fs="xl"] .stat-item { padding-inline: min(1.2rem, 1.1vw); }
+    html[data-fs="xl"] .stat-label { font-size: calc(0.72rem * var(--cap)); }
+  }
+  @media (max-width: 1300px) {
+    html[data-fs="xl"] .plat-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 901px) and (max-width: 1150px) {
+    html[data-fs="xl"] .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 901px) {
+    /* 五欄並排時，英文小標籤放大得少一點才不會斷成兩行 */
+    html[data-fs="lg"] .plat-chip, html[data-fs="xl"] .plat-chip { font-size: calc(0.78rem * var(--cap)); letter-spacing: 0.02em; }
+  }
+  @media (max-width: 1250px) {
+    html[data-fs="lg"] .plat-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   @media (max-width: 900px) {
-    html { font-size: 112.5%; }
+    html { font-size: calc(112.5% * var(--fs)); }
     nav { padding: 1rem 1.5rem; }
     nav.scrolled { padding: 0.6rem 1.5rem; }
     .nav-links { display: none; }
@@ -543,14 +606,48 @@
     .contact-label, .doc-sub, .ins-disclaimer, .footer-disclaimer, .footer-copy { font-size: 0.8rem; }
     .promo-badge { font-size: 0.72rem; }
     .copy-btn { font-size: 0.8rem; min-height: 44px; padding: 0 1rem; }
+
+    /* 大字／特大模式：左右留白維持標準模式的寬度，文字才不會被擠成很窄一欄（標準模式下 --inv、--cap 都是 1，不受影響） */
+    nav, nav.scrolled, section, #hero, footer, .mini-cta { padding-inline: calc(1.5rem * var(--inv)); }
+    .nav-logo { gap: calc(0.9rem * var(--inv)); min-width: 0; }
+    .nav-logo-text { font-size: min(calc(1.05rem * var(--cap)), 5.2vw); white-space: nowrap; }
+    .nav-logo-text span { font-size: min(calc(0.74rem * var(--cap)), 3.7vw); }
+    .hero-label { font-size: calc(1.05rem * var(--cap)); }
+    .btn-primary, .btn-secondary, .btn-line { padding-inline: calc(2rem * var(--inv)); }
+    .mini-cta .btn-line { padding-inline: calc(1.6rem * var(--inv)); }
+    .slide-caption { left: calc(1rem * var(--inv)); max-width: calc(100% - 2rem * var(--inv)); padding-inline: calc(1rem * var(--inv)); font-size: min(calc(0.8rem * var(--cap)), 4vw); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .stat-item { padding-inline: calc(0.5rem * var(--inv)); }
+    .stat-label { font-size: calc(0.8rem * var(--cap)); }
+    .service-card, .process-box, .insurance-info { padding-inline: calc(2.2rem * var(--inv)); }
+    .process-step { gap: calc(1.5rem * var(--inv)); }
+    .flow-row { padding-inline: calc(0.8rem * var(--inv)); gap: calc(0.8rem * var(--inv)); }
+    .flow-connector { margin-left: calc(0.8rem * var(--inv) + 3.5px); }
+    .ins-card { padding-inline: calc(1.8rem * var(--inv)); gap: calc(1.2rem * var(--inv)); }
+    .doc-header, .doc-body, .qr-card { padding-inline: calc(2rem * var(--inv)); }
+    .faq-item summary { padding-inline: calc(1.4rem * var(--inv)); gap: calc(1rem * var(--inv)); }
+    .faq-a { padding-left: calc(2.9rem * var(--inv)); padding-right: calc(1.4rem * var(--inv)); }
+    .about-card { padding-inline: calc(2.5rem * var(--inv)); }
+    .contact-method { padding-inline: calc(1.5rem * var(--inv)); gap: calc(1.2rem * var(--inv)); }
+    .note-item { padding-inline: calc(1.4rem * var(--inv)); }
+    .line-fab { right: calc(1.4rem * var(--inv)); }
+    .to-top { right: calc(1.35rem * var(--inv)); }
+    .fs-switch { left: calc(1.4rem * var(--inv)); }
   }
   @media (max-width: 600px) {
-    .hero-title { font-size: clamp(1.7rem, 8.4vw, 2rem); }
+    .hero-title { font-size: clamp(calc(1.7rem * var(--cap)), calc(8.4vw * var(--hs)), calc(2rem * var(--cap))); }
     .hero-desc br { display: none; }
   }
   @media (max-width: 480px) {
     .plat-grid { gap: 0.8rem; }
     .plat-card { padding: 1.3rem 0.95rem; }
+  }
+  /* 大字／特大模式：手機上合作平台改成一欄，平台名稱與說明才放得下 */
+  @media (max-width: 480px) {
+    html[data-fs="lg"] .plat-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    html[data-fs="xl"] .plat-grid { grid-template-columns: 1fr; }
+    html[data-fs="lg"] .plat-card, html[data-fs="xl"] .plat-card { padding-inline: 1.3rem; }
   }
 </style>
 </head>
@@ -1150,6 +1247,18 @@
   <p class="footer-copy">© 2026 阿中與小夢的旅遊官方 · From Dream to Departure · All Rights Reserved</p>
 </footer>
 
+<!-- FONT SIZE SWITCHER -->
+<div class="fs-switch" id="fsSwitch">
+  <div class="fs-panel" id="fsPanel" role="group" aria-label="選擇字體大小" hidden>
+    <button type="button" class="fs-opt" data-fs="md" aria-pressed="true"><span class="fs-sample" aria-hidden="true">字</span>標準</button>
+    <button type="button" class="fs-opt" data-fs="lg" aria-pressed="false"><span class="fs-sample" aria-hidden="true">字</span>大字</button>
+    <button type="button" class="fs-opt" data-fs="xl" aria-pressed="false"><span class="fs-sample" aria-hidden="true">字</span>特大</button>
+  </div>
+  <button type="button" class="fs-toggle" id="fsToggle" aria-expanded="false" aria-controls="fsPanel">
+    <span class="fs-toggle-icon" aria-hidden="true">字</span>字體大小
+  </button>
+</div>
+
 <!-- FLOATING LINE BUTTON -->
 <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="line-fab" aria-label="加 LINE 諮詢">
   💬 <span class="fab-text">LINE 諮詢</span>
@@ -1190,6 +1299,38 @@
   }
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && menuOpen) { closeMenu(); hamburger.focus(); }
+  });
+
+  // Font size switcher
+  const fsToggle = document.getElementById('fsToggle');
+  const fsPanel = document.getElementById('fsPanel');
+  const fsOpts = fsPanel.querySelectorAll('.fs-opt');
+  function markFontSize(v) {
+    fsOpts.forEach(b => b.setAttribute('aria-pressed', b.dataset.fs === v));
+  }
+  function openFsPanel(open) {
+    fsPanel.hidden = !open;
+    fsToggle.setAttribute('aria-expanded', open);
+  }
+  function setFontSize(v) {
+    // 記住目前正在看的那一段，切換後捲回同一個位置
+    const anchor = document.elementFromPoint(window.innerWidth / 2, Math.min(window.innerHeight / 2, 220));
+    const before = anchor ? anchor.getBoundingClientRect().top : 0;
+    if (v === 'md') document.documentElement.removeAttribute('data-fs');
+    else document.documentElement.setAttribute('data-fs', v);
+    if (anchor) window.scrollBy({ top: anchor.getBoundingClientRect().top - before, behavior: 'instant' });
+    try { localStorage.setItem('fontSize', v); } catch (e) {}
+    markFontSize(v);
+    if (typeof gtag === 'function') gtag('event', 'font_size_change', { size: v });
+  }
+  markFontSize(document.documentElement.getAttribute('data-fs') || 'md');
+  fsToggle.addEventListener('click', () => openFsPanel(fsPanel.hidden));
+  fsOpts.forEach(b => b.addEventListener('click', () => setFontSize(b.dataset.fs)));
+  document.addEventListener('click', (e) => {
+    if (!fsPanel.hidden && !e.target.closest('#fsSwitch')) openFsPanel(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !fsPanel.hidden) { openFsPanel(false); fsToggle.focus(); }
   });
 
   // Scroll reveal
