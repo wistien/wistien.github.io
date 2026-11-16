@@ -526,6 +526,11 @@
     .slide.active img, .marquee-track, .line-fab::before, .deco, .flight-strip .plane { animation: none; }
   }
 
+  /* 長輩友善：電腦版最小字級提高（手機版在下方另有設定） */
+  .stat-label, .service-tag, .plat-chip, .about-badge, .promo-code code, .soon-chip span,
+  .contact-label, .doc-sub, .ins-disclaimer, .footer-disclaimer, .footer-copy, a.service-card::after { font-size: 0.78rem; }
+  .promo-badge, .copy-btn { font-size: 0.72rem; }
+
   /* RESPONSIVE */
   /* 導覽列放不下八個連結時改用漢堡選單（字體越大，越早切換），避免選單文字被擠成兩行 */
   @media (max-width: 1160px) {
@@ -554,6 +559,13 @@
   }
   @media (min-width: 901px) and (max-width: 1150px) {
     html[data-fs="xl"] .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 901px) {
+    /* 五欄並排時，英文小標籤放大得少一點才不會斷成兩行 */
+    html[data-fs="lg"] .plat-chip, html[data-fs="xl"] .plat-chip { font-size: calc(0.78rem * var(--cap)); letter-spacing: 0.02em; }
+  }
+  @media (max-width: 1250px) {
+    html[data-fs="lg"] .plat-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 900px) {
     html { font-size: calc(112.5% * var(--fs)); }
