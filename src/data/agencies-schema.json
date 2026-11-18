@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://wistien.com/agencies/#webpage",
+      "url": "https://wistien.com/agencies/",
+      "name": "可以幫您報名哪些旅行社？",
+      "description": "雄獅、可樂、山富、五福、東南、鳳凰等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。",
+      "inLanguage": "zh-Hant-TW",
+      "isPartOf": { "@id": "https://wistien.com/#website" },
+      "about": { "@id": "https://wistien.com/#org" },
+      "breadcrumb": { "@id": "https://wistien.com/agencies/#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wistien.com/agencies/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://wistien.com/" },
+        { "@type": "ListItem", "position": 2, "name": "合作旅行社", "item": "https://wistien.com/agencies/" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "清單上沒有的旅行社，也可以幫忙報名嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以！清單沒辦法全部列完，沒列出來的也歡迎詢問；各大小旅行社的出國團體行程，我們幾乎都能協助查詢與報名。" } },
+        { "@type": "Question", "name": "透過你們報名會比較便宜嗎？", "acceptedAnswer": { "@type": "Answer", "text": "會的！只要是有合作的旅行社，基本上都能給您優惠價格；實際優惠會依國家、團型與出發日有所差別，歡迎來訊詢問優惠價喔！" } },
+        { "@type": "Question", "name": "透過你們報名，跟自己直接找旅行社有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "我們是綜合旅行社業務，代理雄獅、可樂、五福、東南等 40+ 家旅行社。同樣的行程透過我們報名，通常能拿到業務通路的優惠價，還多了一個幫您比較行程、協尋團體、任何問題都可以隨時召喚我們的窗口——我們就是您旅遊業的好朋友~" } },
+        { "@type": "Question", "name": "報名後是跟誰簽約？錢是付給誰？", "acceptedAnswer": { "@type": "Answer", "text": "實際承辦、簽約、收款及履約單位，依您所選擇的行程及旅行社為準——例如報名雄獅的團，合約就由雄獅提供，我們是您的服務窗口。小夢隸屬於金鶴綜合旅行社，訂金與尾款都是繳給旅行社喔！我們不會經手團費，您的每一筆錢都有旅行社的正式保障。" } }
+      ]
+    }
+  ]
+}

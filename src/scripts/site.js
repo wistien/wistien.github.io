@@ -78,6 +78,7 @@
   document.querySelectorAll('.stamp').forEach(el => stampObserver.observe(el));
 
   // Carousel：第一張先載入，其餘在背景依序載入；還沒載好的那一張不會切過去
+  // （輪播、跑馬燈、數字跑動只有首頁有；子頁沒有這些元素時，下面各段會自動略過）
   const slides = document.querySelectorAll('#carousel .slide');
   const slideImgs = Array.from(slides, s => s.querySelector('img'));
   const dotsWrap = document.getElementById('carDots');
@@ -105,7 +106,7 @@
     d.addEventListener('click', () => { paused = false; goSlide(i); });
     dotsWrap.appendChild(d);
   });
-  const dots = dotsWrap.querySelectorAll('.car-dot');
+  const dots = dotsWrap ? dotsWrap.querySelectorAll('.car-dot') : [];
   function schedule() { clearTimeout(timer); if (!paused) timer = setTimeout(() => goSlide(current + 1), 4800); }
   function goSlide(n) {
     const target = (n + slides.length) % slides.length;
@@ -125,27 +126,30 @@
     });
   }
   function moveSlide(dir) { paused = false; goSlide(current + dir); }
-  schedule();
-  window.addEventListener('load', () => hydrate(1));
   const carousel = document.getElementById('carousel');
-  carousel.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); });
-  carousel.addEventListener('mouseleave', () => { paused = false; schedule(); });
-  // Swipe
   let touchX = null;
-  carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; paused = true; clearTimeout(timer); }, { passive: true });
-  carousel.addEventListener('touchend', e => {
-    paused = false;
-    if (touchX === null) { schedule(); return; }
-    const dx = e.changedTouches[0].clientX - touchX;
-    touchX = null;
-    if (Math.abs(dx) > 40) goSlide(current + (dx < 0 ? 1 : -1)); else schedule();
-  }, { passive: true });
+  if (carousel && slides.length) {
+    schedule();
+    window.addEventListener('load', () => hydrate(1));
+    carousel.addEventListener('mouseenter', () => { paused = true; clearTimeout(timer); });
+    carousel.addEventListener('mouseleave', () => { paused = false; schedule(); });
+    // Swipe
+    carousel.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; paused = true; clearTimeout(timer); }, { passive: true });
+    carousel.addEventListener('touchend', e => {
+      paused = false;
+      if (touchX === null) { schedule(); return; }
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 40) goSlide(current + (dx < 0 ? 1 : -1)); else schedule();
+    }, { passive: true });
+  }
 
   // 分隔照片與頁尾底圖：首屏之後才載入，並依瀏覽器與螢幕挑合適的檔案
   const bgEls = document.querySelectorAll('[data-bg]');
   function applyBg(el) {
     if (el.dataset.bgOn) return;
-    const first = slideImgs[0];
+    // 用一張已經載入的 <picture> 圖判斷瀏覽器收不收 WebP：首頁看輪播第一張，子頁看導覽列的 logo
+    const first = slideImgs[0] || document.querySelector('.nav-logo img');
     if (first && !first.currentSrc) { first.addEventListener('load', () => applyBg(el), { once: true }); return; }
     el.dataset.bgOn = '1';
     const webp = !!first && /\.webp(\?|$)/.test(first.currentSrc);
@@ -179,10 +183,10 @@
   }, { threshold: 0.5 });
   document.querySelectorAll('.stat-num').forEach(el => statObserver.observe(el));
 
-  // Scrollspy
+  // Scrollspy：只對頁內錨點（# 開頭）的連結作用；子頁的連結是 /#…，不會被改到
   const spyLinks = document.querySelectorAll('#navLinks a:not(.nav-cta)');
   const spyMap = {};
-  spyLinks.forEach(a => { spyMap[a.getAttribute('href').slice(1)] = a; });
+  spyLinks.forEach(a => { const href = a.getAttribute('href'); if (href.charAt(0) === '#') spyMap[href.slice(1)] = a; });
   const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting && spyMap[e.target.id]) {
@@ -195,7 +199,7 @@
 
   // Marquee: duplicate content for seamless loop
   const track = document.getElementById('marqueeTrack');
-  track.innerHTML += track.innerHTML;
+  if (track) track.innerHTML += track.innerHTML;
 
   // GA4 event tracking
   if (typeof gtag === 'function') {
@@ -205,6 +209,10 @@
     document.querySelectorAll('a.plat-card').forEach(a => {
       const nameEl = a.querySelector('.plat-name');
       a.addEventListener('click', () => gtag('event', 'platform_click', { platform: nameEl ? nameEl.textContent.trim() : 'unknown' }));
+    });
+    document.querySelectorAll('a.ins-card').forEach(a => {
+      const nameEl = a.querySelector('.ins-name');
+      a.addEventListener('click', () => gtag('event', 'agency_click', { agency: nameEl ? nameEl.textContent.trim() : 'unknown' }));
     });
   }
 
