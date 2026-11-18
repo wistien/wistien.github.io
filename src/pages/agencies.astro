@@ -5,19 +5,20 @@ import schema from '../data/agencies-schema.json?raw';
 // sitemap.xml 會讀這個日期；內容有實質修改時更新
 export const lastmod = '2026-11-17';
 
-const title = "可以幫您報名哪些旅行社？雄獅、可樂、山富等 40+ 家｜阿中與小夢的旅遊官方";
-const description = "雄獅、可樂、山富、五福、東南、鳳凰、巨匠、燦星、喜鴻假期、易遊網等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。附旅行社官網連結，看到喜歡的團，把網址傳到 LINE 就能詢問優惠價。";
+const title = "可以幫您報名哪些旅行社？雄獅、可樂、東南等 40+ 家｜阿中與小夢的旅遊官方";
+const description = "雄獅、可樂、東南、山富、五福、鳳凰、巨匠、燦星、喜鴻假期等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。附旅行社官網連結，看到喜歡的團，把網址傳到 LINE 就能詢問優惠價。";
 const ogTitle = "可以幫您報名哪些旅行社？｜阿中與小夢的旅遊官方";
-const ogDescription = "雄獅、可樂、山富等 40+ 家旅行社的出國團體行程，都可以透過我們查詢、比較與報名。";
+const ogDescription = "雄獅、可樂、東南等 40+ 家旅行社的出國團體行程，都可以透過我們查詢、比較與報名。";
 
-// 清單來源：首頁 FAQ「你們可以協助報名哪些旅行社的行程？」＋小夢在 LINE 固定回覆的旅行社清單
+// 清單來源：夢唯 2026-11-18 確認的名單（附官網連結的三家：雄獅、可樂、東南）
 const linked = [
   { icon: '🦁', name: '雄獅旅遊', href: 'https://www.liontravel.com/category/zh-tw/index' },
   // LINE 清單裡是短網址 lurl.cc/61Hijr（導向 www.colatour.com.tw）；官網直接連官方網址，不依賴第三方短網址
   { icon: '🥤', name: '可樂旅遊', href: 'https://www.colatour.com.tw/' },
-  { icon: '⛰️', name: '山富旅遊', href: 'https://www.travel4u.com.tw/' },
+  { icon: '🌏', name: '東南旅遊', href: 'https://www.settour.com.tw/' },
 ];
-const others = ['五福', '東南', '鳳凰', '巨匠', '百威', '燦星', '喜鴻假期', '易遊網', '旅天下', '巨大', '友泰', '大登', '展笙', '雙向', '行健', '尊貴假期'];
+// 夢唯 2026-11-18 提供的名單與順序
+const others = ['山富', '旅天下', '五福', '鳳凰', '百威', '巨匠', '巨大', '永信', '燦星', '友泰', '大登', '展笙', '找到了', '行健', '喜鴻假期', '尊貴假期', '旅遊家', '行家', '尊榮', '吉品'];
 ---
 <Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} path="/agencies/">
 <Fragment slot="schema"><script type="application/ld+json" is:inline set:html={'\n' + schema}></script></Fragment>
@@ -32,7 +33,7 @@ const others = ['五福', '東南', '鳳凰', '巨匠', '百威', '燦星', '喜
     </div>
     <p class="hero-label">Partner Agencies</p>
     <h1 class="hero-title"><span class="nb">可以幫您報名</span><span class="nb"><em>哪些旅行社</em>？</span></h1>
-    <p class="hero-desc">我們是綜合旅行社業務，代理 40+ 家旅行社的出國團體行程。<br>雄獅、可樂、山富、五福、東南、鳳凰……各大小旅行社的團，<br>都可以透過我們查詢、比較與報名。</p>
+    <p class="hero-desc">我們是綜合旅行社業務，代理 40+ 家旅行社的出國團體行程。<br>雄獅、可樂、東南、山富、五福、鳳凰……各大小旅行社的團，<br>都可以透過我們查詢、比較與報名。</p>
     <div class="hero-actions">
       <a href="#agency-list" class="btn-primary">看旅行社清單 ↓</a>
       <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 詢問優惠價</a>

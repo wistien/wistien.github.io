@@ -6,7 +6,7 @@
       "@id": "https://wistien.com/agencies/#webpage",
       "url": "https://wistien.com/agencies/",
       "name": "可以幫您報名哪些旅行社？",
-      "description": "雄獅、可樂、山富、五福、東南、鳳凰等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。",
+      "description": "雄獅、可樂、東南、山富、五福、鳳凰等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。",
       "inLanguage": "zh-Hant-TW",
       "isPartOf": { "@id": "https://wistien.com/#website" },
       "about": { "@id": "https://wistien.com/#org" },
