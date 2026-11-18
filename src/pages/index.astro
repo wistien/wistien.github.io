@@ -5,11 +5,11 @@ import schema from '../data/home-schema.json?raw';
 // sitemap.xml 會讀這個日期；內容有實質修改時更新
 export const lastmod = '2026-11-17';
 
-const title = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・證件辦理";
-const description = "阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、證件辦理協助、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。";
-const ogTitle = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・證件辦理";
-const ogDescription = "海外團體旅遊報名・旅遊保險諮詢・證件辦理・自助旅遊資源・出國網路 eSIM";
-const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、證件辦理";
+const title = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・自助旅遊資源";
+const description = "阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。";
+const ogTitle = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・自助旅遊資源";
+const ogDescription = "海外團體旅遊報名・旅遊保險諮詢・自助旅遊資源・出國網路 eSIM";
+const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、代理 40+ 家旅行社";
 ---
 <Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogImageAlt={ogImageAlt} path="/">
 <Fragment slot="schema"><script type="application/ld+json" is:inline set:html={'\n' + schema}></script></Fragment>
@@ -23,7 +23,7 @@ const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、
     <div>
       <p class="hero-label">From Dream to Departure</p>
       <h1 class="hero-title"><em>世界遼闊</em><br>別把人生只留給日常</h1>
-      <p class="hero-desc">阿中與小夢，陪您把旅行想得更周全。<br>提供團體旅遊報名、旅遊保險與證件辦理等服務，<br>從挑選行程到安心出發，為您打理每一個細節。</p>
+      <p class="hero-desc">阿中與小夢，陪您把旅行想得更周全。<br>提供團體旅遊報名、旅遊保險與行程比較等服務，<br>從挑選行程到安心出發，為您打理每一個細節。</p>
       <div class="hero-actions">
         <a href="#services" class="btn-primary">探索服務 →</a>
         <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 諮詢</a>
@@ -158,29 +158,22 @@ const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、
         <p class="service-desc">與國泰產險合作，依旅程需求提供旅遊保障資訊整理與方案比較。</p>
         <span class="service-tag">國泰產險合作</span>
       </a>
-      <a class="service-card reveal d2" href="#documents">
+      <a class="service-card reveal d2" href="#platforms">
         <span class="service-num">03</span>
-        <span class="service-icon">📋</span>
-        <h3 class="service-name">證件辦理協助</h3>
-        <p class="service-desc">護照更新、台胞證辦理，提供完整的所需文件清單與費用說明，讓您的證件準備無後顧之憂。</p>
-        <span class="service-tag">護照 ／ 台胞證</span>
-      </a>
-      <a class="service-card reveal" href="#platforms">
-        <span class="service-num">04</span>
         <span class="service-icon">🌐</span>
         <h3 class="service-name">自助旅遊資源</h3>
         <p class="service-desc">透過 Klook、KKday、Agoda、Trip.com、雄獅旅遊等平台聯盟連結，輕鬆預訂票券、住宿與行程。</p>
         <span class="service-tag">6+ 平台合作</span>
       </a>
-      <a class="service-card reveal d1" href="#platforms">
-        <span class="service-num">05</span>
+      <a class="service-card reveal" href="#platforms">
+        <span class="service-num">04</span>
         <span class="service-icon">📶</span>
         <h3 class="service-name">出國網路 eSIM</h3>
         <p class="service-desc">合作專屬 eSIM 平台，出國前輕鬆開通海外數據方案，全程保持網路暢通，旅途不斷線。</p>
         <span class="service-tag">eSIM 合作夥伴</span>
       </a>
-      <a class="service-card reveal d2" href="#platforms">
-        <span class="service-num">06</span>
+      <a class="service-card reveal d1" href="#platforms">
+        <span class="service-num">05</span>
         <span class="service-icon">🎒</span>
         <h3 class="service-name">網卡與旅遊好物分享</h3>
         <p class="service-desc">實體網卡與旅遊實用好物推薦持續整理中，之後會在合作平台專區與大家分享。</p>
@@ -322,60 +315,6 @@ const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、
   </div>
 </section>
 
-<!-- DOCUMENTS -->
-<section id="documents">
-  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
-    <path fill="rgba(155,106,62,0.06)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
-    <path fill="rgba(176,58,46,0.045)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
-  </svg>
-  <div class="section-inner">
-    <div class="stamp" aria-hidden="true"><span class="stamp-char">證</span><span class="stamp-sub">DOCUMENTS</span></div>
-    <div class="reveal">
-      <p class="section-label">Document Services</p>
-      <h2 class="section-title">證件辦理</h2>
-      <p class="section-subtitle">出國前最重要的準備！我們提供護照與台胞證的辦理資訊，讓您的出發準備更有效率。</p>
-    </div>
-    <div class="doc-grid">
-      <div class="doc-card reveal">
-        <div class="doc-header">
-          <span class="doc-icon">🛂</span>
-          <div><h3 class="doc-title">中華民國護照</h3><p class="doc-sub">首次申請 ／ 換發 ／ 遺失補發</p></div>
-        </div>
-        <div class="doc-body">
-          <ul class="doc-items">
-            <li>本人申請書（外交部官網下載）</li>
-            <li>最近六個月內護照用照片 2 張</li>
-            <li>身分證正本及正反面影本</li>
-            <li>舊護照（換發時須繳回）</li>
-            <li>兵役相關文件（男性役男）</li>
-          </ul>
-          <div class="doc-note">⏱ 所需文件及工作天數依申請類型、年齡與申請管道不同，請以外交部領事事務局最新公告為準。（資訊更新：2026 年 7 月）</div>
-        </div>
-      </div>
-      <div class="doc-card reveal d1">
-        <div class="doc-header">
-          <span class="doc-icon">📘</span>
-          <div><h3 class="doc-title">台灣居民來往大陸通行證</h3><p class="doc-sub">俗稱「台胞證」</p></div>
-        </div>
-        <div class="doc-body">
-          <ul class="doc-items">
-            <li>台灣居民來往大陸通行證申請表</li>
-            <li>台灣居民身分證正本</li>
-            <li>近期白底彩色照片 2 張</li>
-            <li>舊台胞證（換證時需繳回）</li>
-            <li>委託書（委託他人代辦時需要）</li>
-          </ul>
-          <div class="doc-note">⏱ 辦理時間與費用因各地辦理機構略有不同，歡迎來訊詢問最新資訊與辦理管道。</div>
-        </div>
-      </div>
-    </div>
-    <div class="mini-cta reveal">
-      <p>證件不知道從哪辦起？來訊告訴我們預計出發時間，我們幫您確認該準備什麼。</p>
-      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 詢問證件準備</a>
-    </div>
-  </div>
-</section>
-
 <!-- PHOTO DIVIDER 2 -->
 <div class="photo-divider" data-bg="lakeside" role="img" aria-label="紐西蘭沿途湖畔風光">
   <p class="divider-quote">最好的風景，永遠在路上<span>The best views begin the moment you set off.</span></p>
@@ -508,6 +447,10 @@ const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、
         <p class="faq-a">可以提出需求，例如雙床房、大床房、素食餐、兒童餐、輪椅協助或其他特殊需求；旅行社及航空公司會協助備註，但能否最終安排，仍需依當地飯店、航空公司及實際供應狀況為準。</p>
       </details>
       <details class="faq-item">
+        <summary><span class="faq-q">需要簽證嗎？護照快過期怎麼辦？</span></summary>
+        <p class="faq-a">報名時我們會一起確認目的地需不需要簽證或電子入境許可，並提醒您護照效期；護照快過期也可以先報名，開票前換好新護照即可。證件相關的問題都歡迎來訊詢問。</p>
+      </details>
+      <details class="faq-item">
         <summary><span class="faq-q">旅遊保險可以直接透過你們保嗎？</span></summary>
         <p class="faq-a">可以！我們與國泰產險有合作窗口，從方案比較、投保到後續問題，都由我們一手為您對接處理，不需要自己另外找保險公司；實際保障內容與理賠依保單條款及核保結果為準。</p>
       </details>
@@ -536,7 +479,7 @@ const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、
         <p class="section-label">About Us</p>
         <h2 class="section-title">關於我們</h2>
         <p class="about-desc">阿中與小夢是一個以誠信與熱情為核心的旅遊諮詢品牌。由「阿中」與「小夢」父女共同經營，致力於為每一位旅客提供貼心、專業的旅遊服務。</p>
-        <p class="about-desc">我們深信，旅行不只是移動，更是一段讓人充實與感動的生命體驗。從協助報名海外團體行程，到保險諮詢、證件辦理，我們讓您出發前的每一步都輕鬆、安心。</p>
+        <p class="about-desc">我們深信，旅行不只是移動，更是一段讓人充實與感動的生命體驗。從協助報名海外團體行程、比較各家方案，到保險諮詢，我們讓您出發前的每一步都輕鬆、安心。</p>
         <ul class="about-features">
           <li>服務超過 1000+ 位旅客，LINE 官方帳號 880+ 訂閱</li>
           <li>代理雄獅、可樂、五福、東南等 40+ 家旅行社</li>

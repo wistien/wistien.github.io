@@ -8,7 +8,7 @@
       "url": "https://wistien.com/",
       "logo": "https://wistien.com/images/logo.png",
       "slogan": "From Dream to Departure",
-      "description": "旅遊服務品牌，提供各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助、證件與旅遊保障資訊協助。",
+      "description": "旅遊服務品牌，提供各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助與旅遊保障資訊協助。",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer service",
@@ -32,14 +32,15 @@
         { "@type": "Question", "name": "透過你們報名會比較便宜嗎？", "acceptedAnswer": { "@type": "Answer", "text": "會的！只要是有合作的旅行社，基本上都能給您優惠價格；實際優惠依國家、團型與出發日有所差別，歡迎來訊詢問。" } },
         { "@type": "Question", "name": "你們可以協助報名哪些旅行社的行程？", "acceptedAnswer": { "@type": "Answer", "text": "包括雄獅、可樂、五福、東南、山富、鳳凰、巨匠、百威、燦星、喜鴻假期、易遊網等各大小旅行社的出國團體行程。" } },
         { "@type": "Question", "name": "報名後，錢是付給誰？", "acceptedAnswer": { "@type": "Answer", "text": "訂金與尾款都是繳給承辦旅行社，並由旅行社提供正式旅遊契約與收據；我們不經手團費。" } },
-        { "@type": "Question", "name": "報名後可以取消或更改日期嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以提出申請，能否更改及費用依行程進度、機票開票狀況及旅遊契約規定辦理，建議盡早聯繫。" } }
+        { "@type": "Question", "name": "報名後可以取消或更改日期嗎？", "acceptedAnswer": { "@type": "Answer", "text": "可以提出申請，能否更改及費用依行程進度、機票開票狀況及旅遊契約規定辦理，建議盡早聯繫。" } },
+        { "@type":  "Question", "name":  "需要簽證嗎？護照快過期怎麼辦？", "acceptedAnswer":  { "@type":  "Answer", "text":  "報名時我們會一起確認目的地需不需要簽證或電子入境許可，並提醒您護照效期；護照快過期也可以先報名，開票前換好新護照即可。證件相關的問題都歡迎來訊詢問。" }}
       ]
     },
     {
       "@type": "Service",
       "name": "團體旅遊諮詢與報名服務",
       "serviceType": "旅遊諮詢與報名協助",
-      "description": "各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助、證件與旅遊保障資訊協助。實際行程之承辦、簽約、收款與履約責任，依旅客所報名行程之正式旅行社及旅遊契約為準。",
+      "description": "各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助與旅遊保障資訊協助。實際行程之承辦、簽約、收款與履約責任，依旅客所報名行程之正式旅行社及旅遊契約為準。",
       "areaServed": "TW",
       "provider": { "@id": "https://wistien.com/#org" }
     }

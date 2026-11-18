@@ -13,7 +13,6 @@ const current = (p) => (path === p ? 'page' : undefined);
   <a href="/agencies/" onclick="closeMenu()" aria-current={current('/agencies')}>合作旅行社</a>
   <a href={home + '#process'} onclick="closeMenu()">報名流程</a>
   <a href={home + '#insurance'} onclick="closeMenu()">旅遊保險</a>
-  <a href={home + '#documents'} onclick="closeMenu()">證件辦理</a>
   <a href={home + '#platforms'} onclick="closeMenu()">合作平台</a>
   <a href={home + '#faq'} onclick="closeMenu()">常見問題</a>
   <a href={home + '#about'} onclick="closeMenu()">關於我們</a>
@@ -34,7 +33,6 @@ const current = (p) => (path === p ? 'page' : undefined);
     <li><a href="/agencies/" class={current('/agencies') && 'active'} aria-current={current('/agencies')}>合作旅行社</a></li>
     <li><a href={home + '#process'}>報名流程</a></li>
     <li><a href={home + '#insurance'}>旅遊保險</a></li>
-    <li><a href={home + '#documents'}>證件辦理</a></li>
     <li><a href={home + '#platforms'}>合作平台</a></li>
     <li><a href={home + '#faq'}>常見問題</a></li>
     <li><a href={home + '#about'}>關於我們</a></li>
