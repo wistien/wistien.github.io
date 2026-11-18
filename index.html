@@ -94,8 +94,8 @@
   try { var fs = localStorage.getItem('fontSize'); if (fs === 'lg' || fs === 'xl') document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
 </script>
 <style>
-  @font-face { font-family: 'Noto Sans TC'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/noto-sans-tc-site.woff2') format('woff2'); unicode-range: U+20-7E, U+A9, U+B7, U+2014, U+2192-2193, U+2197, U+2713, U+3001-3002, U+300C-300D, U+4E00, U+4E09-4E0B, U+4E0D, U+4E1F, U+4E26, U+4E2D, U+4E3B, U+4E4B, U+4E5F, U+4E86, U+4E8B, U+4E94, U+4E9B, U+4EA4, U+4EAB, U+4EBA, U+4EC0, U+4ECD, U+4ED6, U+4ED8, U+4EE3, U+4EE5, U+4EF6, U+4EFB, U+4EFD, U+4F34, U+4F46, U+4F4D-4F4F, U+4F55, U+4F5C, U+4F73, U+4F86, U+4F8B, U+4F9B, U+4F9D, U+4FBF, U+4FD7, U+4FDD, U+4FE1, U+4FEF, U+500B, U+5011, U+5019, U+5047, U+504F, U+505A, U+5099, U+50B3, U+50B7, U+50CF, U+50F9, U+511F, U+512A, U+5143, U+5145, U+5148-5149, U+514B, U+514D, U+5152, U+5165, U+5167-5168, U+516C-516D, U+5171, U+5175-5177, U+518D, U+51B0, U+51F0, U+51FA, U+5206, U+5212, U+5217, U+5225, U+5230, U+5236, U+5238, U+524D, U+5269, U+5283, U+529B, U+52A0, U+52A9, U+52D5, U+52D9, U+5305, U+5316, U+5320, U+5340-5341, U+5347, U+5354, U+5357, U+5361, U+5373, U+53BB, U+53C3, U+53C8, U+53CA-53CB, U+53CD, U+53D6-53D7, U+53E3, U+53E6, U+53EA, U+53EC, U+53EF-53F0, U+53F8, U+5404, U+5408, U+540C-540E, U+5411, U+5426, U+544A, U+5468, U+547D, U+54C1, U+54EA, U+5537, U+554F, U+555F, U+5594, U+559A, U+559C, U+55AE, U+55CE, U+56B4, U+56DB, U+56DE, U+56E0, U+570B, U+570D, U+5716, U+5718, U+5728, U+5730, U+5740, U+578B, U+57C3, U+57FA, U+5831, U+5883, U+58EB, U+58FD, U+5915-5916, U+591A, U+5922, U+5925, U+5927, U+5929, U+5931, U+5951, U+5973, U+597D, U+5982, U+59CB, U+59D4, U+5A01, U+5B50, U+5B57, U+5B69, U+5B89, U+5B8C, U+5B98, U+5B9A, U+5BA2, U+5BB6, U+5BB9, U+5BBF, U+5BCC, U+5BE6, U+5C07-5C08, U+5C0B, U+5C0D-5C0F, U+5C11, U+5C31, U+5C3E, U+5C40, U+5C45, U+5C65, U+5C6C, U+5C71, U+5CF0, U+5DE5, U+5DE8, U+5DEE, U+5DF1-5DF2, U+5E03, U+5E33, U+5E38, U+5E6B, U+5E73-5E74, U+5E8A, U+5E95, U+5E97, U+5EA6, U+5EAB, U+5EF6, U+5EFA, U+5F0F, U+5F35, U+5F48, U+5F69, U+5F71, U+5F79, U+5F80, U+5F85, U+5F8C, U+5F97, U+5F9E, U+5FB7, U+5FC3, U+5FEB, U+6025, U+6027, U+606F, U+60A8, U+60C5, U+60E0, U+60F3, U+610F, U+611F, U+614B, U+6182, U+61C9, U+6210-6211, U+6216, U+622A, U+6236, U+623F-6240, U+624B, U+6253, U+627E-627F, U+628A, U+6295, U+6298, U+62EC, U+62FF, U+6301, U+6311, U+6383, U+6392, U+63A2, U+63A5, U+63A8, U+63CF-63D0, U+63DB, U+63F4, U+641C, U+64C7, U+64DA, U+652F, U+6536, U+6539, U+6545, U+6548, U+6551, U+656C, U+6574, U+6578, U+6587, U+6599, U+65B0, U+65B7, U+65B9, U+65BC, U+65C5, U+65E5, U+65E9, U+65FA, U+660E, U+6613, U+661F, U+662F, U+6642, U+6668, U+666E-666F, U+6696, U+66A2, U+66F4, U+66F8, U+6700, U+6703, U+6708-6709, U+670B, U+670D, U+671F, U+672A, U+672C, U+674E, U+6771, U+6797, U+679C, U+67E5, U+6838-6839, U+683C, U+6848, U+689D, U+6905, U+696D, U+69CB, U+6A02, U+6A19, U+6A23, U+6A5F, U+6A94, U+6B21, U+6B3E, U+6B61, U+6B63, U+6B65, U+6B8A, U+6B98, U+6BB5, U+6BBF, U+6BCF, U+6BD4, U+6C11, U+6C42, U+6C7A, U+6C92, U+6CB3, U+6CBF, U+6CC1, U+6CD5, U+6CF0, U+6D2A, U+6D3D, U+6D41, U+6D77, U+6D88, U+6DF1, U+6E05, U+6E56, U+6E96, U+6EAB, U+7063, U+706B, U+70BA, U+7121, U+7167, U+71B1, U+71DF, U+71E6, U+722D, U+7236, U+7247, U+724C, U+7267, U+7269, U+7279, U+72C0, U+7345, U+7372, U+7387, U+73ED, U+7403, U+7406, U+745E, U+7463, U+74E6, U+751F, U+7522, U+7528, U+7531, U+7533, U+7537, U+7554, U+7559, U+7565, U+7576, U+7642, U+767C-767E, U+7684, U+7687, U+76DF, U+76E1, U+76EE, U+76F4, U+76F8, U+770B, U+77B0, U+77E5, U+77ED, U+78BA, U+78BC, U+793E, U+795E, U+7968, U+798F, U+79FB, U+7A0B, U+7A0D, U+7A31, U+7A7A, U+7A97, U+7ACB, U+7AD9, U+7AE5, U+7AF6, U+7B46, U+7B49, U+7B97, U+7BA1, U+7BC0, U+7BC4, U+7C21, U+7C3D, U+7CBE, U+7D04, U+7D0D, U+7D10, U+7D19, U+7D20, U+7D22, U+7D30, U+7D42, U+7D50, U+7D55, U+7D66, U+7D93, U+7D9C, U+7DB2, U+7DCA, U+7DDA, U+7E6B, U+7E73, U+7E8C, U+7F8E, U+8003, U+8010, U+8015, U+806F, U+80DE, U+80FD, U+8108, U+81EA, U+81F4, U+8207, U+820A, U+822A, U+822C, U+8272, U+827E, U+82E5, U+8482, U+85A6, U+85CF, U+862D, U+8655, U+865F, U+884C, U+8868, U+88DC, U+88E1, U+88FD, U+8907, U+897F, U+8981, U+8986, U+898B, U+898F, U+8996, U+89D2, U+89E3, U+8A00, U+8A02, U+8A08, U+8A0A, U+8A17-8A18, U+8A34, U+8A3B, U+8A62, U+8A72-8A73, U+8A8D, U+8AA0, U+8AA4, U+8AAA, U+8ACB, U+8AEE, U+8B1D, U+8B49, U+8B70, U+8B77, U+8B8A, U+8B93, U+8C50, U+8C9D, U+8CAC, U+8CBB-8CBC, U+8CC7, U+8CE0, U+8CFC, U+8D70, U+8D77, U+8D85, U+8DDF, U+8DEF, U+8EAB, U+8ECA, U+8F03, U+8F09, U+8F15, U+8F2A, U+8F49, U+8F9B, U+8FA6, U+8FCE, U+8FD1, U+9000, U+900F, U+9014, U+9019-901A, U+901F, U+9023, U+9031-9032, U+904A, U+904E, U+9053, U+9069, U+9072, U+9078, U+907A, U+9084, U+90E8, U+90FD, U+914D, U+9152, U+9192, U+91AB, U+91CD-91CF, U+91D1, U+9322, U+93AE, U+9580, U+958B, U+9593, U+95B1, U+95DC, U+963F, U+966A, U+9678, U+967D, U+969B-969C, U+96A8, U+96AA, U+96B1, U+96B8, U+96C4, U+96C6, U+96D9, U+96FB, U+9700, U+975E, U+9762, U+9802, U+9805-9806, U+9808, U+9810, U+9818, U+984C-984D, U+985E, U+9867, U+98A8, U+98DF, U+98EF, U+9910, U+9918, U+994B, U+9996, U+99AC, U+9A57, U+9A5F, U+9AD4, U+9B06, U+9CF3, U+9D3B, U+9DB4, U+9EBC, U+9EDE, U+9F61, U+FF01, U+FF06, U+FF08-FF09, U+FF0B-FF0C, U+FF0F-FF1B, U+FF1F; }
-  @font-face { font-family: 'Noto Serif TC'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/noto-serif-tc-site.woff2') format('woff2'); unicode-range: U+20-7E, U+2713, U+3001, U+4E00, U+4E0A, U+4E0D, U+4E16, U+4E2D, U+4E5F, U+4E8B, U+4E9B, U+4EAB, U+4EBA, U+4EC0, U+4ED8, U+4EE5, U+4EF6, U+4F4D, U+4F5C, U+4F60, U+4F86, U+4FBF, U+4FDD, U+500B, U+5011, U+505A, U+5099, U+50B3, U+50F9, U+5165, U+5176, U+51FA, U+5206, U+5225, U+5229, U+5230, U+524D, U+5283, U+52A0, U+52A9, U+52D9, U+5354, U+5357, U+5361, U+5373, U+53BB, U+53CA-53CB, U+53D6, U+53EA, U+53EF-53F0, U+5408, U+540C-540D, U+548C, U+54EA, U+554F, U+55CE, U+570B, U+5718, U+571F, U+5728, U+578B, U+57C3, U+5831, U+58EB, U+58FD, U+590F, U+5916, U+5922, U+5927, U+5937, U+597D, U+5982, U+5A01, U+5B57, U+5B89, U+5B98, U+5B9A, U+5B9C, U+5BE6, U+5C0F, U+5C45, U+5C71, U+5DF1-5DF2, U+5E38, U+5E73, U+5EA7, U+5F80, U+5F88, U+5F8C, U+600E, U+60A8, U+60E0, U+610F, U+6162, U+6210-6211, U+6216, U+623F, U+627E, U+628A, U+62DC, U+6307, U+6383, U+63A5, U+63CF, U+6536, U+6539, U+65B9, U+65BC, U+65C5, U+65E5, U+65FA, U+662F, U+666F, U+66F4, U+6700, U+6703, U+6709, U+670D, U+671F, U+672C, U+675C, U+6771, U+679C, U+6B8A, U+6BD4, U+6C11, U+6C38, U+6C92, U+6CD5, U+6CE8, U+6CF0, U+6D41, U+6D77, U+6D88, U+6E90, U+6E96, U+7063, U+70BA, U+7167, U+7269, U+7279, U+7345, U+7406, U+745E, U+751F, U+7522, U+754C, U+7559, U+767C, U+7684, U+76EE, U+76F4, U+770B, U+77E5, U+78BA, U+793E, U+7A0B, U+7ACB, U+7AD9, U+7C3D, U+7D04, U+7D10, U+7D61, U+7D66, U+7D93, U+7DB2, U+7E73, U+7FA9, U+8033, U+806F, U+80FD, U+81EA, U+8207, U+83EF, U+862D, U+884C, U+88E1, U+88FD, U+8907, U+897F, U+8981, U+898B, U+898F, U+8A0A, U+8A62, U+8A8D, U+8AB0, U+8AEE, U+8B49, U+8B77, U+8CBB, U+8CC7, U+8D70, U+8D8A, U+8DDF, U+8DEF, U+8F03, U+8FA6, U+900F, U+901A, U+904A, U+904E, U+9053, U+9060, U+907C, U+9084, U+9322, U+95CA, U+95DC, U+963F, U+9678, U+969C, U+96AA, U+96C4, U+97D3, U+9805, U+984C, U+98A8, U+98DF, U+9910, U+9AD4, U+9EBC, U+FF0B-FF0C, U+FF10-FF19, U+FF1F; }
+  @font-face { font-family: 'Noto Sans TC'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/noto-sans-tc-site.woff2') format('woff2'); unicode-range: U+20-7E, U+A9, U+B7, U+2014, U+2192-2193, U+2197, U+2713, U+3001-3002, U+300C-300D, U+4E00, U+4E09-4E0B, U+4E0D, U+4E1F, U+4E26, U+4E2D, U+4E3B, U+4E4B, U+4E5F, U+4E86, U+4E8B, U+4E94, U+4E9B, U+4EA4, U+4EAB, U+4EBA, U+4EC0, U+4ECD, U+4ED6, U+4ED8, U+4EE3, U+4EE5, U+4EF6, U+4EFB, U+4EFD, U+4F34, U+4F46, U+4F4D-4F4F, U+4F55, U+4F5C, U+4F73, U+4F7F, U+4F86, U+4F8B, U+4F9B, U+4F9D, U+4FBF, U+4FD7, U+4FDD, U+4FE1, U+4FEF, U+500B, U+5011, U+5019, U+5047, U+504F, U+505A, U+5099, U+50B3, U+50B7, U+50CF, U+50F9, U+511F, U+512A, U+5143, U+5145, U+5148-5149, U+514B, U+514D, U+5152, U+5165, U+5167-5168, U+516C-516D, U+5171, U+5175-5176, U+518A, U+518D, U+51B0, U+51F0, U+51FA, U+5206, U+5212, U+5217, U+5225, U+5230, U+5236, U+5238, U+524D, U+5269, U+5283, U+529B, U+52A0, U+52A9, U+52AB, U+52D5, U+52D9, U+5305, U+5316, U+5320, U+5340, U+5347, U+5354, U+5357, U+535A, U+5361, U+5373, U+539F, U+53BB, U+53C3, U+53C8, U+53CA-53CB, U+53CD, U+53D6-53D7, U+53E3, U+53E6, U+53EA, U+53EC, U+53EF-53F0, U+53F8, U+5404, U+5408, U+540C-540E, U+5411, U+5426, U+542B, U+544A, U+5468, U+547D, U+54C1, U+54E1, U+54EA, U+5537, U+554F, U+555F, U+5594, U+559A, U+559C, U+55AE, U+55CE, U+56B4, U+56DB, U+56DE, U+56E0, U+570B, U+570D, U+5716, U+5718, U+5728, U+5730, U+5740, U+578B, U+57C3, U+57FA, U+5831, U+5834, U+5883, U+58EB, U+5915-5916, U+591A, U+5922, U+5925, U+5927, U+5929, U+5931, U+5951, U+5973, U+597D, U+5982, U+59CB, U+59D4, U+5A01, U+5B50, U+5B57, U+5B69, U+5B89, U+5B8C, U+5B98, U+5B9A, U+5BA2, U+5BB3, U+5BB6, U+5BB9, U+5BBF, U+5BCC, U+5BE6, U+5C07-5C08, U+5C0B, U+5C0D-5C0F, U+5C11, U+5C31, U+5C3E, U+5C40, U+5C45, U+5C65, U+5C6C, U+5C71, U+5CF0, U+5DE5, U+5DE8, U+5DEE, U+5DF1-5DF2, U+5E02-5E03, U+5E33, U+5E38, U+5E6B, U+5E73-5E74, U+5E8A, U+5E95, U+5E97, U+5EA6, U+5EAB, U+5EF6, U+5EFA, U+5F0F, U+5F35, U+5F69, U+5F71, U+5F79, U+5F80, U+5F85, U+5F8C, U+5F97, U+5F9E, U+5FB7, U+5FC3, U+5FEB, U+600E, U+6025, U+6027, U+606F, U+60A8, U+60C5, U+60E0, U+60F3, U+610F, U+611B, U+611F, U+614B, U+6182, U+61C9, U+6210-6211, U+6216, U+622A, U+6236, U+623F-6240, U+624B, U+624D, U+6253, U+627E-627F, U+628A, U+6295, U+6298, U+62B5, U+62EC, U+62FF, U+6301, U+6311, U+6383, U+6392, U+63A2, U+63A5, U+63A8, U+63CF-63D0, U+63DB, U+640D, U+641C, U+64A5, U+64C7, U+64DA, U+652F, U+6536, U+6539, U+6545, U+6548, U+6551, U+656C, U+6574, U+6578, U+6587, U+6599, U+65B0, U+65B7, U+65B9, U+65BC, U+65C5, U+65E5, U+65E9, U+660E, U+6613, U+661F, U+662F, U+6642, U+6668, U+666E-666F, U+6696, U+66A2, U+66F4, U+66F8, U+6700, U+6703, U+6708-6709, U+670B, U+670D, U+671F, U+672A, U+672C, U+674E, U+6771, U+6797, U+679C, U+67D3, U+67E5, U+6838-6839, U+683C, U+6848, U+689D, U+6905, U+696D, U+69CB, U+6A02, U+6A13, U+6A19, U+6A23, U+6A5F, U+6A94, U+6AA2, U+6B21, U+6B3E, U+6B61, U+6B63, U+6B65, U+6B8A, U+6BB5, U+6BBF-6BC0, U+6BCF, U+6BD2, U+6BD4, U+6C11, U+6C42, U+6C7A, U+6C92, U+6CB3, U+6CBF, U+6CC1, U+6CD5, U+6CF0, U+6D2A, U+6D3D, U+6D41, U+6D77, U+6D88, U+6DF1, U+6E05, U+6E56, U+6E96, U+6EAB, U+7063, U+706B, U+70BA, U+7121, U+7167, U+71B1, U+71D2, U+71D9, U+71DF, U+71E6, U+7236, U+7247, U+724C, U+7267, U+7269, U+7279, U+72C0, U+7345, U+7372, U+7387, U+73ED, U+73FE, U+7403, U+7406, U+745E, U+7463, U+74E6, U+751F, U+7522, U+7528, U+7531, U+7533, U+7537, U+7554, U+7559, U+7565, U+7576, U+75AB, U+75BE, U+75C5, U+7642, U+767C-767E, U+7684, U+7687, U+76DC, U+76DF, U+76E1, U+76EE, U+76F4, U+76F8, U+770B, U+77B0, U+77E5, U+77ED, U+78BA, U+78BC, U+793E, U+795E, U+7968, U+798F, U+79FB, U+7A0B, U+7A0D, U+7A31, U+7A7A, U+7A81, U+7A97, U+7ACA-7ACB, U+7AD9, U+7AE5, U+7B2C, U+7B46, U+7B49, U+7B97, U+7BA1, U+7BB1, U+7BC0, U+7BC4, U+7C21, U+7C3D, U+7CBE, U+7D04, U+7D0D, U+7D10, U+7D19, U+7D20, U+7D22, U+7D30, U+7D42, U+7D50, U+7D55, U+7D66, U+7D93, U+7D9C, U+7DB2, U+7DCA, U+7DDA, U+7DE8, U+7E6B, U+7E73, U+7E8C, U+7F72, U+7F8E, U+8003, U+8010, U+806F, U+80A1, U+80DE, U+80FD, U+8108, U+81EA, U+81F4, U+8207, U+820A, U+822A, U+822C, U+8272, U+827E, U+82E5, U+8482, U+85A6, U+85CF, U+862D, U+8655, U+865F, U+884C, U+8868, U+88AB, U+88DC, U+88E1, U+88FD, U+8907, U+897F, U+8981, U+8986, U+898B, U+898F, U+8996, U+89AA, U+89C0, U+89D2, U+89E3, U+8A00, U+8A02, U+8A08, U+8A0A, U+8A17-8A18, U+8A34, U+8A3A-8A3B, U+8A62, U+8A71-8A73, U+8A8D, U+8AA0, U+8AA4, U+8AAA, U+8ACB, U+8AEE, U+8B1D, U+8B49, U+8B6F-8B70, U+8B77, U+8B8A, U+8B93, U+8C9D, U+8CA1, U+8CAC, U+8CBB-8CBC, U+8CC7, U+8CE0, U+8CFC, U+8D70, U+8D77, U+8D85, U+8DDF, U+8DEF, U+8E64, U+8EAB, U+8ECA, U+8F03, U+8F09, U+8F15, U+8F2A, U+8F49, U+8F9B, U+8FA6, U+8FCE, U+8FD1, U+8FFD, U+9000-9001, U+900F, U+9014, U+9019-901A, U+901F-9020, U+9023, U+9031-9032, U+904A, U+904E, U+9053-9054, U+9069, U+906D, U+9072, U+9078, U+907A, U+9084, U+90E8, U+90FD, U+914D, U+9152, U+9192, U+91AB, U+91CD-91CF, U+91D1, U+9322, U+93AE, U+9580, U+958B, U+9593, U+95B1, U+95DC, U+963F, U+964D, U+9650, U+9662, U+966A, U+9678, U+967D, U+969B-969C, U+96A8, U+96AA, U+96B1, U+96B8, U+96C4, U+96C6, U+96D9, U+96E3, U+96FB, U+9700, U+975E, U+9762, U+9802, U+9805-9806, U+9808, U+9810, U+9818, U+984C-984D, U+985E, U+9867, U+98A8, U+98DF, U+98EF, U+9910, U+9918, U+994B, U+9996, U+99AC, U+9A57, U+9A5F, U+9AD4, U+9AD8, U+9B06, U+9CF3, U+9D3B, U+9DB4, U+9EBC, U+9EDE, U+9F61, U+FF01, U+FF06, U+FF08-FF09, U+FF0B-FF0C, U+FF0F-FF1B, U+FF1F; }
+  @font-face { font-family: 'Noto Serif TC'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/noto-serif-tc-site.woff2') format('woff2'); unicode-range: U+20-7E, U+2713, U+3001, U+4E00, U+4E0A, U+4E0D, U+4E16, U+4E2D, U+4E5F, U+4E8B, U+4E9B, U+4EAB, U+4EBA, U+4EC0, U+4ED8, U+4EE5, U+4EF6, U+4F4D, U+4F5C, U+4F60, U+4F86, U+4FBF, U+4FDD, U+500B, U+5011, U+505A, U+5099, U+50B3, U+50F9, U+5165, U+5176, U+51FA, U+5206, U+5225, U+5229, U+5230, U+524D, U+5283, U+52A0, U+52A9, U+52D9, U+5354, U+5357, U+5361, U+5373, U+53BB, U+53CA-53CB, U+53D6, U+53EA, U+53EF-53F0, U+5408, U+540C-540D, U+548C, U+54EA, U+554F, U+55CE, U+570B, U+5718, U+571F, U+5728, U+578B, U+57C3, U+5831, U+58EB, U+590F, U+5916, U+5922, U+5927, U+5937, U+597D, U+5982, U+5A01, U+5B57, U+5B89, U+5B98, U+5B9A, U+5B9C, U+5BE6, U+5C0F, U+5C45, U+5DF1-5DF2, U+5E38, U+5E73, U+5EA7, U+5F80, U+5F88, U+5F8C, U+5F97, U+600E, U+60A8, U+60E0, U+610F, U+6162, U+6210-6211, U+6216, U+623F, U+627E, U+628A, U+62DC, U+6307, U+6383, U+63A5, U+63CF, U+6536, U+6539, U+65B9, U+65BC, U+65C5, U+65E5, U+662F, U+6642, U+666F, U+66F4, U+6700, U+6703, U+6709, U+670D, U+671F, U+672C, U+675C, U+679C, U+6B8A, U+6BD4, U+6C11, U+6C38, U+6C92, U+6CC1, U+6CD5, U+6CE8, U+6CF0, U+6D41, U+6D77, U+6D88, U+6E90, U+6E96, U+7063, U+70BA, U+7167, U+7269, U+7279, U+72C0, U+7345, U+7406, U+745E, U+751F, U+7522, U+754C, U+7559, U+767C, U+7684, U+76EE, U+76F4, U+770B, U+77E5, U+78BA, U+793E, U+7A0B, U+7ACB, U+7AD9, U+7C3D, U+7D04, U+7D10, U+7D61, U+7D66, U+7D93, U+7D9C, U+7DB2, U+7E73, U+7FA9, U+8033, U+806F, U+80FD, U+81EA, U+8207, U+83EF, U+862D, U+884C, U+88E1, U+88FD, U+8907, U+897F, U+8981, U+898B, U+898F, U+8A0A, U+8A62, U+8A8D, U+8AB0, U+8AEE, U+8B49, U+8B77, U+8CBB, U+8CC7, U+8D70, U+8D8A, U+8DDF, U+8DEF, U+8F03, U+8FA6, U+900F, U+901A, U+9047, U+904A, U+904E, U+9053, U+9060, U+907C, U+9084, U+9322, U+95CA, U+95DC, U+963F, U+9678, U+96AA, U+96C4, U+97D3, U+9805, U+984C, U+98A8, U+98DF, U+9910, U+9AD4, U+9EBC, U+FF0B-FF0C, U+FF10-FF19, U+FF1F, U+1F198; }
   @font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400 700; font-display: swap; src: url('fonts/cormorant-garamond-site.woff2') format('woff2'); unicode-range: U+20-7E, U+A9, U+B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2026; }
   @font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400 700; font-display: swap; src: url('fonts/cormorant-garamond-italic-site.woff2') format('woff2'); unicode-range: U+20-7E, U+A9, U+B7, U+2013-2014, U+2018-2019, U+201C-201D, U+2026; }
   :root {
@@ -358,6 +358,11 @@
   .info-list li { font-size: 0.83rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.7; }
   .info-list li::before { content: '✦'; color: var(--shiba-brown); font-size: 0.55rem; margin-top: 0.4rem; flex-shrink: 0; }
   .ins-disclaimer { margin-top: 2rem; text-align: center; font-size: 0.76rem; color: var(--text-muted); }
+  #insurance .insurance-grid { align-items: stretch; }
+  .insurance-cards .insurance-info { flex: 1; }
+  .ins-help-note { margin-top: 1rem; font-size: 0.78rem; font-weight: 500; color: var(--text-muted); line-height: 1.8; }
+  .info-list li strong { color: var(--cream); font-weight: 700; }
+  #insurance .contact-notes { margin-top: 2.5rem; }
 
   /* FAQ */
   #faq { background: #fff; }
@@ -394,7 +399,7 @@
 
   /* PLATFORMS */
   #platforms { background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190' viewBox='0 0 190 190'%3E%3Cpath transform='translate(28,20) rotate(38 12 12)' fill='%239B6A3E' fill-opacity='0.05' d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/%3E%3Cpath d='M75 150q38-30 84-14' stroke='%23B03A2E' stroke-opacity='0.06' stroke-dasharray='4 6' fill='none'/%3E%3Ccircle cx='160' cy='136' r='3' fill='%23B03A2E' fill-opacity='0.07'/%3E%3C/svg%3E"); }
-  .plat-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.1rem; margin-top: 3.5rem; }
+  .plat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 3.5rem; }
   .plat-card { background: #F5EFE6 !important; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.3rem; text-decoration: none; display: flex; flex-direction: column; position: relative; transition: all 0.28s; min-height: 172px; }
   a.plat-card:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(155,106,62,0.14); border-color: rgba(155,106,62,0.45); background: #FBF8F4 !important; }
   .plat-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
@@ -837,8 +842,8 @@
         <span class="service-num">02</span>
         <span class="service-icon">🛡️</span>
         <h3 class="service-name">旅遊保險諮詢</h3>
-        <p class="service-desc">與國泰產險、南山人壽、旺旺友聯等保險公司合作，依旅程需求提供旅遊保障資訊整理與方案比較。</p>
-        <span class="service-tag">3 大保險夥伴</span>
+        <p class="service-desc">與國泰產險合作，依旅程需求提供旅遊保障資訊整理與方案比較。</p>
+        <span class="service-tag">國泰產險合作</span>
       </a>
       <a class="service-card reveal d2" href="#documents">
         <span class="service-num">03</span>
@@ -851,8 +856,8 @@
         <span class="service-num">04</span>
         <span class="service-icon">🌐</span>
         <h3 class="service-name">自助旅遊資源</h3>
-        <p class="service-desc">透過 Klook、KKday、Agoda、Booking.com、Trip.com、雄獅與東南旅遊等平台聯盟連結，輕鬆預訂票券、住宿與行程。</p>
-        <span class="service-tag">8+ 平台合作</span>
+        <p class="service-desc">透過 Klook、KKday、Agoda、Trip.com、雄獅旅遊等平台聯盟連結，輕鬆預訂票券、住宿與行程。</p>
+        <span class="service-tag">6+ 平台合作</span>
       </a>
       <a class="service-card reveal d1" href="#platforms">
         <span class="service-num">05</span>
@@ -952,35 +957,48 @@
     <div class="reveal">
       <p class="section-label">Travel Insurance</p>
       <h2 class="section-title">旅遊保險</h2>
-      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與三大保險公司合作，依旅程需求提供保障資訊整理與方案比較，讓您安心出發。</p>
+      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與國泰產險合作，依旅程需求提供保障資訊整理與方案比較，讓您安心出發。</p>
     </div>
     <div class="insurance-grid">
       <div class="insurance-cards reveal">
         <div class="ins-card">
           <div class="ins-icon">🏦</div>
-          <div><p class="ins-name">國泰產險</p><p class="ins-sub">國內知名產險公司，旅遊保險保障全面</p></div>
+          <div><p class="ins-name">國泰產險</p><p class="ins-sub">旅遊綜合保險：旅平險、海外突發疾病、旅行不便險</p></div>
         </div>
-        <div class="ins-card">
-          <div class="ins-icon">🏢</div>
-          <div><p class="ins-name">南山人壽</p><p class="ins-sub">深耕台灣數十年，旅平險選擇多元</p></div>
-        </div>
-        <div class="ins-card">
-          <div class="ins-icon">🌟</div>
-          <div><p class="ins-name">旺旺友聯產險</p><p class="ins-sub">提供具競爭力的旅遊保險方案</p></div>
-        </div>
-        <div style="margin-top:0.5rem;">
-          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.82rem; padding:0.7rem 1.6rem;">詢問保險方案 →</a>
+        <div class="insurance-info">
+          <h3 class="info-title">📞 出國遇到狀況，24 小時找得到人</h3>
+          <ul class="info-list">
+            <li>24 小時中文諮詢專線，人在國外也能撥打</li>
+            <li>醫療問題口譯、推薦醫療院所、協助安排住院</li>
+            <li>行李代尋轉送、旅遊文件協尋與補發</li>
+            <li>緊急狀況協助預訂機票與住宿</li>
+          </ul>
+          <p class="ins-help-note">投保國泰海外旅遊保險即可使用，部分服務費用需先自付。</p>
         </div>
       </div>
       <div class="insurance-info reveal d1">
-        <h3 class="info-title">🛡️ 旅遊保險保障項目</h3>
+        <h3 class="info-title">🛡️ 國泰旅遊綜合保險可以保什麼</h3>
         <ul class="info-list">
-          <li>海外緊急醫療費用補償，讓您就醫無後顧之憂</li>
-          <li>不便險：班機延誤、行李遺失、旅程取消等</li>
-          <li>意外身故及傷殘保障，保護您與家人</li>
-          <li>24 小時緊急救援服務，有狀況可即時支援</li>
-          <li>依目的地與行程天數整理合適的方案選擇</li>
+          <li><span><strong>旅行平安</strong>：意外身故與失能、意外傷害醫療（實支實付）、重大燒燙傷</span></li>
+          <li><span><strong>海外突發疾病</strong>：住院、門診、急診醫療，含法定傳染病</span></li>
+          <li><span><strong>旅行不便</strong>：旅程取消、旅程更改、班機延誤、行李延誤、行李損失、旅行文件損失</span></li>
+          <li><span><strong>旅行補償</strong>：改降非原定機場、劫機、食品中毒、現金被竊、信用卡盜用、出國期間住家遭竊</span></li>
+          <li><span><strong>第三人責任與急難救助</strong>：在國外不小心造成他人受傷或財物損失的賠償，以及醫療轉送、親友前往探視等費用</span></li>
         </ul>
+      </div>
+    </div>
+    <div class="contact-notes">
+      <div class="note-item reveal">
+        <p class="note-item-title">團費已含哪些保險？</p>
+        <p class="note-item-desc">跟團的團費已含法定的旅行業責任保險；旅平險、突發疾病與旅行不便險需要另外投保。</p>
+      </div>
+      <div class="note-item reveal d1">
+        <p class="note-item-title">旅程取消、更改的限制</p>
+        <p class="note-item-desc">旅程取消與旅程更改，不包含因傳染病及檢疫造成的取消或更改。</p>
+      </div>
+      <div class="note-item reveal d2">
+        <p class="note-item-title">延誤怎麼算？</p>
+        <p class="note-item-desc">班機延誤 4 小時以上才給付；行李延誤是抵達目的地 6 小時後仍未領到，回程不算；行李箱本身毀損不在行李損失範圍。</p>
       </div>
     </div>
     <p class="ins-disclaimer reveal">實際保障內容、承保與理賠，<br>依保險公司保單條款及核保結果為準。</p>
@@ -1083,13 +1101,7 @@
         <p class="plat-desc">全球飯店訂房，常有隱藏優惠價</p>
         <span class="plat-chip">HOTELS</span>
       </a>
-      <a class="plat-card reveal d3" href="https://linkgo.one/s/4znXR" target="_blank" rel="noopener sponsored">
-        <div class="plat-top"><span class="plat-icon">🛏️</span><span class="plat-arrow">↗</span></div>
-        <h3 class="plat-name">Booking.com</h3>
-        <p class="plat-desc">住宿選擇多元，彈性取消方案</p>
-        <span class="plat-chip">HOTELS & STAYS</span>
-      </a>
-      <a class="plat-card reveal d4" href="https://www.trip.com/t/SNo8Y7BEXV2" target="_blank" rel="noopener sponsored">
+      <a class="plat-card reveal d3" href="https://www.trip.com/t/SNo8Y7BEXV2" target="_blank" rel="noopener sponsored">
         <div class="plat-top"><span class="plat-icon">✈️</span><span class="plat-arrow">↗</span></div>
         <h3 class="plat-name">Trip.com</h3>
         <p class="plat-desc">機票、飯店、火車票一站預訂</p>
@@ -1101,25 +1113,19 @@
         <p class="plat-desc">團體行程、機加酒、自由行</p>
         <span class="plat-chip">GROUP TOURS</span>
       </a>
-      <a class="plat-card reveal d1" href="https://afflink.one/s/vjvHZ" target="_blank" rel="noopener sponsored">
-        <div class="plat-top"><span class="plat-icon">🌏</span><span class="plat-arrow">↗</span></div>
-        <h3 class="plat-name">東南旅遊</h3>
-        <p class="plat-desc">豐富團體行程與主題旅遊</p>
-        <span class="plat-chip">GROUP TOURS</span>
-      </a>
-      <a class="plat-card reveal d2" href="https://dream1010.esimart.cc/home" target="_blank" rel="noopener sponsored">
+      <a class="plat-card reveal d1" href="https://dream1010.esimart.cc/home" target="_blank" rel="noopener sponsored">
         <div class="plat-top"><span class="plat-icon">📶</span><span class="plat-arrow">↗</span></div>
         <h3 class="plat-name">出國網路 eSIM</h3>
         <p class="plat-desc">免換卡即開通，全球上網方案</p>
         <span class="plat-chip">DREAM1010 專屬</span>
       </a>
-      <div class="plat-card soon reveal d3">
+      <div class="plat-card soon reveal d2">
         <div class="plat-top"><span class="plat-icon">💳</span></div>
         <h3 class="plat-name">實體網卡分享</h3>
         <p class="plat-desc">各國實體 SIM 卡推薦，整理中</p>
         <div class="soon-chip"><span>即將上線</span></div>
       </div>
-      <div class="plat-card soon reveal d4">
+      <div class="plat-card soon reveal d3">
         <div class="plat-top"><span class="plat-icon">🎒</span></div>
         <h3 class="plat-name">旅遊好物分享</h3>
         <p class="plat-desc">旅途實用好物嚴選，整理中</p>
@@ -1190,7 +1196,7 @@
       </details>
       <details class="faq-item">
         <summary><span class="faq-q">旅遊保險可以直接透過你們保嗎？</span></summary>
-        <p class="faq-a">可以！我們與國泰產險、南山人壽、旺旺友聯都有合作窗口，從方案比較、投保到後續問題，都由我們一手為您對接處理，不需要自己另外找保險公司；實際保障內容與理賠依保單條款及核保結果為準。</p>
+        <p class="faq-a">可以！我們與國泰產險有合作窗口，從方案比較、投保到後續問題，都由我們一手為您對接處理，不需要自己另外找保險公司；實際保障內容與理賠依保單條款及核保結果為準。</p>
       </details>
     </div>
   </div>
@@ -1282,6 +1288,7 @@
 <footer data-bg="photo-1">
   <p class="footer-brand">阿中與小夢的旅遊官方</p>
   <p class="footer-disclaimer">本網站提供旅遊資訊、行程諮詢及合作平台導流服務；實際行程之承辦、簽約、收款、取消與履約責任，依各合作旅行社或平台之契約及規定為準。</p>
+  <p class="footer-disclaimer">小夢隸屬於金鶴旅行社股份有限公司（綜合旅行社）<br>交通部觀光署註冊編號 204100（交觀綜2041號）<br>品保協會會員 高0172<br>高雄市三民區博愛一路28號13樓 · 電話 07-3234333</p>
   <p class="footer-copy">© 2026 阿中與小夢的旅遊官方 · From Dream to Departure · All Rights Reserved</p>
 </footer>
 
