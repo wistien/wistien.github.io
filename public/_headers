@@ -1,0 +1,25 @@
+# Cloudflare Pages 回應標頭（S4，2026-11-19）
+# 語法：https://developers.cloudflare.com/pages/configuration/headers/
+#
+# 快取：這裡刻意不設 Cache-Control，沿用 Pages 預設的
+# 「public, max-age=0, must-revalidate」＋ ETag（每次回來驗證，沒變就回 304）。
+# 字體、圖片的檔名都沒有雜湊，/fonts/* 尤其不能設長快取：
+# 文字改過、字體子集重做後，回訪的人會拿到缺字的舊字體。
+#
+# CSP 只擋被嵌入、<base>、外掛物件；不限制 script／style 來源，
+# 因為頁面有內嵌程式、GA4（googletagmanager）與 Google Fonts 備援，硬限制容易壞掉。
+
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+
+# pages.dev 上的網址（正式與預覽）不給搜尋引擎收錄，正式網址只有 wistien.com
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
