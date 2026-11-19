@@ -6,6 +6,7 @@ import siteJs from '../scripts/site.js?raw';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import FloatingTools from '../components/FloatingTools.astro';
+import siteSchema from '../data/site-schema.json';
 
 const SITE = 'https://wistien.com';
 const {
@@ -16,8 +17,15 @@ const {
   ogImage = SITE + '/images/og-image-v2.jpg',
   ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、代理 40+ 家旅行社",
   path = '/',
+  // 這一頁自己的結構化資料（JSON 物件，含 @graph）。全站共用的 Organization、WebSite 在 data/site-schema.json，會自動併在前面。
+  schema = null,
+  // 不給搜尋引擎收錄的頁面（404）：加 robots noindex，不輸出 canonical 與 og:url
+  noindex = false,
 } = Astro.props;
 const canonical = SITE + path;
+// 全站節點與本頁節點合成同一份 @graph：用 @id 互相參照的節點要在同一頁裡，搜尋引擎才對得起來。
+// Organization 的 parentOrganization（金鶴旅行社）依頁尾的揭露資料與金鶴官網 https://www.pridetour.com.tw/ 。
+const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': [...siteSchema['@graph'], ...(schema ? schema['@graph'] : [])] }, null, 2).replace(/</g, '\\u003c');
 ---
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
@@ -35,6 +43,7 @@ const canonical = SITE + path;
 <meta name="color-scheme" content="light only">
 <meta name="theme-color" content="#3B2A1E">
 <meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex">}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="阿中與小夢的旅遊官方">
 <meta property="og:locale" content="zh_TW">
@@ -44,14 +53,14 @@ const canonical = SITE + path;
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content={ogImageAlt}>
-<meta property="og:url" content={canonical}>
+{!noindex && <meta property="og:url" content={canonical}>}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={ogTitle}>
 <meta name="twitter:description" content={ogDescription}>
 <meta name="twitter:image" content={ogImage}>
 <meta name="twitter:image:alt" content={ogImageAlt}>
-<link rel="canonical" href={canonical}>
-<slot name="schema" />
+{!noindex && <link rel="canonical" href={canonical}>}
+<script type="application/ld+json" is:inline set:html={'\n' + jsonld + '\n'}></script>
 <title>{title}</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
@@ -67,6 +76,7 @@ const canonical = SITE + path;
   try { var fs = localStorage.getItem('fontSize'); if (fs === 'lg' || fs === 'xl') document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
 </script>
 <style is:inline set:html={'\n' + siteCss}></style>
+<slot name="head" />
 </head>
 <body>
 

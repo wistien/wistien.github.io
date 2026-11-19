@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import schema from '../data/home-schema.json?raw';
+import schema from '../data/home-schema.json';
 
-// sitemap.xml 會讀這個日期；內容有實質修改時更新
-export const lastmod = '2026-11-17';
+// sitemap.xml 會讀這個日期；主要文字、結構化資料或連結有修改時改成當天（只改樣式不用改）
+export const lastmod = '2026-11-19';
 
 const title = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・自助旅遊資源";
 const description = "阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。";
@@ -11,8 +11,7 @@ const ogTitle = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅
 const ogDescription = "海外團體旅遊報名・旅遊保險諮詢・自助旅遊資源・出國網路 eSIM";
 const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、代理 40+ 家旅行社";
 ---
-<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogImageAlt={ogImageAlt} path="/">
-<Fragment slot="schema"><script type="application/ld+json" is:inline set:html={'\n' + schema}></script></Fragment>
+<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogImageAlt={ogImageAlt} path="/" schema={schema}>
 <Fragment slot="preload"><link rel="preload" as="image" type="image/webp" imagesrcset="/images/opt/photo-5-960.webp 960w, /images/opt/photo-5-1280.webp 1280w" imagesizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)" fetchpriority="high"></Fragment>
 
 <!-- HERO -->

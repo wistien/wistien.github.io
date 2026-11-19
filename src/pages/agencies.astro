@@ -1,9 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import schema from '../data/agencies-schema.json?raw';
+import schema from '../data/agencies-schema.json';
 
-// sitemap.xml 會讀這個日期；內容有實質修改時更新
-export const lastmod = '2026-11-17';
+// sitemap.xml 會讀這個日期；主要文字、結構化資料或連結有修改時改成當天（只改樣式不用改）
+export const lastmod = '2026-11-19';
 
 const title = "可以幫您報名哪些旅行社？雄獅、可樂、東南等 40+ 家｜阿中與小夢的旅遊官方";
 const description = "雄獅、可樂、東南、山富、五福、鳳凰、巨匠、燦星、喜鴻假期等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。附旅行社官網連結，看到喜歡的團，把網址傳到 LINE 就能詢問優惠價。";
@@ -20,8 +20,7 @@ const linked = [
 // 夢唯 2026-11-18 提供的名單與順序（易遊網 2026-11-19 補上）
 const others = ['山富', '旅天下', '五福', '鳳凰', '百威', '巨匠', '巨大', '永信', '燦星', '友泰', '大登', '展笙', '找到了', '行健', '喜鴻假期', '尊貴假期', '旅遊家', '行家', '尊榮', '吉品', '易遊網'];
 ---
-<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} path="/agencies/">
-<Fragment slot="schema"><script type="application/ld+json" is:inline set:html={'\n' + schema}></script></Fragment>
+<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} path="/agencies/" schema={schema}>
 
 <!-- PAGE HEADER -->
 <section class="page-hero">

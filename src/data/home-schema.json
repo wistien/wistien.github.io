@@ -2,30 +2,6 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
-      "@id": "https://wistien.com/#org",
-      "name": "阿中與小夢的旅遊官方",
-      "url": "https://wistien.com/",
-      "logo": "https://wistien.com/images/logo.png",
-      "slogan": "From Dream to Departure",
-      "description": "旅遊服務品牌，提供各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助與旅遊保障資訊協助。",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "url": "https://lin.ee/59m3bLP",
-        "availableLanguage": "zh-TW"
-      },
-      "sameAs": ["https://lin.ee/59m3bLP"]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://wistien.com/#website",
-      "name": "阿中與小夢的旅遊官方",
-      "url": "https://wistien.com/",
-      "inLanguage": "zh-Hant-TW",
-      "publisher": { "@id": "https://wistien.com/#org" }
-    },
-    {
       "@type": "FAQPage",
       "mainEntity": [
         { "@type": "Question", "name": "透過你們報名，跟自己直接找旅行社有什麼不同？", "acceptedAnswer": { "@type": "Answer", "text": "我們是綜合旅行社業務，代理雄獅、可樂、五福、東南等 40+ 家旅行社。同樣的行程透過我們報名，通常能拿到業務通路的優惠價，還多一個幫您比較行程、協尋團體的服務窗口。" } },

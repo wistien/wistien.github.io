@@ -10,6 +10,7 @@
       "inLanguage": "zh-Hant-TW",
       "isPartOf": { "@id": "https://wistien.com/#website" },
       "about": { "@id": "https://wistien.com/#org" },
+      "publisher": { "@id": "https://wistien.com/#org" },
       "breadcrumb": { "@id": "https://wistien.com/agencies/#breadcrumb" }
     },
     {
