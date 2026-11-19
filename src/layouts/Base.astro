@@ -1,0 +1,93 @@
+---
+// 全站共用版型：<head>、導覽列、頁尾、浮動按鈕、全站樣式與程式。
+// 樣式與程式直接內嵌在頁面裡（跟原本單頁版相同），不另外發請求。
+import siteCss from '../styles/site.css?raw';
+import siteJs from '../scripts/site.js?raw';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import FloatingTools from '../components/FloatingTools.astro';
+import siteSchema from '../data/site-schema.json';
+
+const SITE = 'https://wistien.com';
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = SITE + '/images/og-image-v2.jpg',
+  ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、代理 40+ 家旅行社",
+  path = '/',
+  // 這一頁自己的結構化資料（JSON 物件，含 @graph）。全站共用的 Organization、WebSite 在 data/site-schema.json，會自動併在前面。
+  schema = null,
+  // 不給搜尋引擎收錄的頁面（404）：加 robots noindex，不輸出 canonical 與 og:url
+  noindex = false,
+} = Astro.props;
+const canonical = SITE + path;
+// 全站節點與本頁節點合成同一份 @graph：用 @id 互相參照的節點要在同一頁裡，搜尋引擎才對得起來。
+// Organization 的 parentOrganization（金鶴旅行社）依頁尾的揭露資料與金鶴官網 https://www.pridetour.com.tw/ 。
+const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': [...siteSchema['@graph'], ...(schema ? schema['@graph'] : [])] }, null, 2).replace(/</g, '\\u003c');
+---
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0KK1SHF67E"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0KK1SHF67E');
+</script>
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#3B2A1E">
+<meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex">}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="阿中與小夢的旅遊官方">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content={ogImageAlt}>
+{!noindex && <meta property="og:url" content={canonical}>}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={ogTitle}>
+<meta name="twitter:description" content={ogDescription}>
+<meta name="twitter:image" content={ogImage}>
+<meta name="twitter:image:alt" content={ogImageAlt}>
+{!noindex && <link rel="canonical" href={canonical}>}
+<script type="application/ld+json" is:inline set:html={'\n' + jsonld + '\n'}></script>
+<title>{title}</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<!-- 字體：fonts/ 內是只含本站用字的子集檔（同一套 Noto Sans TC、Noto Serif TC、Cormorant Garamond）。
+     改過文字後請照 _tools/README.md 重跑字體子集；沒重跑也不會跑版，頁尾的備援程式會自動補載缺的字。 -->
+<link rel="preload" as="font" type="font/woff2" href="/fonts/noto-sans-tc-site.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/noto-serif-tc-site.woff2" crossorigin>
+<slot name="preload" />
+<script is:inline>
+  // 字體大小：畫面繪製前先套用上次的選擇，避免閃動
+  try { var fs = localStorage.getItem('fontSize'); if (fs === 'lg' || fs === 'xl') document.documentElement.setAttribute('data-fs', fs); } catch (e) {}
+</script>
+<style is:inline set:html={'\n' + siteCss}></style>
+<slot name="head" />
+</head>
+<body>
+
+<SiteNav />
+
+<slot />
+
+<SiteFooter />
+
+<FloatingTools />
+
+<script is:inline set:html={'\n' + siteJs}></script>
+</body>
+</html>

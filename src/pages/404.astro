@@ -1,0 +1,31 @@
+---
+// 404 頁：網址不存在時顯示。
+// Cloudflare Pages 看到根目錄有 404.html，對不存在的網址會回 404 狀態並顯示這一頁；
+// 沒有這個檔，它會把網站當成單頁應用，所有不存在的網址都回首頁內容，Google 會當成重複的首頁。
+// 不列進 sitemap（sitemap.xml.js 會排除 404），也加 noindex。
+import Base from '../layouts/Base.astro';
+
+const title = "找不到這個頁面｜阿中與小夢的旅遊官方";
+const description = "網址可能打錯了，或這一頁已經不在了。可以回首頁看看，或直接加 LINE 問我們。";
+// 這頁內容短：上方區塊撐滿剩下的高度，頁尾貼齊視窗底部，大螢幕才不會在頁尾下面露出一截空白（只用在這一頁）
+const fillCss = 'body { display: flex; flex-direction: column; min-height: 100vh; } .page-hero { flex: 1 0 auto; }';
+---
+<Base title={title} description={description} noindex>
+<Fragment slot="head"><style is:inline set:html={fillCss}></style></Fragment>
+
+<!-- PAGE HEADER -->
+<section class="page-hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="section-inner">
+    <p class="hero-label">Page Not Found</p>
+    <h1 class="hero-title">找不到<em>這個頁面</em></h1>
+    <p class="hero-desc">網址可能打錯了，或這一頁已經不在了。<br>可以回首頁看看，或直接加 LINE 問我們。</p>
+    <div class="hero-actions">
+      <a href="/" class="btn-primary">回首頁 →</a>
+      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 諮詢</a>
+    </div>
+  </div>
+</section>
+
+</Base>

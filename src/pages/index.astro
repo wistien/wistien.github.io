@@ -1,0 +1,541 @@
+---
+import Base from '../layouts/Base.astro';
+import schema from '../data/home-schema.json';
+
+// sitemap.xml 會讀這個日期；主要文字、結構化資料或連結有修改時改成當天（只改樣式不用改）
+export const lastmod = '2026-11-19';
+
+const title = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・自助旅遊資源";
+const description = "阿中與小夢的旅遊官方｜海外團體旅遊報名、旅遊保險諮詢、自助旅遊資源與出國網路 eSIM。透過 LINE 官方帳號，讓旅行輕鬆成為一件美好的事。";
+const ogTitle = "阿中與小夢的旅遊官方｜海外團體旅遊報名・旅遊保險・自助旅遊資源";
+const ogDescription = "海外團體旅遊報名・旅遊保險諮詢・自助旅遊資源・出國網路 eSIM";
+const ogImageAlt = "阿中與小夢的旅遊官方：海外團體旅遊報名、旅遊保險、代理 40+ 家旅行社";
+---
+<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} ogImageAlt={ogImageAlt} path="/" schema={schema}>
+<Fragment slot="preload"><link rel="preload" as="image" type="image/webp" imagesrcset="/images/opt/photo-5-960.webp 960w, /images/opt/photo-5-1280.webp 1280w" imagesizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)" fetchpriority="high"></Fragment>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-content">
+    <div>
+      <p class="hero-label">From Dream to Departure</p>
+      <h1 class="hero-title"><em>世界遼闊</em><br>別把人生只留給日常</h1>
+      <p class="hero-desc">阿中與小夢，陪您把旅行想得更周全。<br>提供團體旅遊報名、旅遊保險與行程比較等服務，<br>從挑選行程到安心出發，為您打理每一個細節。</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">探索服務 →</a>
+        <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 諮詢</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-carousel" id="carousel">
+        <div class="slide active">
+          <picture>
+            <source type="image/webp" srcset="/images/opt/photo-5-960.webp 960w, /images/opt/photo-5-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img src="/images/photo-5.jpg" alt="紐西蘭皇后鎮瓦卡蒂普湖畔" fetchpriority="high">
+          </picture>
+          <span class="slide-caption">紐西蘭 · 瓦卡蒂普湖畔小鎮風光</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-10-960.webp 960w, /images/opt/photo-10-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-10.jpg" alt="瑞士格林德瓦艾格峰" decoding="async">
+          </picture>
+          <span class="slide-caption">瑞士 · 格林德瓦艾格峰</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-12-960.webp 960w, /images/opt/photo-12-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-12.jpg" alt="日本富士山" decoding="async">
+          </picture>
+          <span class="slide-caption">日本 · 富士山</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-14-960.webp 960w, /images/opt/photo-14-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-14.jpg" alt="埃及人面獅身像" decoding="async">
+          </picture>
+          <span class="slide-caption">埃及 · 人面獅身像</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-7-960.webp 960w, /images/opt/photo-7-1179.webp 1179w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-7.jpg" alt="紐西蘭瓦納卡湖畔" decoding="async">
+          </picture>
+          <span class="slide-caption">紐西蘭 · 絕美瓦納卡湖畔</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-11-960.webp 960w, /images/opt/photo-11-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-11.jpg" alt="瑞士馬特洪峰日照金山" decoding="async">
+          </picture>
+          <span class="slide-caption">瑞士 · 馬特洪峰日照金山</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-13-960.webp 960w, /images/opt/photo-13-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-13.jpg" alt="日本立山山脈夕陽金頂" decoding="async">
+          </picture>
+          <span class="slide-caption">日本 · 立山山脈夕陽金頂</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-9-960.webp 960w, /images/opt/photo-9-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-9.jpg" alt="直升機上俯瞰庫克山脈冰河" decoding="async">
+          </picture>
+          <span class="slide-caption">紐西蘭 · 直升機上的冰河視角</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-15-960.webp 960w, /images/opt/photo-15-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-15.jpg" alt="埃及阿布辛貝神殿" decoding="async">
+          </picture>
+          <span class="slide-caption">埃及 · 阿布辛貝神殿</span>
+        </div>
+        <div class="slide">
+          <picture>
+            <source type="image/webp" data-srcset="/images/opt/photo-8-960.webp 960w, /images/opt/photo-8-1280.webp 1280w" sizes="(max-width: 900px) calc(150vw - 4.5rem), min(78vw, 900px)">
+            <img data-src="/images/photo-8.jpg" alt="紐西蘭清晨沿途的牧野風光" decoding="async">
+          </picture>
+          <span class="slide-caption">紐西蘭 · 清晨沿途的牧野風光</span>
+        </div>
+        <button class="car-arrow car-prev" onclick="moveSlide(-1)" aria-label="上一張">‹</button>
+        <button class="car-arrow car-next" onclick="moveSlide(1)" aria-label="下一張">›</button>
+        <div class="car-dots" id="carDots"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num" data-target="1000" data-suffix="+">0</span>
+          <span class="stat-label">服務旅客</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="880" data-suffix="+">0</span>
+          <span class="stat-label">LINE 好友</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="40" data-suffix="+">0</span>
+          <span class="stat-label">合作旅行社</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">日本</span><span class="marquee-item">韓國</span><span class="marquee-item">泰國</span><span class="marquee-item">越南</span><span class="marquee-item">土耳其</span><span class="marquee-item">埃及</span><span class="marquee-item">杜拜</span><span class="marquee-item">法國</span><span class="marquee-item">瑞士</span><span class="marquee-item">義大利</span><span class="marquee-item">紐西蘭</span><span class="marquee-item">夏威夷</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">遊</span><span class="stamp-sub">SERVICES</span></div>
+    <div class="services-header reveal">
+      <p class="section-label">Our Services</p>
+      <h2 class="section-title">我們能為您做什麼</h2>
+      <p class="section-subtitle">從出發前的規劃到旅途中的保障，全方位旅遊諮詢服務，瑣事交給我們，讓您安心出發。</p>
+    </div>
+    <div class="services-grid">
+      <a class="service-card reveal" href="#process">
+        <span class="service-num">01</span>
+        <span class="service-icon">✈️</span>
+        <h3 class="service-name">海外旅遊團體報名</h3>
+        <p class="service-desc">綜合旅行社業務，代理雄獅、可樂、五福、東南、山富、鳳凰等 40+ 家旅行社團體行程，協助比較合適方案與可用優惠，出國跟團輕鬆報名。</p>
+        <span class="service-tag">代理 40+ 家旅行社</span>
+      </a>
+      <a class="service-card reveal d1" href="#insurance">
+        <span class="service-num">02</span>
+        <span class="service-icon">🛡️</span>
+        <h3 class="service-name">旅遊保險諮詢</h3>
+        <p class="service-desc">與國泰產險合作，依旅程需求提供旅遊保障資訊整理與方案比較。</p>
+        <span class="service-tag">國泰產險合作</span>
+      </a>
+      <a class="service-card reveal d2" href="#platforms">
+        <span class="service-num">03</span>
+        <span class="service-icon">🌐</span>
+        <h3 class="service-name">自助旅遊資源</h3>
+        <p class="service-desc">透過 Klook、KKday、Agoda、Trip.com、雄獅旅遊等平台聯盟連結，輕鬆預訂票券、住宿與行程。</p>
+        <span class="service-tag">6+ 平台合作</span>
+      </a>
+      <a class="service-card reveal" href="#platforms">
+        <span class="service-num">04</span>
+        <span class="service-icon">📶</span>
+        <h3 class="service-name">出國網路 eSIM</h3>
+        <p class="service-desc">合作專屬 eSIM 平台，出國前輕鬆開通海外數據方案，全程保持網路暢通，旅途不斷線。</p>
+        <span class="service-tag">eSIM 合作夥伴</span>
+      </a>
+      <a class="service-card reveal d1" href="#platforms">
+        <span class="service-num">05</span>
+        <span class="service-icon">🎒</span>
+        <h3 class="service-name">網卡與旅遊好物分享</h3>
+        <p class="service-desc">實體網卡與旅遊實用好物推薦持續整理中，之後會在合作平台專區與大家分享。</p>
+        <span class="service-tag">敬請期待</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO DIVIDER 1 -->
+<div class="photo-divider" data-bg="photo-3" role="img" aria-label="紐西蘭山谷金色晚霞">
+  <p class="divider-quote">世界很大，慢慢走<span>The world is wide — take your time.</span></p>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.06)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.045)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">程</span><span class="stamp-sub">PROCESS</span></div>
+    <div class="reveal">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">報名流程</h2>
+      <p class="section-subtitle">簡單四步驟，從諮詢到出發，我們陪您走每一步。</p>
+    </div>
+    <div class="process-layout">
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <div>
+            <h3 class="step-title">傳訊諮詢</h3>
+            <p class="step-desc">透過 LINE 官方帳號聯繫我們，告知您的旅遊想法、出發日期與人數，我們將盡快回覆。如果您有看好的團，也歡迎直接丟給我們詢問優惠價~</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <div>
+            <h3 class="step-title">行程規劃與報價</h3>
+            <p class="step-desc">根據您的需求，我們洽詢合適的旅行社方案並提供詳細報價，協助您做出最佳選擇。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <div>
+            <h3 class="step-title">確認與繳費</h3>
+            <p class="step-desc">確認行程後，依旅行社規定完成訂金或全額繳費，並收到行程確認通知。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <div>
+            <h3 class="step-title">出發前準備</h3>
+            <p class="step-desc">🏷️ 尾款：行前 1-2 週 or 通知開票時會與您收款<br>🏷️ 行前說明會＆完整行程資料：通常會在行前 7-10 天發下來</p>
+          </div>
+        </div>
+      </div>
+      <div class="process-box reveal d1">
+        <h3 class="process-box-title">📋 諮詢注意事項</h3>
+        <p class="process-box-sub">提前準備以下資訊，讓諮詢更順暢</p>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">目的地或旅遊方向</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">預計出發日期與天數</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">同行人數（大人／小孩）</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">特殊需求或偏好</span></div>
+        <div class="process-note">💬 一般於 <strong>24 小時內</strong> 回覆訊息。如有緊急需求，歡迎直接於 LINE 留言。</div>
+      </div>
+    </div>
+    <div class="mini-cta reveal">
+      <p>已經有想去的地方了嗎？告訴我們目的地、日期與人數，幫您快速整理方向。</p>
+      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 傳訊開始規劃</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSURANCE -->
+<section id="insurance">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">安</span><span class="stamp-sub">INSURANCE</span></div>
+    <div class="reveal">
+      <p class="section-label">Travel Insurance</p>
+      <h2 class="section-title">旅遊保險</h2>
+      <p class="section-subtitle">出門在外，平安是最重要的行李。我們與國泰產險合作，依旅程需求提供保障資訊整理與方案比較，讓您安心出發。</p>
+    </div>
+    <div class="insurance-grid">
+      <div class="insurance-cards reveal">
+        <div class="ins-card">
+          <div class="ins-icon">🏦</div>
+          <div><p class="ins-name">國泰產險</p><p class="ins-sub">旅遊綜合保險：旅平險、海外突發疾病、旅行不便險</p></div>
+        </div>
+        <div class="insurance-info">
+          <h3 class="info-title">📞 出國遇到狀況，24 小時找得到人</h3>
+          <ul class="info-list">
+            <li>24 小時中文諮詢專線，人在國外也能撥打</li>
+            <li>醫療問題口譯、推薦醫療院所、協助安排住院</li>
+            <li>行李代尋轉送、旅遊文件協尋與補發</li>
+            <li>緊急狀況協助預訂機票與住宿</li>
+          </ul>
+          <p class="ins-help-note">投保國泰海外旅遊保險即可使用，部分服務費用需先自付。</p>
+        </div>
+      </div>
+      <div class="insurance-info reveal d1">
+        <h3 class="info-title">🛡️ 國泰旅遊綜合保險可以保什麼</h3>
+        <ul class="info-list">
+          <li><span><strong>旅行平安</strong>：意外身故與失能、意外傷害醫療（實支實付）、重大燒燙傷</span></li>
+          <li><span><strong>海外突發疾病</strong>：住院、門診、急診醫療，含法定傳染病</span></li>
+          <li><span><strong>旅行不便</strong>：旅程取消、旅程更改、班機延誤、行李延誤、行李損失、旅行文件損失</span></li>
+          <li><span><strong>旅行補償</strong>：改降非原定機場、劫機、食品中毒、現金被竊、信用卡盜用、出國期間住家遭竊</span></li>
+          <li><span><strong>第三人責任與急難救助</strong>：在國外不小心造成他人受傷或財物損失的賠償，以及醫療轉送、親友前往探視等費用</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contact-notes">
+      <div class="note-item reveal">
+        <p class="note-item-title">團費已含哪些保險？</p>
+        <p class="note-item-desc">跟團的團費已含法定的旅行業責任保險；旅平險、突發疾病與旅行不便險需要另外投保。</p>
+      </div>
+      <div class="note-item reveal d1">
+        <p class="note-item-title">旅程取消、更改的限制</p>
+        <p class="note-item-desc">旅程取消與旅程更改，不包含因傳染病及檢疫造成的取消或更改。</p>
+      </div>
+      <div class="note-item reveal d2">
+        <p class="note-item-title">延誤怎麼算？</p>
+        <p class="note-item-desc">班機延誤 4 小時以上才給付；行李延誤是抵達目的地 6 小時後仍未領到，回程不算；行李箱本身毀損不在行李損失範圍。</p>
+      </div>
+    </div>
+    <p class="ins-disclaimer reveal">實際保障內容、承保與理賠，<br>依保險公司保單條款及核保結果為準。</p>
+    <div class="mini-cta reveal">
+      <p>不確定該保哪些？告訴我們目的地與行程天數，我們幫您整理適合的保障資訊。</p>
+      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 詢問保障資訊</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO DIVIDER 2 -->
+<div class="photo-divider" data-bg="lakeside" role="img" aria-label="紐西蘭沿途湖畔風光">
+  <p class="divider-quote">最好的風景，永遠在路上<span>The best views begin the moment you set off.</span></p>
+</div>
+
+<!-- PLATFORMS -->
+<section id="platforms">
+  <svg class="mountains" aria-hidden="true" viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <path fill="rgba(155,106,62,0.05)" d="M0 200V120L150 58l150 72 120-60 140 80 140-70 150 60 150-70 200 70v100z"/>
+    <path fill="rgba(176,58,46,0.04)" d="M0 200v-40l200-50 150 50 150-40 180 50 140-50 180 45 200-65v100z"/>
+  </svg>
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">惠</span><span class="stamp-sub">PARTNERS</span></div>
+    <div class="reveal">
+      <p class="section-label">Our Partners</p>
+      <h2 class="section-title">合作平台</h2>
+      <p class="section-subtitle">精選多元旅遊平台，提供住宿、交通、票券與行程預訂，透過以下專屬連結預訂，安心又划算。</p>
+    </div>
+    <div class="plat-grid">
+      <a class="plat-card promo reveal" href="https://affiliate.klook.com/sl/4ItsgAH" target="_blank" rel="noopener sponsored">
+        <span class="promo-badge">95 折優惠</span>
+        <div class="plat-top"><span class="plat-icon">🎫</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Klook</h3>
+        <p class="plat-desc">景點門票、體驗行程、交通票券</p>
+        <div class="promo-code"><code>DREAM1010</code><button class="copy-btn" onclick="copyCode(event)">複製</button></div>
+      </a>
+      <a class="plat-card reveal d1" href="https://www.kkday.com/?cid=23532" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🗺️</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">KKday</h3>
+        <p class="plat-desc">在地體驗、一日遊、票券預訂</p>
+        <span class="plat-chip">TICKETS & TOURS</span>
+      </a>
+      <a class="plat-card reveal d2" href="https://www.agoda.com/partners/partnersearch.aspx?pcs=1&cid=1958143&hl=zh-tw" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🏨</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Agoda</h3>
+        <p class="plat-desc">全球飯店訂房，常有隱藏優惠價</p>
+        <span class="plat-chip">HOTELS</span>
+      </a>
+      <a class="plat-card reveal d3" href="https://www.trip.com/t/SNo8Y7BEXV2" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">✈️</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">Trip.com</h3>
+        <p class="plat-desc">機票、飯店、火車票一站預訂</p>
+        <span class="plat-chip">FLIGHTS & HOTELS</span>
+      </a>
+      <a class="plat-card reveal" href="https://affiliate.liontravel.com/s/7pxZAjRCYC" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">🦁</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">雄獅旅遊</h3>
+        <p class="plat-desc">團體行程、機加酒、自由行</p>
+        <span class="plat-chip">GROUP TOURS</span>
+      </a>
+      <a class="plat-card reveal d1" href="https://dream1010.esimart.cc/home" target="_blank" rel="noopener sponsored">
+        <div class="plat-top"><span class="plat-icon">📶</span><span class="plat-arrow">↗</span></div>
+        <h3 class="plat-name">出國網路 eSIM</h3>
+        <p class="plat-desc">免換卡即開通，全球上網方案</p>
+        <span class="plat-chip">DREAM1010 專屬</span>
+      </a>
+      <div class="plat-card soon reveal d2">
+        <div class="plat-top"><span class="plat-icon">💳</span></div>
+        <h3 class="plat-name">實體網卡分享</h3>
+        <p class="plat-desc">各國實體 SIM 卡推薦，整理中</p>
+        <div class="soon-chip"><span>即將上線</span></div>
+      </div>
+      <div class="plat-card soon reveal d3">
+        <div class="plat-top"><span class="plat-icon">🎒</span></div>
+        <h3 class="plat-name">旅遊好物分享</h3>
+        <p class="plat-desc">旅途實用好物嚴選，整理中</p>
+        <div class="soon-chip"><span>即將上線</span></div>
+      </div>
+    </div>
+    <p class="plat-note reveal">透過以上連結訂購，您的價格不變，我們可能獲得平台少量回饋，作為持續提供免費諮詢服務的支持，謝謝您 ☺️</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">問</span><span class="stamp-sub">FAQ</span></div>
+    <div class="reveal">
+      <p class="section-label">Frequently Asked</p>
+      <h2 class="section-title">常見問題</h2>
+      <p class="section-subtitle">報名前想知道的大小事，這裡先幫您整理好。</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary><span class="faq-q">透過你們報名，跟自己直接找旅行社有什麼不同？</span></summary>
+        <p class="faq-a">我們是綜合旅行社業務，代理雄獅、可樂、五福、東南等 40+ 家旅行社。同樣的行程透過我們報名，通常能拿到業務通路的優惠價，還多了一個幫您比較行程、協尋團體、任何問題都可以隨時召喚我們的窗口——我們就是您旅遊業的好朋友~</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">透過你們報名會比較便宜嗎？</span></summary>
+        <p class="faq-a">會的！只要是有合作的旅行社，基本上都能給您優惠價格；實際優惠會依國家、團型與出發日有所差別，歡迎來訊詢問優惠價喔！</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">你們可以協助報名哪些旅行社的行程？</span></summary>
+        <p class="faq-a">我們可協助查詢及報名多家旅行社的出國團體行程，包括雄獅、可樂、五福、東南、山富、鳳凰、巨匠、百威、燦星、喜鴻假期、易遊網等各大小旅行社；沒列出來的也歡迎詢問唷。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">我已經在旅行社網站看到行程，可以直接傳給你們嗎？</span></summary>
+        <p class="faq-a">可以！直接將行程網址、行程名稱或截圖傳給我們，我們會協助確認出發日期、剩餘名額、優惠價格及報名細節。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">還不知道要去哪裡，也可以詢問嗎？</span></summary>
+        <p class="faq-a">可以！先提供預計出發月份、旅遊天數、人數等資訊，我們會協尋適合的團體行程給您參考。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">報名後是和阿中與小夢簽約嗎？</span></summary>
+        <p class="faq-a">實際承辦、簽約、收款及履約單位，依您所選擇的行程及旅行社為準——例如報名雄獅的團，合約就由雄獅提供，我們是您的服務窗口。阿中與小夢主要提供行程比較、旅遊諮詢、報名協助及出發前服務，正式契約內容以承辦旅行社提供的旅遊契約為準。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">報名後，錢是付給誰？</span></summary>
+        <p class="faq-a">小夢隸屬於金鶴綜合旅行社，訂金與尾款都是繳給旅行社喔！由您所報名該團的承辦旅行社提供正式旅遊契約，也可以提供收據；我們不會經手團費，您的每一筆錢都有旅行社的正式保障。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">報名後到出發前，會收到什麼？</span></summary>
+        <p class="faq-a">🏷️ 合約：收取訂金後約 2-3 個工作天提供電子檔（需要紙本也可以，再告知我們收件資訊）<br>🏷️ 尾款：行前 1-2 週或通知開票時與您收款<br>🏷️ 行前說明會＆完整行程資料：通常在行前 7-10 天發下來<br>我們也會同步提醒您集合資訊，讓您安心出發。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">報名後可以取消或更改日期嗎？</span></summary>
+        <p class="faq-a">可以提出申請，但能否更改及需支付的費用，會依行程進度、機票開票狀況及旅遊契約規定辦理；如有取消或變更需求，建議盡早聯繫，我們會協助向承辦旅行社確認。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">如果旅行團沒有成團怎麼辦？</span></summary>
+        <p class="faq-a">是否成團會依各旅行社的最低成團人數及實際收客狀況決定；若行程未能成團，承辦旅行社會依旅遊契約及相關規定通知，並提供延期、轉團或退費等後續處理方式。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">一個人也可以報名跟團嗎？</span></summary>
+        <p class="faq-a">可以！部分旅行社團體行程可接受安排同性旅客配房，也有些行程需補單人房差；不同旅行社及行程規定不同，我們可以在報名前協助確認。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">可以指定房型、座位或特殊餐食嗎？</span></summary>
+        <p class="faq-a">可以提出需求，例如雙床房、大床房、素食餐、兒童餐、輪椅協助或其他特殊需求；旅行社及航空公司會協助備註，但能否最終安排，仍需依當地飯店、航空公司及實際供應狀況為準。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">需要簽證嗎？護照快過期怎麼辦？</span></summary>
+        <p class="faq-a">報名時我們會一起確認目的地需不需要簽證或電子入境許可，並提醒您護照效期；護照快過期也可以先報名，開票前換好新護照即可。證件相關的問題都歡迎來訊詢問。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">旅遊保險可以直接透過你們保嗎？</span></summary>
+        <p class="faq-a">可以！我們與國泰產險有合作窗口，從方案比較、投保到後續問題，都由我們一手為您對接處理，不需要自己另外找保險公司；實際保障內容與理賠依保單條款及核保結果為準。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <svg class="deco float-a" aria-hidden="true" viewBox="0 0 24 24" style="bottom:4%; right:2%; width:120px; height:120px; fill:rgba(155,106,62,0.09); rotate:-12deg;"><g><ellipse cx="12" cy="16.5" rx="5.2" ry="4"/><circle cx="5" cy="10.5" r="2.3"/><circle cx="9.3" cy="6.8" r="2.3"/><circle cx="14.7" cy="6.8" r="2.3"/><circle cx="19" cy="10.5" r="2.3"/></g></svg>
+    <div class="about-layout">
+      <div class="reveal">
+        <div class="about-card">
+          <picture><source type="image/webp" srcset="/images/opt/logo-600.webp"><img src="/images/logo.png" alt="阿中與小夢旅遊官方" class="about-logo" width="160" height="160" loading="lazy" decoding="async"></picture>
+          <p class="about-brand">阿中與小夢的旅遊官方</p>
+          <span class="about-brand-en">From Dream to Departure</span>
+          <div class="about-badges">
+            <span class="about-badge">LINE 880+ 客戶</span>
+            <span class="about-badge">專業旅遊諮詢</span>
+            <span class="about-badge">父女共同經營</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">關於我們</h2>
+        <p class="about-desc">阿中與小夢是一個以誠信與熱情為核心的旅遊諮詢品牌。由「阿中」與「小夢」父女共同經營，致力於為每一位旅客提供貼心、專業的旅遊服務。</p>
+        <p class="about-desc">我們深信，旅行不只是移動，更是一段讓人充實與感動的生命體驗。從協助報名海外團體行程、比較各家方案，到保險諮詢，我們讓您出發前的每一步都輕鬆、安心。</p>
+        <ul class="about-features">
+          <li>服務超過 1000+ 位旅客，LINE 官方帳號 880+ 訂閱</li>
+          <li>代理雄獅、可樂、五福、東南等 40+ 家旅行社</li>
+          <li>提供個人化旅遊諮詢，不是制式化服務</li>
+          <li>父女共同經營，溫暖有溫度的服務態度</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLIGHT STRIP -->
+<div class="flight-strip" aria-hidden="true">
+  <div class="path"></div>
+  <svg class="plane" viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="reveal">
+      <p class="section-label">Contact Us</p>
+      <h2 class="section-title">聯絡我們</h2>
+    </div>
+    <div class="contact-layout">
+      <div class="reveal">
+        <p class="contact-cta-text">有任何旅遊問題或想了解服務細節，歡迎隨時透過 LINE 官方帳號聯繫。我們將在最短時間內為您回覆。</p>
+        <div class="contact-methods">
+          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="contact-method">
+            <div class="contact-icon" style="background:rgba(110,154,124,0.15);">💬</div>
+            <div><span class="contact-label">LINE 官方帳號（點我加入好友）</span><span class="contact-value">@977fvmsr（可直接搜尋 ID，記得加 @）</span></div>
+          </a>
+        </div>
+        <div style="margin-top:2rem;">
+          <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 立即加入 LINE 好友</a>
+        </div>
+      </div>
+      <div class="qr-card reveal d1">
+        <h3 class="qr-title">掃描 QR Code 加入好友</h3>
+        <img src="/images/line-qr.png" alt="LINE 官方帳號 QR Code" width="190" height="190" loading="lazy" decoding="async">
+        <p class="qr-sub">開啟 LINE「加入好友」→ 行動條碼<br>掃描上方 QR Code 即可加入</p>
+      </div>
+    </div>
+    <div class="contact-notes">
+      <div class="note-item reveal">
+        <p class="note-item-title">回覆時間</p>
+        <p class="note-item-desc">一般情況下我們於 24 小時內回覆，假日可能稍有延遲，請耐心等候。</p>
+      </div>
+      <div class="note-item reveal d1">
+        <p class="note-item-title">諮詢費用</p>
+        <p class="note-item-desc">旅遊諮詢服務完全免費，我們是您旅遊業的好朋友，非常歡迎您隨時來訊~</p>
+      </div>
+      <div class="note-item reveal d2">
+        <p class="note-item-title">服務範圍</p>
+        <p class="note-item-desc">主要服務台灣旅客，提供出境旅遊相關諮詢；行程之簽約、收款與履約由各合作旅行社辦理。</p>
+      </div>
+    </div>
+  </div>
+</section>
+</Base>

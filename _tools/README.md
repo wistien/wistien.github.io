@@ -1,6 +1,58 @@
 # _tools：官網維護工具
 
-這個資料夾不會出現在網站上（GitHub Pages 會略過底線開頭的資料夾），只放維護用的腳本。
+這個資料夾不會出現在網站上，只放維護用的腳本。
+
+## 多頁版（Astro）
+
+這個分支已改成 Astro 專案。網站內容在 `src/`：`layouts/Base.astro` 是全站版型，`components/` 是導覽列、頁尾與浮動按鈕，`pages/` 一個檔案就是一個網址（`agencies.astro` → `/agencies/`）。
+
+下面「字體子集」「圖片」「前後比對」各節的指令是單頁版時期寫的，路徑要這樣換：
+
+| 單頁版 | 多頁版 |
+|---|---|
+| `../index.html` | 先在 repo 根目錄跑 `npm run build`，再用 `../dist/index.html`（有幾個頁面就列幾個） |
+| 字體、圖片輸出到 `..` | 輸出到 `../public` |
+| `index.html` 的 `<style>` 開頭四行 `@font-face` | `src/styles/site.css` 開頭四行，路徑要寫成 `/fonts/…`（開頭有斜線），用 `apply_fontcss.py` 自動換 |
+| 比對時的「修改後資料夾」 | `../dist` |
+
+### 新增或修改頁面後要做的事
+
+1. 新頁面放在 `src/pages/`，開頭寫 `export const lastmod = 'YYYY-MM-DD';`。**主要文字、結構化資料或連結有修改，就把那一頁的 `lastmod` 改成當天**；只改樣式或排版不用改。Google 只在 lastmod 一直準確時才會採用。`/sitemap.xml` 由 `src/pages/sitemap.xml.js` 自動產生，會列出所有頁面（404 除外），不用手動維護。
+2. 導覽列入口加在 `src/components/SiteNav.astro`，行動選單與電腦版導覽列各一行。首頁上的連結是 `#services`，子頁會自動變成 `/#services`。
+   - 結構化資料：全站共用的 Organization、WebSite 在 `src/data/site-schema.json`，`Base.astro` 會自動加到每一頁。頁面自己的節點（FAQPage、WebPage、麵包屑等）放在 `src/data/<頁名>-schema.json`，用 `<Base schema={schema}>` 傳進去，跟全站節點合成同一份 `@graph`。FAQ 的文字要跟頁面上的一致。
+   - 404 頁是 `src/pages/404.astro`，建置成根目錄的 `404.html`（`<Base noindex>`：加 noindex、不輸出 canonical）。Cloudflare Pages 要靠這個檔才會對不存在的網址回 404；搬過去後用 `curl -I https://wistien.com/no-such-page` 確認。
+3. 重跑字體子集：
+
+   ```bash
+   cd .. && npm run build && cd _tools
+   node chars.js $(find ../dist -name '*.html' | sort) > chars.json   # 每個頁面都要算（含 404.html）
+   .venv/Scripts/python -X utf8 build_fonts.py chars.json fontsrc ../public
+   .venv/Scripts/python -X utf8 apply_fontcss.py ../public/fonts/fonts.css.txt ../src/styles/site.css
+   cd .. && npm run build
+   ```
+
+   `build_fonts.py` 每次都會重寫四個字體檔。`site.css` 裡對應那一行 `@font-face` 沒變的字體，字的內容沒變，只差檔案內的時間戳記，用 `git checkout -- public/fonts/<檔名>` 還原即可。
+
+4. 檢查：
+
+   ```bash
+   # 新頁面：三種裝置 × 三種字體大小。看主控台錯誤、有沒有觸發 Google Fonts 備援、有沒有內容超出畫面，並逐屏截圖
+   node page_check.js page ../dist /agencies/ <截圖輸出資料夾>
+   node page_check.js page ../dist /404.html <截圖輸出資料夾>
+   # 行動選單：矮螢幕上每個連結都點得到
+   node page_check.js menu ../dist / <截圖輸出資料夾>
+   # 導覽列排成一行所需的最小視窗寬度
+   node page_check.js nav ../dist
+   # 首頁的標記除了指定的新行以外沒有變（最後一個參數是允許新增的那幾行的規則）
+   node home_same.mjs <修改前的 index.html> ../dist/index.html 'href=".agencies.'
+   ```
+
+   在 Git Bash 裡，`/agencies/` 這種斜線開頭的參數會被改寫成 Windows 路徑，要先執行 `export MSYS_NO_PATHCONV=1`。
+
+   改到結構化資料時，`home_same.mjs` 會在 `<script type="application/ld+json">` 那幾行報差異，屬正常；結構化資料另外貼到 [Schema Markup Validator](https://validator.schema.org/) 檢查。
+
+5. 導覽列增減連結後，把 `nav` 量到的寬度加上 30–40px（捲軸與餘裕），更新 `site.css` 的 RESPONSIVE 區開頭三個門檻（標準／大字／特大）。
+6. 改到共用的樣式、程式或元件時，首頁要照下面「前後比對」跑一次截圖比對。
 
 ## 什麼時候要用
 

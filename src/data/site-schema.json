@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://wistien.com/#org",
+      "name": "阿中與小夢的旅遊官方",
+      "url": "https://wistien.com/",
+      "logo": "https://wistien.com/images/logo.png",
+      "slogan": "From Dream to Departure",
+      "description": "旅遊服務品牌，提供各大旅行社出國團體行程比較、旅遊諮詢、優惠整理、報名協助與旅遊保障資訊協助。",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "url": "https://lin.ee/59m3bLP",
+        "availableLanguage": "zh-TW"
+      },
+      "sameAs": ["https://line.me/R/ti/p/@977fvmsr"],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "金鶴旅行社股份有限公司",
+        "url": "https://www.pridetour.com.tw/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://wistien.com/#website",
+      "name": "阿中與小夢的旅遊官方",
+      "url": "https://wistien.com/",
+      "inLanguage": "zh-Hant-TW",
+      "publisher": { "@id": "https://wistien.com/#org" }
+    }
+  ]
+}

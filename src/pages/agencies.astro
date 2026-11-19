@@ -1,0 +1,168 @@
+---
+import Base from '../layouts/Base.astro';
+import schema from '../data/agencies-schema.json';
+
+// sitemap.xml 會讀這個日期；主要文字、結構化資料或連結有修改時改成當天（只改樣式不用改）
+export const lastmod = '2026-11-19';
+
+const title = "可以幫您報名哪些旅行社？雄獅、可樂、東南等 40+ 家｜阿中與小夢的旅遊官方";
+const description = "雄獅、可樂、東南、山富、五福、鳳凰、巨匠、燦星、喜鴻假期等各大小旅行社的出國團體行程，都可以透過阿中與小夢查詢、比較與報名。附旅行社官網連結，看到喜歡的團，把網址傳到 LINE 就能詢問優惠價。";
+const ogTitle = "可以幫您報名哪些旅行社？｜阿中與小夢的旅遊官方";
+const ogDescription = "雄獅、可樂、東南等 40+ 家旅行社的出國團體行程，都可以透過我們查詢、比較與報名。";
+
+// 清單來源：夢唯 2026-11-18 確認的名單（附官網連結的三家：雄獅、可樂、東南）
+const linked = [
+  { icon: '🦁', name: '雄獅旅遊', href: 'https://www.liontravel.com/category/zh-tw/index' },
+  // LINE 清單裡是短網址 lurl.cc/61Hijr（導向 www.colatour.com.tw）；官網直接連官方網址，不依賴第三方短網址
+  { icon: '🥤', name: '可樂旅遊', href: 'https://www.colatour.com.tw/' },
+  { icon: '🌏', name: '東南旅遊', href: 'https://www.settour.com.tw/' },
+];
+// 夢唯 2026-11-18 提供的名單與順序（易遊網 2026-11-19 補上）
+const others = ['山富', '旅天下', '五福', '鳳凰', '百威', '巨匠', '巨大', '永信', '燦星', '友泰', '大登', '展笙', '找到了', '行健', '喜鴻假期', '尊貴假期', '旅遊家', '行家', '尊榮', '吉品', '易遊網'];
+---
+<Base title={title} description={description} ogTitle={ogTitle} ogDescription={ogDescription} path="/agencies/" schema={schema}>
+
+<!-- PAGE HEADER -->
+<section class="page-hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="section-inner">
+    <div class="crumbs" role="navigation" aria-label="目前位置">
+      <a href="/">首頁</a><span aria-hidden="true">›</span><span aria-current="page">合作旅行社</span>
+    </div>
+    <p class="hero-label">Partner Agencies</p>
+    <h1 class="hero-title"><span class="nb">可以幫您報名</span><span class="nb"><em>哪些旅行社</em>？</span></h1>
+    <p class="hero-desc">我們是綜合旅行社業務，代理 40+ 家旅行社的出國團體行程。<br>雄獅、可樂、東南、山富、五福、鳳凰……各大小旅行社的團，<br>都可以透過我們查詢、比較與報名。</p>
+    <div class="hero-actions">
+      <a href="#agency-list" class="btn-primary">看旅行社清單 ↓</a>
+      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 加 LINE 詢問優惠價</a>
+    </div>
+  </div>
+</section>
+
+<!-- AGENCY LIST -->
+<section id="agency-list" class="sec-plain">
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">社</span><span class="stamp-sub">AGENCIES</span></div>
+    <div class="reveal">
+      <p class="section-label">Agency List</p>
+      <h2 class="section-title">合作旅行社一覽</h2>
+      <p class="section-subtitle">先到旅行社官網逛逛行程，看到喜歡的，把網址傳給我們——透過我們報名有優惠喔。</p>
+    </div>
+    <div class="insurance-grid">
+      <div class="reveal">
+        <h3 class="info-title">🔗 先從這三家官網逛起</h3>
+        <div class="insurance-cards">
+          {linked.map((a) => (
+            <a class="ins-card" href={a.href} target="_blank" rel="noopener">
+              <div class="ins-icon" aria-hidden="true">{a.icon}</div>
+              <div><p class="ins-name">{a.name}</p><p class="ins-sub">前往官網看行程 ↗</p></div>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="insurance-info reveal d1">
+        <h3 class="info-title">✈️ 這些旅行社也都可以報名</h3>
+        <ul class="agency-chips">
+          {others.map((name) => <li>{name}</li>)}
+        </ul>
+        <p class="agency-more">沒列出來的也歡迎詢問，各大小旅行社的出國團體行程，我們幾乎都能協助報名。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO -->
+<section id="agency-how" class="sec-tint">
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">報</span><span class="stamp-sub">HOW TO</span></div>
+    <div class="reveal">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">看到喜歡的團之後</h2>
+      <p class="section-subtitle">不用自己一家一家問，行程丟給我們就可以了。</p>
+    </div>
+    <div class="process-layout">
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <div>
+            <h3 class="step-title">到官網挑行程</h3>
+            <p class="step-desc">在任何一家旅行社的官網，找到有興趣的出國團體行程。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <div>
+            <h3 class="step-title">把行程傳給我們</h3>
+            <p class="step-desc">將行程網址、行程名稱或截圖傳到 LINE，我們會協助確認出發日期、剩餘名額、優惠價格及報名細節。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <div>
+            <h3 class="step-title">幫您比較各家差異</h3>
+            <p class="step-desc">同一條路線還在猶豫時，我們會挑 2–3 團一起比較，說明各家在航空、住宿、自費與購物站上的差別。</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <div>
+            <h3 class="step-title">決定後協助報名</h3>
+            <p class="step-desc">確認行程後，由我們協助您完成報名；訂金、合約到出發前的準備，可以參考<a class="text-link" href="/#process">報名流程</a>。</p>
+          </div>
+        </div>
+      </div>
+      <div class="process-box reveal d1">
+        <h3 class="process-box-title">🧭 還沒有想法也可以</h3>
+        <p class="process-box-sub">先告訴我們這些，幫您找適合的團</p>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">想去的國家</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">出發日期區間</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">出發地</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">旅行天數</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">報名人數</span></div>
+        <div class="flow-connector"></div>
+        <div class="flow-row"><div class="flow-dot"></div><span class="flow-text">口袋景點（建議不超過 5 個）</span></div>
+        <div class="process-note">💬 一般於 <strong>24 小時內</strong> 回覆訊息。如有緊急需求，歡迎直接於 LINE 留言。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="agency-faq" class="sec-plain">
+  <div class="section-inner">
+    <div class="stamp" aria-hidden="true"><span class="stamp-char">問</span><span class="stamp-sub">FAQ</span></div>
+    <div class="reveal">
+      <p class="section-label">Frequently Asked</p>
+      <h2 class="section-title">常見問題</h2>
+      <p class="section-subtitle">關於合作旅行社，常被問到的幾件事。</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary><span class="faq-q">清單上沒有的旅行社，也可以幫忙報名嗎？</span></summary>
+        <p class="faq-a">可以！清單沒辦法全部列完，沒列出來的也歡迎詢問；各大小旅行社的出國團體行程，我們幾乎都能協助查詢與報名。</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">透過你們報名會比較便宜嗎？</span></summary>
+        <p class="faq-a">會的！只要是有合作的旅行社，基本上都能給您優惠價格；實際優惠會依國家、團型與出發日有所差別，歡迎來訊詢問優惠價喔！</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">透過你們報名，跟自己直接找旅行社有什麼不同？</span></summary>
+        <p class="faq-a">我們是綜合旅行社業務，代理雄獅、可樂、五福、東南等 40+ 家旅行社。同樣的行程透過我們報名，通常能拿到業務通路的優惠價，還多了一個幫您比較行程、協尋團體、任何問題都可以隨時召喚我們的窗口——我們就是您旅遊業的好朋友~</p>
+      </details>
+      <details class="faq-item">
+        <summary><span class="faq-q">報名後是跟誰簽約？錢是付給誰？</span></summary>
+        <p class="faq-a">實際承辦、簽約、收款及履約單位，依您所選擇的行程及旅行社為準——例如報名雄獅的團，合約就由雄獅提供，我們是您的服務窗口。小夢隸屬於金鶴綜合旅行社，訂金與尾款都是繳給旅行社喔！我們不會經手團費，您的每一筆錢都有旅行社的正式保障。</p>
+      </details>
+    </div>
+    <div class="mini-cta reveal">
+      <p>看好哪一團了嗎？把行程網址、名稱或截圖傳給我們，幫您確認名額與優惠價。</p>
+      <a href="https://lin.ee/59m3bLP" target="_blank" rel="noopener" class="btn-line">💬 傳行程問優惠價</a>
+    </div>
+  </div>
+</section>
+</Base>

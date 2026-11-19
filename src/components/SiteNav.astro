@@ -1,0 +1,44 @@
+---
+// 導覽列與行動選單，全站共用。
+// 首頁上的連結是頁內錨點（#services）；在子頁要先回首頁，所以變成 /#services。
+// 新增獨立頁面時，在下面兩份清單各加一行，並用 current() 標出目前所在的頁面。
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isHome = path === '/';
+const home = isHome ? '' : '/';
+const current = (p) => (path === p ? 'page' : undefined);
+---
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href={home + '#services'} onclick="closeMenu()">服務項目</a>
+  <a href="/agencies/" onclick="closeMenu()" aria-current={current('/agencies')}>合作旅行社</a>
+  <a href={home + '#process'} onclick="closeMenu()">報名流程</a>
+  <a href={home + '#insurance'} onclick="closeMenu()">旅遊保險</a>
+  <a href={home + '#platforms'} onclick="closeMenu()">合作平台</a>
+  <a href={home + '#faq'} onclick="closeMenu()">常見問題</a>
+  <a href={home + '#about'} onclick="closeMenu()">關於我們</a>
+  <a href={home + '#contact'} onclick="closeMenu()" class="m-cta">立即諮詢</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href={isHome ? '#hero' : '/'} class="nav-logo">
+    <picture><source type="image/webp" srcset="/images/opt/logo-176.webp"><img src="/images/logo.png" alt="阿中與小夢的旅遊官方 Logo" width="44" height="44" decoding="async"></picture>
+    <div class="nav-logo-text">
+      阿中與小夢的旅遊官方
+      <span>From Dream to Departure</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href={home + '#services'}>服務項目</a></li>
+    <li><a href="/agencies/" class={current('/agencies') && 'active'} aria-current={current('/agencies')}>合作旅行社</a></li>
+    <li><a href={home + '#process'}>報名流程</a></li>
+    <li><a href={home + '#insurance'}>旅遊保險</a></li>
+    <li><a href={home + '#platforms'}>合作平台</a></li>
+    <li><a href={home + '#faq'}>常見問題</a></li>
+    <li><a href={home + '#about'}>關於我們</a></li>
+    <li><a href={home + '#contact'} class="nav-cta">立即諮詢</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="開啟選單" aria-expanded="false" aria-controls="mobileMenu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
